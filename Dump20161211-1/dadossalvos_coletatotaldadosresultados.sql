@@ -16,13 +16,24 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping data for table `numcoletado`
+-- Table structure for table `coletatotaldadosresultados`
 --
 
-LOCK TABLES `numcoletado` WRITE;
-/*!40000 ALTER TABLE `numcoletado` DISABLE KEYS */;
-/*!40000 ALTER TABLE `numcoletado` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `coletatotaldadosresultados`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `coletatotaldadosresultados` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Enstrada` int(11) NOT NULL,
+  `Resultado` varchar(30) NOT NULL,
+  `P1` varchar(30) NOT NULL,
+  `P2` varchar(30) NOT NULL,
+  `P3` varchar(30) NOT NULL,
+  `TamanhoEspera` int(2) NOT NULL,
+  `DataColeta` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -33,4 +44,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-11  2:00:35
+-- Dump completed on 2016-12-11 12:38:17

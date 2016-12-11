@@ -16,14 +16,21 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping data for table `dadosresultados`
+-- Table structure for table `numcoletado`
 --
 
-LOCK TABLES `dadosresultados` WRITE;
-/*!40000 ALTER TABLE `dadosresultados` DISABLE KEYS */;
-INSERT INTO `dadosresultados` VALUES (209,'Coluna - 12 -1','Ganho','V','-','-',1),(210,'Coluna - 12 -1','Ganho','V','-','-',1),(211,'Coluna - 12 -2','Ganho','P','V','-',2),(212,'Coluna - 12 -2','Ganho','P','V','-',2),(213,'Coluna - 12-3','Ganho','P','P','V',3),(214,'Coluna - 12-3','Ganho','P','P','V',3),(215,'Coluna - 12-4','Perdido','P','P','P',3),(216,'Coluna - 12-4','Perdido','P','P','P',3);
-/*!40000 ALTER TABLE `dadosresultados` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `numcoletado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `numcoletado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `numColeta` int(11) NOT NULL,
+  `tipoRoleta` varchar(30) NOT NULL,
+  `dataColeta` varchar(30) NOT NULL,
+  `horacoleta` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -34,4 +41,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-11  2:00:36
+-- Dump completed on 2016-12-11 12:38:17
