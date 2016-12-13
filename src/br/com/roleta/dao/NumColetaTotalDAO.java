@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BD_Resultados.dao;
 
-import BD_Resultados.bean.NumColetado;
-import BD_ResultadosDados.connection.ConnectionFactory;
+package br.com.roleta.dao;
+
+import br.com.roleta.modelo.NumColetado;
+import br.com.roleta.conexao.ConnectionFactory;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -18,14 +19,14 @@ import javax.swing.JOptionPane;
  *
  * @author Rodolfo Fonseca
  */
-public class NumColetadoDAO {
-
-    public void create(NumColetado n) {
+public class NumColetaTotalDAO {
+    
+     public void create(NumColetado n) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO numcoletado (numColeta,tipoRoleta,dataColeta,horaColeta) VALUES(?,?,?,?)");
+            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO numtotalcoletado (numColeta,tipoRoleta,dataColeta,horaColeta) VALUES(?,?,?,?)");
             stmt.setInt(1, n.getNumcoletado());
             stmt.setString(2, n.getTipoRoleta());
             stmt.setString(3, n.getDataColeta());
@@ -50,7 +51,7 @@ public class NumColetadoDAO {
         ArrayList<NumColetado> Coletados = new ArrayList<>();
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM numcoletado");
+            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM numtotalcoletado");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -85,7 +86,7 @@ public class NumColetadoDAO {
 
         try {
 
-            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM numcoletado");
+            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM numtotalcoletado");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -94,7 +95,7 @@ public class NumColetadoDAO {
 
                 n.setId(rs.getInt("id"));
 
-                stmt = (PreparedStatement) con.prepareStatement("DELETE FROM numcoletado WHERE id = ?");
+                stmt = (PreparedStatement) con.prepareStatement("DELETE FROM numtotalcoletado WHERE id = ?");
                 stmt.setInt(1, n.getId());
                 stmt.executeUpdate();
             }
@@ -113,7 +114,7 @@ public class NumColetadoDAO {
 
         try {
 
-            stmt = (PreparedStatement) con.prepareStatement("DELETE FROM numcoletado WHERE id = ?");
+            stmt = (PreparedStatement) con.prepareStatement("DELETE FROM numtotalcoletado WHERE id = ?");
             stmt.setInt(1, i);
             stmt.executeUpdate();
 
@@ -124,5 +125,4 @@ public class NumColetadoDAO {
         }
 
     }
-
 }

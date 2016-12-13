@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MenuAnalise;
+package br.com.roleta.view;
 
-import BD_Resultados.bean.NumColetado;
-import BD_Resultados.dao.NumColetaTotalDAO;
-import BD_Resultados.dao.NumColetadoDAO;
-import ThreadsMetodos.Estrategias;
+import br.com.roleta.modelo.NumColetado;
+import br.com.roleta.dao.NumColetaTotalDAO;
+import br.com.roleta.dao.NumColetadoDAO;
+import br.com.roleta.controlador.Estrategias;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,9 +1,9 @@
-package ThreadsMetodos;
+package br.com.roleta.controlador;
 
-import BD_Resultados.bean.NumColetado;
-import BD_Resultados.bean.ResultaDados;
-import BD_Resultados.dao.NumColetadoDAO;
-import BD_Resultados.dao.resultadosDAO;
+import br.com.roleta.modelo.NumColetado;
+import br.com.roleta.modelo.ResultaDados;
+import br.com.roleta.dao.NumColetadoDAO;
+import br.com.roleta.dao.resultadosDAO;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;

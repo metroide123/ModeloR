@@ -1,4 +1,4 @@
-package ThreadsMetodos;
+package br.com.roleta.controlador;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;

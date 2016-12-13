@@ -1,4 +1,4 @@
-package BD_ResultadosDados.connection;
+package br.com.roleta.conexao;
 
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;

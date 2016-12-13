@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package InicioConficPreJogo;
+package br.com.roleta.view;
 
-import Inicio.Home;
-import Menu.Jogo.Roleta;
+import br.com.roleta.view.Roleta;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 

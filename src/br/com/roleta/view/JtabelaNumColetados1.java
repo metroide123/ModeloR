@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package MenuAnalise;
+package br.com.roleta.view;
 
-import BD_Resultados.bean.NumColetado;
-import BD_Resultados.dao.NumColetadoDAO;
+import br.com.roleta.modelo.NumColetado;
+import br.com.roleta.dao.NumColetadoDAO;
 import javax.swing.JDesktopPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;

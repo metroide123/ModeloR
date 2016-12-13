@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package BD_Resultados.bean;
+package br.com.roleta.modelo;
 
 /**
  *

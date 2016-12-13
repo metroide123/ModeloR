@@ -1,7 +1,12 @@
-package BD_Resultados.dao;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.roleta.dao;
 
-import BD_Resultados.bean.ResultaDados;
-import BD_ResultadosDados.connection.ConnectionFactory;
+import br.com.roleta.modelo.ResultaDados;
+import br.com.roleta.conexao.ConnectionFactory;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,14 +14,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-public class resultadosDAO {
+/**
+ *
+ * @author Rodolfo Fonseca
+ */
+public class ResultadosTotalDAO {
 
     public void create(ResultaDados r) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO dadosresultados (Entrada,Resultado,P1,P2,P3,TamanhoEspera) VALUES(?,?,?,?,?,?)");
+            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO coletatotaldadosresultados (Entrada,Resultado,P1,P2,P3,TamanhoEspera) VALUES(?,?,?,?,?,?)");
             stmt.setString(1, r.getEntrada());
             stmt.setString(2, r.getResultado());
             stmt.setString(3, r.getP1());
@@ -25,7 +34,7 @@ public class resultadosDAO {
             stmt.setInt(6, r.getTamanhoespera());
 
             stmt.executeUpdate();
-            
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao Salvar" + ex);
         } finally {
@@ -42,7 +51,7 @@ public class resultadosDAO {
         ArrayList<ResultaDados> ColetadosResultados = new ArrayList<>();
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM dadosresultados");
+            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM coletatotaldadosresultados");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -50,7 +59,7 @@ public class resultadosDAO {
                 ResultaDados n = new ResultaDados();
 
                 n.setId(rs.getInt("id"));
-                
+
                 n.setEntrada(rs.getString("Entrada"));
                 n.setResultado(rs.getString("Resultado"));
                 n.setP1(rs.getString("P1"));
@@ -80,7 +89,7 @@ public class resultadosDAO {
 
         try {
 
-            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM dadosresultados");
+            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM coletatotaldadosresultados");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -89,7 +98,7 @@ public class resultadosDAO {
 
                 n.setId(rs.getInt("id"));
 
-                stmt = (PreparedStatement) con.prepareStatement("DELETE FROM dadosresultados WHERE id = ?");
+                stmt = (PreparedStatement) con.prepareStatement("DELETE FROM coletatotaldadosresultados WHERE id = ?");
                 stmt.setInt(1, n.getId());
                 stmt.executeUpdate();
             }
@@ -101,14 +110,14 @@ public class resultadosDAO {
         }
 
     }
-    
+
     public void Delete(int i) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
         try {
 
-            stmt = (PreparedStatement) con.prepareStatement("DELETE FROM dadosresultados WHERE id = ?");
+            stmt = (PreparedStatement) con.prepareStatement("DELETE FROM coletatotaldadosresultados WHERE id = ?");
             stmt.setInt(1, i);
             stmt.executeUpdate();
 

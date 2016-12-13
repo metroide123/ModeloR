@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package MenuAnalise;
+package br.com.roleta.view;
 
 /**
  *

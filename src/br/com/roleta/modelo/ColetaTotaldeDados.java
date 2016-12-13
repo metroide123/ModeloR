@@ -1,8 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-package BD_Resultados.bean;
+package br.com.roleta.modelo;
 
-
-public class ResultaDados {
+public class ColetaTotaldeDados {
     
     private int id;
     private String entrada;
@@ -11,6 +15,7 @@ public class ResultaDados {
     private String P2;
     private String P3;
     private int tamanhoespera;
+    private String Data;
 
     public int getId() {
         return id;
@@ -67,7 +72,14 @@ public class ResultaDados {
     public void setTamanhoespera(int tamanhoespera) {
         this.tamanhoespera = tamanhoespera;
     }
-    
+
+    public String getData() {
+        return Data;
+    }
+
+    public void setData(String Data) {
+        this.Data = Data;
+    }
     
     
 }
