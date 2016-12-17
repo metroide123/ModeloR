@@ -39,11 +39,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `roleta`.`Aposta` (
   `idAposta` INT NOT NULL AUTO_INCREMENT,
-  `valorAposta` INT NOT NULL,
+  `valorAposta` FLOAT NOT NULL,
   `status` INT NULL,
   `idTipoAposta` INT NOT NULL,
   `idUsuario` INT NOT NULL,
-  `retorno` INT NULL,
+  `retorno` FLOAT NULL,
   PRIMARY KEY (`idAposta`),
   INDEX `fk_Aposta_TipoAposta_idx` (`idTipoAposta` ASC),
   INDEX `fk_Aposta_Usuario1_idx` (`idUsuario` ASC),
@@ -66,6 +66,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `roleta`.`Cassino` (
   `idCassino` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
+  `tempoSessao` INT NOT NULL,
+  `moeda` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`idCassino`))
 ENGINE = InnoDB;
 
@@ -77,7 +79,8 @@ CREATE TABLE IF NOT EXISTS `roleta`.`Roleta` (
   `idRoleta` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `idCassino` INT NOT NULL,
-  `valorMinino` VARCHAR(45) NOT NULL,
+  `valorMinino` INT NOT NULL,
+  `tamanhoFrame` INT NOT NULL COMMENT 'Tamanho do frame para captura dos valores sorteados',
   PRIMARY KEY (`idRoleta`),
   INDEX `fk_Roleta_Cassino1_idx` (`idCassino` ASC),
   CONSTRAINT `fk_Roleta_Cassino1`
@@ -119,8 +122,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `roleta`.`Fundos` (
   `idUsuario` INT NOT NULL,
   `idCassino` INT NOT NULL,
-  `valorInicial` INT NULL,
-  `valorAtual` INT NULL,
+  `saldo` FLOAT NULL DEFAULT 0,
   INDEX `fk_Fundos_Usuario1_idx` (`idUsuario` ASC),
   INDEX `fk_Fundos_Cassino1_idx` (`idCassino` ASC),
   CONSTRAINT `fk_Fundos_Usuario1`
