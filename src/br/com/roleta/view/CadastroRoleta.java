@@ -5,6 +5,9 @@
  */
 package br.com.roleta.view;
 
+import br.com.roleta.controlador.casinoControlador;
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author Rodolfo Fonseca
@@ -16,6 +19,12 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
      */
     public CadastroRoleta() {
         initComponents();
+        popularCasinos();
+    }
+    
+    private void popularCasinos() {
+        casinoControlador cc = new casinoControlador();
+        jComboBox1.setModel(new DefaultComboBoxModel(cc.listarCasinos().toArray()));
     }
 
     /**
@@ -47,9 +56,9 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Cadastrar Roleta");
 
-        jLabel2.setText("Digite o nome da Roleta:");
+        jLabel2.setText("Nome da roleta:");
 
-        jLabel3.setText("Cassino da Roleta:");
+        jLabel3.setText("Casino:");
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,9 +89,9 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField2)
@@ -100,7 +109,7 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(97, 97, 97)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
