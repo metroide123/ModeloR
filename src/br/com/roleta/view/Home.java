@@ -1,6 +1,7 @@
 package br.com.roleta.view;
 
 public class Home extends javax.swing.JFrame {
+
     int I = 0;
 
     public int getI() {
@@ -10,7 +11,7 @@ public class Home extends javax.swing.JFrame {
     public void setI(int I) {
         this.I = I;
     }
-    
+
     public Home() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -32,18 +33,15 @@ public class Home extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
+        NovoCassino = new javax.swing.JMenuItem();
+        DeletarCassino = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
+        NovaRoleta = new javax.swing.JMenuItem();
+        EditarRoleta = new javax.swing.JMenuItem();
+        DeletarRoleta = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        NovoUsuario = new javax.swing.JMenuItem();
+        DeletarUsuario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -100,7 +98,7 @@ public class Home extends javax.swing.JFrame {
         jMenu4.setText("Banco de Dados");
         jMenu5.add(jMenu4);
 
-        jMenuItem5.setText("Editar dados");
+        jMenuItem5.setText("Editar dados Usuario");
         jMenu5.add(jMenuItem5);
 
         jMenuBar1.add(jMenu5);
@@ -109,57 +107,73 @@ public class Home extends javax.swing.JFrame {
 
         jMenu7.setText("Casino");
 
-        jMenuItem9.setText("Novo");
-        jMenu7.add(jMenuItem9);
-
-        jMenuItem10.setText("Editar");
-        jMenu7.add(jMenuItem10);
-
-        jMenuItem11.setText("Deletar");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+        NovoCassino.setText("Novo");
+        NovoCassino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
+                NovoCassinoActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem11);
+        jMenu7.add(NovoCassino);
+
+        DeletarCassino.setText("Deletar");
+        DeletarCassino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarCassinoActionPerformed(evt);
+            }
+        });
+        jMenu7.add(DeletarCassino);
 
         jMenu9.add(jMenu7);
 
         jMenu6.setText("Roleta");
 
-        jMenuItem12.setText("Novo");
-        jMenu6.add(jMenuItem12);
+        NovaRoleta.setText("Novo");
+        NovaRoleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NovaRoletaActionPerformed(evt);
+            }
+        });
+        jMenu6.add(NovaRoleta);
 
-        jMenuItem13.setText("Editar");
-        jMenu6.add(jMenuItem13);
+        EditarRoleta.setText("Editar");
+        EditarRoleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarRoletaActionPerformed(evt);
+            }
+        });
+        jMenu6.add(EditarRoleta);
 
-        jMenuItem14.setText("Deletar");
-        jMenu6.add(jMenuItem14);
+        DeletarRoleta.setText("Deletar");
+        DeletarRoleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarRoletaActionPerformed(evt);
+            }
+        });
+        jMenu6.add(DeletarRoleta);
 
         jMenu9.add(jMenu6);
 
         jMenu8.setText("Usuário");
 
-        jMenuItem6.setText("Novo");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        NovoUsuario.setText("Novo");
+        NovoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                NovoUsuarioActionPerformed(evt);
             }
         });
-        jMenu8.add(jMenuItem6);
+        jMenu8.add(NovoUsuario);
 
-        jMenuItem7.setText("Editar");
-        jMenu8.add(jMenuItem7);
-
-        jMenuItem8.setText("Deletar");
-        jMenu8.add(jMenuItem8);
+        DeletarUsuario.setText("Deletar");
+        DeletarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu8.add(DeletarUsuario);
 
         jMenu9.add(jMenu8);
 
         jMenuBar1.add(jMenu9);
-
-        jMenu3.setText("Sair");
-        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -170,7 +184,7 @@ public class Home extends javax.swing.JFrame {
         I++;
         ChamadaRoleta r1 = new ChamadaRoleta(jdpHome, I, this);
         jdpHome.add(r1);
-        r1.setVisible(true);   
+        r1.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -187,20 +201,58 @@ public class Home extends javax.swing.JFrame {
         r1.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
+    private void DeletarCassinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarCassinoActionPerformed
+        DeletarCassino Cassino = new DeletarCassino();
+        jdpHome.add(Cassino);
+        Cassino.setVisible(true);
+    }//GEN-LAST:event_DeletarCassinoActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    private void NovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoUsuarioActionPerformed
+        CadastroUsuario Usuario = new CadastroUsuario();
+        jdpHome.add(Usuario);
+        Usuario.setVisible(true);
+    }//GEN-LAST:event_NovoUsuarioActionPerformed
 
-    
+    private void NovoCassinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoCassinoActionPerformed
+        CadastroCassino Cassino = new CadastroCassino();
+        jdpHome.add(Cassino);
+        Cassino.setVisible(true);
+
+    }//GEN-LAST:event_NovoCassinoActionPerformed
+
+    private void EditarRoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarRoletaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EditarRoletaActionPerformed
+
+    private void NovaRoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovaRoletaActionPerformed
+        CadastroRoleta Roleta = new CadastroRoleta();
+        jdpHome.add(Roleta);
+        Roleta.setVisible(true);
+    }//GEN-LAST:event_NovaRoletaActionPerformed
+
+    private void DeletarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarUsuarioActionPerformed
+        DeletarUsuario Usuario = new DeletarUsuario();
+        jdpHome.add(Usuario);
+        Usuario.setVisible(true);
+    }//GEN-LAST:event_DeletarUsuarioActionPerformed
+
+    private void DeletarRoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarRoletaActionPerformed
+        DeletarRoleta Roleta = new DeletarRoleta();
+        jdpHome.add(Roleta);
+        Roleta.setVisible(true);
+    }//GEN-LAST:event_DeletarRoletaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem DeletarCassino;
+    private javax.swing.JMenuItem DeletarRoleta;
+    private javax.swing.JMenuItem DeletarUsuario;
+    private javax.swing.JMenuItem EditarRoleta;
+    private javax.swing.JMenuItem NovaRoleta;
+    private javax.swing.JMenuItem NovoCassino;
+    private javax.swing.JMenuItem NovoUsuario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
@@ -209,18 +261,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JDesktopPane jdpHome;
     // End of variables declaration//GEN-END:variables
 }
