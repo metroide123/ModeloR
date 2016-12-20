@@ -56,17 +56,7 @@ public class Estrategias {
             A1 = Anterios;
             Anterios = ConvertInt;
             ContDuzia(ConvertInt);
-            if (ConvertInt != 99) {
-
-                NovoNum.setNumcoletado(ConvertInt);
-                NovoNum.setTipoRoleta(nomeRoleta);
-                String formattedDate = formato.format(date);
-                NovoNum.setDataColeta(formattedDate);
-                NovoNum.setHoraColeta(sdf.format(date));
-
-                NovoNumDAO.create(NovoNum);
-
-            }
+            
         }
 
     }
@@ -240,6 +230,119 @@ public class Estrategias {
             Maior++;
             Menor = 0;
         }
+
+    }
+    
+    public String Verificar() {
+
+        String Duzia, Coluna, ParInpar, VerPre, MaiorMenor;
+        Duzia = Coluna = ParInpar = VerPre = MaiorMenor = "";
+
+        if (coluna1 >= (ColunasMax + 1) / 2) {
+            Coluna = "Coluna 1 e 2 Acumulando...";
+            if (coluna1 == ColunasMax - 1) {
+                Coluna = "Coluna 2 e 3 Proximo!";
+            }
+            if (coluna1 >= ColunasMax) {
+                Coluna = "Aposte Coluna 2 e 3 ";
+            }
+        }
+
+        if (coluna3 >= (ColunasMax + 1) / 2) {
+            Coluna = "Coluna 2 e 3 Acumulando...";
+            if (coluna3 == ColunasMax - 1) {
+                Coluna = "Coluna 1 e 2 Proximo!";
+            }
+            if (coluna3 >= ColunasMax) {
+                Coluna = "Aposte Coluna 2 e 1";
+            }
+        }
+
+        if (Duzia1 >= (DuziaMax + 1) / 2) {
+            Duzia = "Duzia 1 e 2 Acumulando...";
+            if (Duzia1 == -1) {
+                Duzia = "Duzia 2 e 3 Proximo!";
+            }
+            if (Duzia1 >= DuziaMax) {
+                Duzia = "Aposte Duzia 2 e 3 ";
+            }
+        }
+
+        if (Duzia3 >= (DuziaMax + 1) / 2) {
+            Duzia = "Duzia 2 e 3 Acumulando...";
+            if (Duzia3 == DuziaMax - 1) {
+                Duzia = "Duzia 1 e 2 Proximo!";
+            }
+            if (Duzia3 >= DuziaMax) {
+                Duzia = "Aposte Duzia 1 e 2";
+            }
+        }
+
+        if (V >= (PreVerMax + 1) / 2) {
+            VerPre = "Verm Acumulando..";
+            if (V == PreVerMax - 1) {
+                VerPre = "Preto Pox Att!";
+            }
+            if (V >= PreVerMax) {
+                VerPre = "Apostar Preto!";
+            }
+        }
+
+        if (P >= (PreVerMax + 1) / 2) {
+            VerPre = "Preto Acumulando..";
+            if (P == PreVerMax - 1) {
+                VerPre = "Vermelhor Pox. Att!";
+            }
+            if (P >= PreVerMax) {
+                VerPre = "Apostar Vermelhor!";
+            }
+        }
+
+        if (Par >= (ParInparMax + 1)) {
+            ParInpar = "Par Acumulando..";
+            if (Par == ParInparMax - 1) {
+                ParInpar = "Impar Prox Att!";
+            }
+            if (Par >= ParInparMax) {
+                ParInpar = "Aposte Impar!";
+            }
+        }
+
+        if (Inpar >= (ParInparMax + 1) / 2) {
+            ParInpar = "Impar Acumulando..";
+            if (Inpar == ParInparMax - 1) {
+                ParInpar = "Par Prox Att!";
+            }
+            if (Inpar >= ParInparMax) {
+                ParInpar = "Aposte Par!";
+
+            }
+
+        }
+
+        if (Maior >= (MaiorMenorMax + 1) / 2) {
+            MaiorMenor = "Maior Acumulando..";
+            if (Maior == MaiorMenorMax - 1) {
+                MaiorMenor = "Menor Prox Att!";
+            }
+            if (Maior >= MaiorMenorMax) {
+                MaiorMenor = "Aposte Menor!";
+            }
+        }
+
+        if (Menor >= (MaiorMenorMax + 1) / 2) {
+            MaiorMenor = "Menor Acumulando..";
+            if (Menor == MaiorMenorMax - 1) {
+                MaiorMenor = "Maior Prox Att!";
+            }
+            if (Menor >= MaiorMenorMax) {
+                MaiorMenor = "Aposte Maior!";
+            }
+        }
+
+        String Resposta;
+        Resposta = Coluna + "\n" + Duzia + "\n" + MaiorMenor + "\n" + ParInpar + "\n" + VerPre;
+        return Resposta;
 
     }
 
