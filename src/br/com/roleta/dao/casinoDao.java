@@ -24,7 +24,7 @@ public class casinoDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO cassino (nome) VALUES(?,?,?)");
+            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO cassino (nome, tempoSessao, moeda) VALUES(?,?,?)");
             stmt.setString(1, c.getNome());
             stmt.setInt(2, c.getTempoSessao());
             stmt.setString(3, c.getMoeda());
