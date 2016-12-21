@@ -5,20 +5,35 @@
  */
 package br.com.roleta.view;
 
-import br.com.roleta.dao.casinoDao;
+import br.com.roleta.controlador.casinoControlador;
 import br.com.roleta.modelo.Casino;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Rodolfo Fonseca
  */
 public class CadastroCassino extends javax.swing.JInternalFrame {
-
+    
+    private casinoControlador CasinoContro = new casinoControlador();
+    private Casino Casino = new Casino();
 
     public CadastroCassino() {
         initComponents();
     }
-
+    
+    public void Cadastro(){
+        if ("".equals(jTextNomeCasino.getText()) | "".equals(jTextTempoSessao.getText()) ){
+            JOptionPane.showMessageDialog(null, "Nenhum Campo deve Ficar em Braco!");
+        } else {
+            Casino.setNome(jTextNomeCasino.getText());
+            Casino.setTempoSessao(Integer.parseInt(jTextTempoSessao.getText()));
+            Casino.setMoeda(jComboMoeda.getSelectedItem().toString());
+            CasinoContro.inseirCasino(Casino);
+            
+            JOptionPane.showMessageDialog(null, "Casino Cadastrado Com Sucesso!");
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

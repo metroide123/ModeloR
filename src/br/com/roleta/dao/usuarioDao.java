@@ -27,7 +27,7 @@ public class usuarioDao {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao criar novo usuario" + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao criar novo usuario\n" + ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -49,7 +49,7 @@ public class usuarioDao {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao listar usuarios" + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao listar usuarios\n" + ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -66,7 +66,7 @@ public class usuarioDao {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao deletar noco Usuario" + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao deletar novo Usuario\n" + ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
