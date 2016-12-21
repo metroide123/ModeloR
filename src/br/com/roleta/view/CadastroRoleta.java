@@ -6,6 +6,9 @@
 package br.com.roleta.view;
 
 import br.com.roleta.controlador.casinoControlador;
+import br.com.roleta.modelo.Casino;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -24,7 +27,11 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
     
     private void popularCasinos() {
         casinoControlador cc = new casinoControlador();
-        jComboBox1.setModel(new DefaultComboBoxModel(cc.listarCasinos().toArray()));
+        List<String> listarCasinos =  new ArrayList<>();
+        for (Casino listarCasino : cc.listarCasinos()) {
+            listarCasinos.add(listarCasino.getNome());
+        }
+        jComboBox1.setModel(new DefaultComboBoxModel(listarCasinos.toArray()));
     }
 
     /**

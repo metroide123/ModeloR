@@ -24,7 +24,7 @@ public class casinoDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO cassino (nome, tempoSessao, moeda) VALUES(?,?,?)");
+            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO Casino (nome, tempoSessao, moeda) VALUES(?,?,?)");
             stmt.setString(1, c.getNome());
             stmt.setInt(2, c.getTempoSessao());
             stmt.setString(3, c.getMoeda());
@@ -46,7 +46,7 @@ public class casinoDao {
         List<Casino> lista = new ArrayList<>();
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("SELECT idCasino, nome, tempoSessao, moeda FROM cassino");
+            stmt = (PreparedStatement) con.prepareStatement("SELECT idCasino, nome, tempoSessao, moeda FROM Casino");
 
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
