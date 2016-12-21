@@ -28,7 +28,7 @@ ENGINE = InnoDB;
 -- Table `roleta`.`Usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `roleta`.`Usuario` (
-  `idUsuario` INT NOT NULL,
+  `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idUsuario`))
 ENGINE = InnoDB;

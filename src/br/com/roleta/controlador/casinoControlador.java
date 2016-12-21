@@ -23,7 +23,6 @@ public class casinoControlador {
     }
     
     public List<Casino> listarCasinos() {
-        
         return casinoDao.listar();
     }
     

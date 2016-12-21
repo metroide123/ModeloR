@@ -15,10 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author andreqbs
- */
+
 public class casinoDao {
 
     private final Connection con = ConnectionFactory.getConnection();
@@ -27,10 +24,11 @@ public class casinoDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO Casino (nome) VALUES(?,?)");
+            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO cassino (nome) VALUES(?,?,?)");
             stmt.setString(1, c.getNome());
-            stmt.setString(2, c.getMoeda());
-
+            stmt.setInt(2, c.getTempoSessao());
+            stmt.setString(3, c.getMoeda());
+            
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
@@ -48,7 +46,7 @@ public class casinoDao {
         List<Casino> lista = new ArrayList<>();
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("SELECT idCasino, nome, moeda FROM Casino");
+            stmt = (PreparedStatement) con.prepareStatement("SELECT idCasino, nome, tempoSessao, moeda FROM cassino");
 
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
@@ -67,7 +65,7 @@ public class casinoDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("DELETE FROM Casino WHERE idCasino = ?");
+            stmt = (PreparedStatement) con.prepareStatement("DELETE FROM cassino WHERE idCasino = ?");
             stmt.setInt(1, idCasino);
 
             stmt.executeUpdate();
@@ -84,6 +82,7 @@ public class casinoDao {
         casino.setIdCasino(resultSet.getInt("idCasino"));
         casino.setNome(resultSet.getString("nome"));
         casino.setMoeda(resultSet.getString("moeda"));
+        casino.setTempoSessao(resultSet.getInt("tempoSessao"));
 
         return casino;
     }
