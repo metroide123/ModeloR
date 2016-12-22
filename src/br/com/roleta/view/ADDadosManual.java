@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 public class ADDadosManual extends javax.swing.JInternalFrame {
 
     NumeroControlador ControleNumero = new NumeroControlador();
-    numerosorteado NovoNumero = new numerosorteado();
+    
 
     NumColetado NovoNum = new NumColetado();
     NumColetadoDAO NovoNumDAO = new NumColetadoDAO();
@@ -56,9 +56,10 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
         for (String i : parts) {
             int n;
             n = Integer.parseInt(i);
-            
+
             if (n != 99) {
                 if (n >= 0 && n <= 36) {
+                    numerosorteado NovoNumero = new numerosorteado();
                     NovoNumero.setNumero(i);
                     e.AnalisandoDadosBDVP(n);
                     String formattedDate = formato.format(date);
@@ -173,14 +174,14 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
     private void LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparActionPerformed
         jTextArea1.setText("");
     }//GEN-LAST:event_LimparActionPerformed
-    
+
     private void GerarNumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerarNumerosActionPerformed
         if (!"".equals(jTextArea1.getText())) {
-        GerarLista();
-        JtabelaNumColetados1 novo = new JtabelaNumColetados1(ListadeNumeros);
-        jpdHome.add(novo);
-        novo.setVisible(true);
-        //this.dispose(); 
+            GerarLista();
+            JtabelaNumColetados1 novo = new JtabelaNumColetados1(ListadeNumeros);
+            jpdHome.add(novo);
+            novo.setVisible(true);
+            //this.dispose(); 
         }
     }//GEN-LAST:event_GerarNumerosActionPerformed
 
