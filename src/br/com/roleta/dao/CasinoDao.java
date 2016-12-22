@@ -15,8 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-
-public class casinoDao {
+public class CasinoDao {
 
     private final Connection con = ConnectionFactory.getConnection();
 
@@ -28,7 +27,7 @@ public class casinoDao {
             stmt.setString(1, c.getNome());
             stmt.setInt(2, c.getTempoSessao());
             stmt.setString(3, c.getMoeda());
-            
+
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
@@ -42,7 +41,7 @@ public class casinoDao {
     public List<Casino> listar() {
 
         PreparedStatement stmt = null;
-        
+
         List<Casino> lista = new ArrayList<>();
 
         try {
@@ -76,8 +75,8 @@ public class casinoDao {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
-    
-        public void deletarCasinoNome(String NomeCasino) {
+
+    public void deletarCasinoNome(String NomeCasino) {
         PreparedStatement stmt = null;
 
         try {
@@ -92,8 +91,8 @@ public class casinoDao {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
-    
-     private Casino mapear(ResultSet resultSet) throws SQLException {
+
+    private Casino mapear(ResultSet resultSet) throws SQLException {
         Casino casino = new Casino();
         casino.setIdCasino(resultSet.getInt("idCasino"));
         casino.setNome(resultSet.getString("nome"));
@@ -101,6 +100,28 @@ public class casinoDao {
         casino.setTempoSessao(resultSet.getInt("tempoSessao"));
 
         return casino;
+    }
+
+    public Casino encontrarCasino(String nome) {
+
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM Casino WHERE nome = ?");
+            stmt.setString(1, nome);
+
+            ResultSet resultSet = stmt.executeQuery();
+            if (resultSet.next()) {
+                return mapear(resultSet);
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar casinos" + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return null;
+
     }
 
 }

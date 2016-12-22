@@ -5,7 +5,7 @@
  */
 package br.com.roleta.view;
 
-import br.com.roleta.controlador.casinoControlador;
+import br.com.roleta.controlador.CasinoControlador;
 import br.com.roleta.modelo.Casino;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class DeletarCassino extends javax.swing.JInternalFrame {
     }
 
     private void popularCasinos() {
-        casinoControlador cc = new casinoControlador();
+        CasinoControlador cc = new CasinoControlador();
         List<String> listarCasinos = new ArrayList<>();
         for (Casino listarCasino : cc.listarCasinos()) {
             listarCasinos.add(listarCasino.getNome());
@@ -96,7 +96,7 @@ public class DeletarCassino extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        casinoControlador cc = new casinoControlador();
+        CasinoControlador cc = new CasinoControlador();
         String Casino = jComboBox1.getSelectedItem().toString();
         if (!"".equals(Casino)) {
             cc.DeletarCasinoNome(Casino);

@@ -5,7 +5,7 @@
  */
 package br.com.roleta.view;
 
-import br.com.roleta.controlador.casinoControlador;
+import br.com.roleta.controlador.CasinoControlador;
 import br.com.roleta.modelo.Casino;
 import javax.swing.JOptionPane;
 
@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class CadastroCassino extends javax.swing.JInternalFrame {
 
-    private casinoControlador CasinoContro = new casinoControlador();
+    private CasinoControlador CasinoContro = new CasinoControlador();
     private Casino Casino = new Casino();
 
     public CadastroCassino() {

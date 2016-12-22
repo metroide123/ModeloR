@@ -5,7 +5,7 @@
  */
 package br.com.roleta.controlador;
 
-import br.com.roleta.dao.casinoDao;
+import br.com.roleta.dao.CasinoDao;
 import br.com.roleta.modelo.Casino;
 import java.util.List;
 
@@ -13,9 +13,9 @@ import java.util.List;
  *
  * @author andreqbs
  */
-public class casinoControlador {
+public class CasinoControlador {
     
-    private final casinoDao casinoDao = new casinoDao();
+    private final CasinoDao casinoDao = new CasinoDao();
     
     
     public void inseirCasino(Casino c) {
@@ -28,5 +28,9 @@ public class casinoControlador {
     
     public void DeletarCasinoNome(String c) {
         casinoDao.deletarCasinoNome(c);
+    }
+    
+    public Casino procurarCasino(String nome) {
+        return casinoDao.encontrarCasino(nome);
     }
 }
