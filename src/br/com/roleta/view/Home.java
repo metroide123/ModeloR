@@ -37,7 +37,6 @@ public class Home extends javax.swing.JFrame {
         DeletarCassino = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         NovaRoleta = new javax.swing.JMenuItem();
-        EditarRoleta = new javax.swing.JMenuItem();
         DeletarRoleta = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         NovoUsuario = new javax.swing.JMenuItem();
@@ -135,14 +134,6 @@ public class Home extends javax.swing.JFrame {
         });
         jMenu6.add(NovaRoleta);
 
-        EditarRoleta.setText("Editar");
-        EditarRoleta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarRoletaActionPerformed(evt);
-            }
-        });
-        jMenu6.add(EditarRoleta);
-
         DeletarRoleta.setText("Deletar");
         DeletarRoleta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,10 +211,6 @@ public class Home extends javax.swing.JFrame {
 
     }//GEN-LAST:event_NovoCassinoActionPerformed
 
-    private void EditarRoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarRoletaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EditarRoletaActionPerformed
-
     private void NovaRoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovaRoletaActionPerformed
         CadastroRoleta Roleta = new CadastroRoleta();
         jdpHome.add(Roleta);
@@ -247,7 +234,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuItem DeletarCassino;
     private javax.swing.JMenuItem DeletarRoleta;
     private javax.swing.JMenuItem DeletarUsuario;
-    private javax.swing.JMenuItem EditarRoleta;
     private javax.swing.JMenuItem NovaRoleta;
     private javax.swing.JMenuItem NovoCassino;
     private javax.swing.JMenuItem NovoUsuario;
