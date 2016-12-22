@@ -56,6 +56,7 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
         for (String i : parts) {
             int n;
             n = Integer.parseInt(i);
+            
             if (n != 99) {
                 if (n >= 0 && n <= 36) {
                     NovoNumero.setNumero(i);
