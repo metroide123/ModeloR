@@ -4,10 +4,7 @@ import br.com.roleta.controlador.UsuarioControlador;
 import br.com.roleta.modelo.usuario;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Rodolfo Fonseca
- */
+
 public class CadastroUsuario extends javax.swing.JInternalFrame {
 
     private usuario NUsuario = new usuario();
@@ -25,6 +22,7 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Caixa de Cadastro não pode Ser vaziu");
         }
+        jTextNomeUsuario.setText("");
     }
 
     @SuppressWarnings("unchecked")

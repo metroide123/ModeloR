@@ -26,4 +26,7 @@ public class casinoControlador {
         return casinoDao.listar();
     }
     
+    public void DeletarCasinoNome(String c) {
+        casinoDao.deletarCasinoNome(c);
+    }
 }

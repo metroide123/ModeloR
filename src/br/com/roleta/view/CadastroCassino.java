@@ -33,6 +33,8 @@ public class CadastroCassino extends javax.swing.JInternalFrame {
 
             JOptionPane.showMessageDialog(null, "Casino Cadastrado Com Sucesso!");
         }
+        jTextNomeCasino.setText("");
+        jTextTempoSessao.setText("");
     }
 
     @SuppressWarnings("unchecked")

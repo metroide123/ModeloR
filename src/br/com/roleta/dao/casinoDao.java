@@ -65,8 +65,24 @@ public class casinoDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("DELETE FROM cassino WHERE idCasino = ?");
+            stmt = (PreparedStatement) con.prepareStatement("DELETE FROM Casino WHERE idCasino = ?");
             stmt.setInt(1, idCasino);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao criar novo casino" + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
+        public void deletarCasinoNome(String NomeCasino) {
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = (PreparedStatement) con.prepareStatement("DELETE FROM Casino WHERE nome = ?");
+            stmt.setString(1, NomeCasino);
 
             stmt.executeUpdate();
 

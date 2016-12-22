@@ -2,6 +2,9 @@
 package br.com.roleta.view;
 
 import br.com.roleta.controlador.UsuarioControlador;
+import br.com.roleta.modelo.usuario;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -15,13 +18,23 @@ public class DeletarUsuario extends javax.swing.JInternalFrame {
 
     private void popularListas() {
         UsuarioControlador cc = new UsuarioControlador();
-        jComboBox1.setModel(new DefaultComboBoxModel(cc.listarUsuarios().toArray()));
+        List<String> listarUsuarios = new ArrayList<>();
+        for (usuario listarUsuario : cc.listarUsuarios()){
+            listarUsuarios.add(listarUsuario.getNome());
+        }
+        jComboBox1.setModel(new DefaultComboBoxModel(listarUsuarios.toArray()));
     }
     
     private void DeletarUsuario() {
         UsuarioControlador cc = new UsuarioControlador();
+        String Usuario = jComboBox1.getSelectedItem().toString();
+        if (!"".equals(Usuario)) {
         cc.DeletarUsuario(jComboBox1.getName());
         JOptionPane.showMessageDialog(null, "Deletado Com Sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro na seleção do Usuario");
+        }
+        this.dispose();
     }
        
     @SuppressWarnings("unchecked")

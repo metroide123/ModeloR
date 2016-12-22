@@ -21,7 +21,7 @@ public class usuarioDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO usuario (nome) VALUES(?)");
+            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO Usuario (nome) VALUES(?)");
             stmt.setString(1, c.getNome());
             
             stmt.executeUpdate();
@@ -41,7 +41,7 @@ public class usuarioDao {
         List<usuario> lista = new ArrayList<>();
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("SELECT idUsuario, nome FROM usuario");
+            stmt = (PreparedStatement) con.prepareStatement("SELECT idUsuario, nome FROM Usuario");
 
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
@@ -60,7 +60,7 @@ public class usuarioDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("DELETE FROM usuario WHERE nome = ?");
+            stmt = (PreparedStatement) con.prepareStatement("DELETE FROM Usuario WHERE nome = ?");
             stmt.setString(1, nome);
 
             stmt.executeUpdate();
