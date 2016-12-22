@@ -5,17 +5,20 @@
  */
 package br.com.roleta.view;
 
+import br.com.roleta.controlador.CasinoControlador;
 import br.com.roleta.modelo.NumColetado;
 import br.com.roleta.dao.NumColetadoDAO;
 import br.com.roleta.controlador.Estrategias;
 import br.com.roleta.controlador.NumeroControlador;
+import br.com.roleta.modelo.Casino;
 import br.com.roleta.modelo.numerosorteado;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JDesktopPane;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,7 +27,6 @@ import javax.swing.JOptionPane;
 public class ADDadosManual extends javax.swing.JInternalFrame {
 
     NumeroControlador ControleNumero = new NumeroControlador();
-    
 
     NumColetado NovoNum = new NumColetado();
     NumColetadoDAO NovoNumDAO = new NumColetadoDAO();
@@ -42,6 +44,16 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
         jpdHome = jp;
         initComponents();
         jTextArea1.setLineWrap(true);
+        popularCasinos();
+    }
+
+    private void popularCasinos() {
+        CasinoControlador cc = new CasinoControlador();
+        List<String> listarCasinos = new ArrayList<>();
+        for (Casino listarCasino : cc.listarCasinos()) {
+            listarCasinos.add(listarCasino.getNome());
+        }
+        jComboBox1.setModel(new DefaultComboBoxModel(listarCasinos.toArray()));
     }
 
     public void GerarLista() {

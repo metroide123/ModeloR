@@ -26,7 +26,7 @@ public class RoletaControlador {
         return RoletaDao.listar();
     }
     
-    public void deletarCasinoNome(String c) {
+    public void deletarRoletaNome(String c) {
         RoletaDao.deletar(c);
     }
     
