@@ -94,4 +94,48 @@ public class RoletaDao {
         return Roleta;
     }
 
+        public List<Roleta> encontrarRoletaPorCasino(int idCasino) {
+
+        PreparedStatement stmt = null;
+        List<Roleta> lista = new ArrayList<>();
+        
+        try {
+            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM Roleta WHERE idCasino = ?");
+            stmt.setInt(1, idCasino);
+
+            ResultSet resultSet = stmt.executeQuery();
+            while (resultSet.next()) {
+                lista.add(mapear(resultSet));
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na listar de Roletas\n" + ex);
+        } finally {
+            //ConnectionFactory.closeConnection(con, stmt);
+        }
+        return lista;
+    }
+        
+    public Roleta encontrarRoleta(String nome) {
+
+        PreparedStatement stmt = null;
+        ResultSet resultSet = null;
+        
+        try {
+            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM Roleta WHERE nome = ?");
+            stmt.setString(1, nome);
+
+            resultSet = stmt.executeQuery();
+            if (resultSet.next()) {
+                return mapear(resultSet);
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar Roleta\n" + ex);
+        } 
+        ConnectionFactory.closeConnection(con, stmt, resultSet);
+        return null;
+    }
+    
+    
 }

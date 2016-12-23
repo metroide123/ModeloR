@@ -105,23 +105,21 @@ public class CasinoDao {
     public Casino encontrarCasino(String nome) {
 
         PreparedStatement stmt = null;
-
+        ResultSet resultSet = null;
+        
         try {
             stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM Casino WHERE nome = ?");
             stmt.setString(1, nome);
 
-            ResultSet resultSet = stmt.executeQuery();
+            resultSet = stmt.executeQuery();
             if (resultSet.next()) {
                 return mapear(resultSet);
             }
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao listar casinos" + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
-        }
+        } 
+        ConnectionFactory.closeConnection(con, stmt, resultSet);
         return null;
-
     }
-
 }

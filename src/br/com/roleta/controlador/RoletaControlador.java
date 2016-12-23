@@ -30,4 +30,11 @@ public class RoletaControlador {
         RoletaDao.deletar(c);
     }
     
+    public Roleta procurarCasino(String nome) {
+        return RoletaDao.encontrarRoleta(nome);
+    }
+    
+    public List<Roleta> ProcurarRoletasIdCasino(int idCasino) {
+        return RoletaDao.encontrarRoletaPorCasino(idCasino);
+    }
 }
