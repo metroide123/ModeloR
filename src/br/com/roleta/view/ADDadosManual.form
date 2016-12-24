@@ -38,9 +38,9 @@
                               <Component id="bxRoletas" min="-2" pref="198" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="Limpar" min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="btnLimpar" min="-2" pref="119" max="-2" attributes="0"/>
                               <EmptySpace pref="187" max="32767" attributes="0"/>
-                              <Component id="GerarNumeros" min="-2" pref="135" max="-2" attributes="0"/>
+                              <Component id="btnGerarNumeros" min="-2" pref="135" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -73,10 +73,10 @@
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="Limpar" pref="41" max="32767" attributes="0"/>
-                  <Component id="GerarNumeros" max="32767" attributes="0"/>
+                  <Component id="btnLimpar" pref="41" max="32767" attributes="0"/>
+                  <Component id="btnGerarNumeros" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -89,7 +89,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
+        <Component class="javax.swing.JTextArea" name="txaNumeros">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
@@ -97,12 +97,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="Limpar">
+    <Component class="javax.swing.JButton" name="btnLimpar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LimparActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -111,12 +111,12 @@
         <Property name="text" type="java.lang.String" value="Digite os Numeros abaixo separados por virgula."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="GerarNumeros">
+    <Component class="javax.swing.JButton" name="btnGerarNumeros">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gerar Numeros"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GerarNumerosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGerarNumerosActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="bxCasino">

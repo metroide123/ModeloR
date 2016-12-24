@@ -21,21 +21,18 @@ import javax.swing.JOptionPane;
  */
 public class ADDadosManual extends javax.swing.JInternalFrame {
 
-    RoletaControlador RoletaControl = new RoletaControlador();
-    CasinoControlador CasinoControl = new CasinoControlador();
-    NumeroControlador ControleNumero = new NumeroControlador();
-    Casino CasinoEscolha ;
-    Roleta RoletaEscolha ;
+    private final RoletaControlador RoletaControl = new RoletaControlador();
+    private final CasinoControlador CasinoControl = new CasinoControlador();
+    private Casino CasinoEscolha;
+    private Roleta RoletaEscolha;
 
-    Date date = new Date();
-    DateFormat formato = new SimpleDateFormat("dd/MM/yyyy - hh:mm");
     JDesktopPane jpdHome;
     ArrayList<numerosorteado> ListadeNumeros = new ArrayList<>();
 
     public ADDadosManual(JDesktopPane jp) {
         jpdHome = jp;
         initComponents();
-        jTextArea1.setLineWrap(true);
+        txaNumeros.setLineWrap(true);
         popularCasinos();
     }
 
@@ -54,8 +51,9 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
         int IdUsuario = IdC;
         int IdCasino = 0; // Criar no Banco
         int IdRoleta = IdR;
-
-        String a = jTextArea1.getText();
+        Date date = new Date();
+        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy - hh:mm");
+        String a = txaNumeros.getText();
         String[] parts = a.split(",");
 
         for (String i : parts) {
@@ -71,9 +69,7 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
                     NovoNumero.setIdRoleta(IdRoleta);
                     NovoNumero.setIdUsuario(IdUsuario);
                     ListadeNumeros.add(NovoNumero);
-
                 }
-
             }
         }
     }
@@ -83,34 +79,34 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        Limpar = new javax.swing.JButton();
+        txaNumeros = new javax.swing.JTextArea();
+        btnLimpar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        GerarNumeros = new javax.swing.JButton();
+        btnGerarNumeros = new javax.swing.JButton();
         bxCasino = new javax.swing.JComboBox();
         bxRoletas = new javax.swing.JComboBox();
 
         setClosable(true);
         setIconifiable(true);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txaNumeros.setColumns(20);
+        txaNumeros.setRows(5);
+        jScrollPane1.setViewportView(txaNumeros);
 
-        Limpar.setText("Limpar");
-        Limpar.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LimparActionPerformed(evt);
+                btnLimparActionPerformed(evt);
             }
         });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Digite os Numeros abaixo separados por virgula.");
 
-        GerarNumeros.setText("Gerar Numeros");
-        GerarNumeros.addActionListener(new java.awt.event.ActionListener() {
+        btnGerarNumeros.setText("Gerar Numeros");
+        btnGerarNumeros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GerarNumerosActionPerformed(evt);
+                btnGerarNumerosActionPerformed(evt);
             }
         });
 
@@ -140,9 +136,9 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(bxRoletas, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
-                                .addComponent(GerarNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnGerarNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,23 +161,23 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
                     .addComponent(bxRoletas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Limpar, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                    .addComponent(GerarNumeros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(btnGerarNumeros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setBounds(150, 30, 499, 359);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparActionPerformed
-        jTextArea1.setText("");
-    }//GEN-LAST:event_LimparActionPerformed
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        txaNumeros.setText("");
+    }//GEN-LAST:event_btnLimparActionPerformed
 
-    private void GerarNumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerarNumerosActionPerformed
-        if (!"".equals(jTextArea1.getText())) {
+    private void btnGerarNumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarNumerosActionPerformed
+        if (!"".equals(txaNumeros.getText())) {
             if (!"<Selecione Casino>".equals(bxCasino.getSelectedItem().toString()) && !"<Selecione Roleta>".equals(bxRoletas.getSelectedItem().toString())) {
                 GerarLista(CasinoEscolha.getIdCasino(), RoletaEscolha.getIdRoleta());
-                JtabelaNumColetados1 novo = new JtabelaNumColetados1(ListadeNumeros);
+                NumerosColetados novo = new NumerosColetados(ListadeNumeros);
                 jpdHome.add(novo);
                 novo.setVisible(true);
                 //this.dispose(); 
@@ -191,7 +187,7 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Digite Numeros Separados por Vírgula para Add ao Banco");
         }
-    }//GEN-LAST:event_GerarNumerosActionPerformed
+    }//GEN-LAST:event_btnGerarNumerosActionPerformed
 
     private void bxCasinoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_bxCasinoItemStateChanged
         if (!"<Selecione Casino>".equals(bxCasino.getSelectedItem().toString())) {
@@ -199,7 +195,7 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
             List<Roleta> lista;
             List<String> lisR = new ArrayList<>();
             lisR.add("<Selecione Roleta>");
-            lista = RoletaControl.ProcurarRoletasIdCasino(CasinoEscolha.getIdCasino());
+            lista = RoletaControl.procurarRoletas(CasinoEscolha.getIdCasino());
             for (Roleta listarroleta : lista) {
                 lisR.add(listarroleta.getNome());
             }
@@ -215,12 +211,12 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton GerarNumeros;
-    private javax.swing.JButton Limpar;
+    private javax.swing.JButton btnGerarNumeros;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JComboBox bxCasino;
     private javax.swing.JComboBox bxRoletas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txaNumeros;
     // End of variables declaration//GEN-END:variables
 }

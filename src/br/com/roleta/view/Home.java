@@ -1,5 +1,8 @@
 package br.com.roleta.view;
 
+import java.awt.Dimension;
+import static java.awt.SystemColor.desktop;
+
 public class Home extends javax.swing.JFrame {
 
     int I = 0;
@@ -15,6 +18,16 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+
+    private void adjustInternalFrameLocation() {
+        Dimension desktopDim = this.getSize();
+      
+
+        int x = (desktopDim.width - jdpHome.getWidth()) / 2;
+        int y = (desktopDim.height - jdpHome.getHeight()) / 2;
+
+        jdpHome.setLocation(x, y);
     }
 
     @SuppressWarnings("unchecked")
@@ -44,21 +57,19 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().setLayout(null);
 
         javax.swing.GroupLayout jdpHomeLayout = new javax.swing.GroupLayout(jdpHome);
         jdpHome.setLayout(jdpHomeLayout);
         jdpHomeLayout.setHorizontalGroup(
             jdpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
+            .addGap(0, 804, Short.MAX_VALUE)
         );
         jdpHomeLayout.setVerticalGroup(
             jdpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 518, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jdpHome);
-        jdpHome.setBounds(0, 0, 790, 500);
+        getContentPane().add(jdpHome, java.awt.BorderLayout.CENTER);
 
         jMenu1.setText("Analise");
 

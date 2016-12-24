@@ -17,12 +17,12 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Rodolfo Fonseca
  */
-public class JtabelaNumColetados1 extends javax.swing.JInternalFrame {
+public class NumerosColetados extends javax.swing.JInternalFrame {
 
     ArrayList<numerosorteado> ListadeNumeros = new ArrayList<>();
     NumeroControlador ControleNumero = new NumeroControlador();
     
-    public JtabelaNumColetados1(ArrayList<numerosorteado> n) {
+    public NumerosColetados(ArrayList<numerosorteado> n) {
         initComponents();
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         jTable1.setRowSorter(new TableRowSorter(modelo));
