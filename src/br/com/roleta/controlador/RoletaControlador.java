@@ -34,7 +34,7 @@ public class RoletaControlador {
         return RoletaDao.encontrarRoleta(nome);
     }
     
-    public List<Roleta> procurarRoletas(int idCasino) {
+    public List<Roleta> ProcurarRoletasIdCasino(int idCasino) {
         return RoletaDao.encontrarRoletaPorCasino(idCasino);
     }
 }

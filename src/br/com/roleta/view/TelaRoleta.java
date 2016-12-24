@@ -10,7 +10,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class Roleta extends javax.swing.JInternalFrame {
+public class TelaRoleta extends javax.swing.JInternalFrame {
 
     TransparentFrame FrameTransparente;
     TransFrameCZero FrameZero;
@@ -26,7 +26,7 @@ public class Roleta extends javax.swing.JInternalFrame {
   
     boolean controlethead = true;
 
-    public Roleta(int vp, int mm, int pp, int duz, int col, int escolha, String tipo, String L,Home jp) {
+    public TelaRoleta(int vp, int mm, int pp, int duz, int col, int escolha, String tipo, String L,Home jp) {
         escolha(escolha);
         jpdHome = jp;
         FrameTransparente = new TransparentFrame(LarFrameTrans, AltFrameTrans, locFranTrans1, locFranTrans2);
@@ -69,7 +69,7 @@ public class Roleta extends javax.swing.JInternalFrame {
         
     }
 
-    public Roleta() {
+    public TelaRoleta() {
         initComponents();
     }
 

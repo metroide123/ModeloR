@@ -5,7 +5,15 @@
  */
 package br.com.roleta.view;
 
-import br.com.roleta.view.Roleta;
+import br.com.roleta.controlador.CasinoControlador;
+import br.com.roleta.controlador.RoletaControlador;
+import br.com.roleta.modelo.Casino;
+import br.com.roleta.modelo.Roleta;
+import br.com.roleta.view.Home;
+import br.com.roleta.view.TelaRoleta;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 
@@ -15,16 +23,31 @@ import javax.swing.JOptionPane;
  */
 public class ChamadaRoleta extends javax.swing.JInternalFrame {
 
+    RoletaControlador RoletaControl = new RoletaControlador();
+    CasinoControlador CasinoControl = new CasinoControlador();
+    Casino CasinoEscolha;
+    Roleta RoletaEscolha;
+
     JDesktopPane jpdHome;
     public int I;
     Home home;
-
 
     public ChamadaRoleta(JDesktopPane jp, int i, Home h) {
         jpdHome = jp;
         home = h;
         I = i;
         initComponents();
+        popularCasinos();
+    }
+
+    private void popularCasinos() {
+        CasinoControlador cc = new CasinoControlador();
+        List<String> listarCasinos = new ArrayList<>();
+        listarCasinos.add("<Selecione Casino>");
+        for (Casino listarCasino : cc.listarCasinos()) {
+            listarCasinos.add(listarCasino.getNome());
+        }
+        bxCasino.setModel(new DefaultComboBoxModel(listarCasinos.toArray()));
     }
 
     @SuppressWarnings("unchecked")
@@ -33,33 +56,43 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
 
         jLabel9 = new javax.swing.JLabel();
         jComboBox7 = new javax.swing.JComboBox();
-        jComboBox4 = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        bxDuz = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox();
+        bxCol = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        bxVP = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jComboBox6 = new javax.swing.JComboBox();
-        jComboBox3 = new javax.swing.JComboBox();
+        bxMM = new javax.swing.JComboBox();
+        bxCasino = new javax.swing.JComboBox();
+        bxPI = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox();
-        jComboBox9 = new javax.swing.JComboBox();
-        jComboBox10 = new javax.swing.JComboBox();
+        bxRoleta = new javax.swing.JComboBox();
+        bxVitoriaCaixa = new javax.swing.JComboBox();
+        bxDerrotaCaixa = new javax.swing.JComboBox();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
 
         jLabel9.setText("Casino: ");
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Spotingbet 01", "Spotingbet 02", "Bet365", "888 Cassino" }));
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
         setClosable(true);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "11", "12", "13" }));
+        bxDuz.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "11", "12", "13" }));
 
         jLabel2.setText("Verm/Preto:");
 
@@ -71,7 +104,7 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Coluna:");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "11", "12", "13" }));
+        bxCol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "11", "12", "13" }));
 
         jLabel1.setFont(new java.awt.Font("Urdu Typesetting", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -80,20 +113,24 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Configurações da Sequência:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "11", "12", "13" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        bxVP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "11", "12", "13" }));
+        bxVP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                bxVPActionPerformed(evt);
             }
         });
 
         jLabel8.setText("Casino: ");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08", "09", "10", "11", "12", "13" }));
+        bxMM.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08", "09", "10", "11", "12", "13" }));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Spotingbet 01", "Spotingbet 02", "Bet365", "888 Cassino" }));
+        bxCasino.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                bxCasinoItemStateChanged(evt);
+            }
+        });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09", "10", "11", "12", "13" }));
+        bxPI.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09", "10", "11", "12", "13" }));
 
         jButton1.setText("Iniciar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,192 +141,248 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Roleta:");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Spotingbet 01", "Spotingbet 02", "Bet365", "888 Cassino" }));
+        bxRoleta.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                bxRoletaItemStateChanged(evt);
+            }
+        });
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        bxVitoriaCaixa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3", "4", "5", "6", "7", "8", "9", "10" }));
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        bxDerrotaCaixa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3", "4", "5", "6", "7" }));
+
+        jLabel11.setText("Limite Vitoria:");
+
+        jLabel12.setText("Limite Derrota:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bxVitoriaCaixa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bxDerrotaCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel8)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel5)))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel3)
+                                                    .addComponent(jLabel2))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(bxVP, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(bxMM, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addComponent(jLabel6))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(bxCol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(2, 2, 2))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel4)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(10, 10, 10)
+                                                    .addComponent(jLabel5))))
+                                        .addGap(21, 21, 21)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(bxPI, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(bxDuz, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(0, 1, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel10))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bxCasino, 0, 154, Short.MAX_VALUE)
+                            .addComponent(bxRoleta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(4, 4, 4)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bxVP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(bxMM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bxPI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(bxDuz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(bxCol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                    .addComponent(bxVitoriaCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bxDerrotaCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bxCasino, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bxRoleta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        setBounds(250, 40, 347, 427);
+        setBounds(250, 15, 294, 474);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void bxVPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bxVPActionPerformed
 
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_bxVPActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int j1, j2, j3, j4, j5, escolha;
-        j1 = Integer.parseInt(jComboBox1.getSelectedItem().toString());
-        j2 = Integer.parseInt(jComboBox2.getSelectedItem().toString());
-        j3 = Integer.parseInt(jComboBox3.getSelectedItem().toString());
-        j4 = Integer.parseInt(jComboBox4.getSelectedItem().toString());
-        j5 = Integer.parseInt(jComboBox5.getSelectedItem().toString());
-        //escolha = Integer.parseInt(jComboBox6.getSelectedItem().toString());
-        String Local;
-        if (I == 1) {
-            Local = "Leitor1";
-            Roleta novo = new Roleta(j1, j2, j3, j4, j5, 1, "ROLETA " + Integer.toString(I), Local, home);
-            novo.setTitle("ROLETA " + Integer.toString(I));
-            jpdHome.add(novo);
-            novo.setVisible(true);
-            this.dispose();
-        }
-        if (I == 2) {
-            Local = "Leitor2";
-            Roleta novo = new Roleta(j1, j2, j3, j4, j5, 1, "ROLETA " + Integer.toString(I), Local, home);
-            novo.setTitle("ROLETA " + Integer.toString(I));
-            jpdHome.add(novo);
-            novo.setVisible(true);
-            this.dispose();
-        }
-        if (I == 3) {
-            Local = "Leitor3";
-            Roleta novo = new Roleta(j1, j2, j3, j4, j5, 1, "ROLETA " + Integer.toString(I), Local, home);
-            novo.setTitle("ROLETA " + Integer.toString(I));
-            jpdHome.add(novo);
-            novo.setVisible(true);
-            this.dispose();
-        }
-        
-        if (I == 4) {
-            Local = "Leitor4";
-            Roleta novo = new Roleta(j1, j2, j3, j4, j5, 1, "ROLETA " + Integer.toString(I), Local, home);
-            novo.setTitle("ROLETA " + Integer.toString(I));
-            jpdHome.add(novo);
-            novo.setVisible(true);
-            this.dispose();
-        }
-        
-        if (I == 5) {
-            Local = "Leitor5";
-            Roleta novo = new Roleta(j1, j2, j3, j4, j5, 1, "ROLETA " + Integer.toString(I), Local, home);
-            novo.setTitle("ROLETA " + Integer.toString(I));
-            jpdHome.add(novo);
-            novo.setVisible(true);
-            this.dispose();
-        }
-        if (I > 5) {
-            JOptionPane.showMessageDialog(null, "Maximo De Roletas Abertas");
-            this.dispose();
-        }
+        if (!"<Selecione Casino>".equals(bxCasino.getSelectedItem().toString()) && !"<Selecione Roleta>".equals(bxRoleta.getSelectedItem().toString())) {
+            int j1, j2, j3, j4, j5,IdRoleta, MaxPerda, MaxGanho;
+            j1 = Integer.parseInt(bxVP.getSelectedItem().toString());
+            j2 = Integer.parseInt(bxMM.getSelectedItem().toString());
+            j3 = Integer.parseInt(bxPI.getSelectedItem().toString());
+            j4 = Integer.parseInt(bxDuz.getSelectedItem().toString());
+            j5 = Integer.parseInt(bxCol.getSelectedItem().toString());
+            IdRoleta = RoletaEscolha.getIdRoleta();
+            MaxPerda = Integer.parseInt(bxDerrotaCaixa.getSelectedItem().toString());
+            MaxGanho = Integer.parseInt(bxVitoriaCaixa.getSelectedItem().toString());
+            String Local;
+            if (I == 1) {
+                Local = "Leitor1";
+                TelaRoleta novo = new TelaRoleta(j1, j2, j3, j4, j5, 1, "ROLETA " + Integer.toString(I), Local, home);
+                novo.setTitle("ROLETA " + Integer.toString(I));
+                jpdHome.add(novo);
+                novo.setVisible(true);
+                this.dispose();
+            }
+            if (I == 2) {
+                Local = "Leitor2";
+                TelaRoleta novo = new TelaRoleta(j1, j2, j3, j4, j5, 1, "ROLETA " + Integer.toString(I), Local, home);
+                novo.setTitle("ROLETA " + Integer.toString(I));
+                jpdHome.add(novo);
+                novo.setVisible(true);
+                this.dispose();
+            }
+            if (I == 3) {
+                Local = "Leitor3";
+                TelaRoleta novo = new TelaRoleta(j1, j2, j3, j4, j5, 1, "ROLETA " + Integer.toString(I), Local, home);
+                novo.setTitle("ROLETA " + Integer.toString(I));
+                jpdHome.add(novo);
+                novo.setVisible(true);
+                this.dispose();
+            }
 
+            if (I == 4) {
+                Local = "Leitor4";
+                TelaRoleta novo = new TelaRoleta(j1, j2, j3, j4, j5, 1, "ROLETA " + Integer.toString(I), Local, home);
+                novo.setTitle("ROLETA " + Integer.toString(I));
+                jpdHome.add(novo);
+                novo.setVisible(true);
+                this.dispose();
+            }
+
+            if (I == 5) {
+                Local = "Leitor5";
+                TelaRoleta novo = new TelaRoleta(j1, j2, j3, j4, j5, 1, "ROLETA " + Integer.toString(I), Local, home);
+                novo.setTitle("ROLETA " + Integer.toString(I));
+                jpdHome.add(novo);
+                novo.setVisible(true);
+                this.dispose();
+            }
+            if (I > 5) {
+                JOptionPane.showMessageDialog(null, "Maximo De Roletas Abertas");
+                this.dispose();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Digite Numeros Separados por Vírgula para Add ao Banco");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void bxCasinoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_bxCasinoItemStateChanged
+        if (!"<Selecione Casino>".equals(bxCasino.getSelectedItem().toString())) {
+            CasinoEscolha = CasinoControl.procurarCasino(bxCasino.getSelectedItem().toString());
+            List<Roleta> lista;
+            List<String> lisR = new ArrayList<>();
+            lisR.add("<Selecione Roleta>");
+            lista = RoletaControl.ProcurarRoletasIdCasino(CasinoEscolha.getIdCasino());
+            for (Roleta listarroleta : lista) {
+                lisR.add(listarroleta.getNome());
+            }
+            bxRoleta.setModel(new DefaultComboBoxModel(lisR.toArray()));
+        }
+    }//GEN-LAST:event_bxCasinoItemStateChanged
+
+    private void bxRoletaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_bxRoletaItemStateChanged
+        if (!"<Selecione Roleta>".equals(bxRoleta.getSelectedItem().toString())) {
+            RoletaEscolha = RoletaControl.procurarCasino(bxRoleta.getSelectedItem().toString());
+        }
+    }//GEN-LAST:event_bxRoletaItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox bxCasino;
+    private javax.swing.JComboBox bxCol;
+    private javax.swing.JComboBox bxDerrotaCaixa;
+    private javax.swing.JComboBox bxDuz;
+    private javax.swing.JComboBox bxMM;
+    private javax.swing.JComboBox bxPI;
+    private javax.swing.JComboBox bxRoleta;
+    private javax.swing.JComboBox bxVP;
+    private javax.swing.JComboBox bxVitoriaCaixa;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox10;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
     private javax.swing.JComboBox jComboBox7;
-    private javax.swing.JComboBox jComboBox8;
-    private javax.swing.JComboBox jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -298,5 +391,9 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

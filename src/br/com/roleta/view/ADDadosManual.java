@@ -1,7 +1,6 @@
 package br.com.roleta.view;
 
 import br.com.roleta.controlador.CasinoControlador;
-import br.com.roleta.controlador.NumeroControlador;
 import br.com.roleta.controlador.RoletaControlador;
 import br.com.roleta.modelo.Casino;
 import br.com.roleta.modelo.Roleta;
@@ -195,7 +194,7 @@ public class ADDadosManual extends javax.swing.JInternalFrame {
             List<Roleta> lista;
             List<String> lisR = new ArrayList<>();
             lisR.add("<Selecione Roleta>");
-            lista = RoletaControl.procurarRoletas(CasinoEscolha.getIdCasino());
+            lista = RoletaControl.ProcurarRoletasIdCasino(CasinoEscolha.getIdCasino());
             for (Roleta listarroleta : lista) {
                 lisR.add(listarroleta.getNome());
             }
