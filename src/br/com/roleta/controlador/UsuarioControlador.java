@@ -2,7 +2,7 @@
 package br.com.roleta.controlador;
 
 import br.com.roleta.dao.usuarioDao;
-import br.com.roleta.modelo.usuario;
+import br.com.roleta.modelo.Usuario;
 import java.util.List;
 
 
@@ -11,12 +11,17 @@ public class UsuarioControlador {
     private final usuarioDao usuarioDao = new usuarioDao();
     
     
-    public void inseirUsuario(usuario c) {
+    public void inseirUsuario(Usuario c) {
         usuarioDao.inserirUsuario(c);
     }
     
-    public List<usuario> listarUsuarios() {
+    public List<Usuario> listarUsuarios() {
         return usuarioDao.listar();
+        
+    }
+    
+    public Usuario autenticarUsuario(String usuario) {
+        return usuarioDao.autenticar(usuario);
         
     }
     

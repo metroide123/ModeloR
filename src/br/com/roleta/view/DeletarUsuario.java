@@ -2,7 +2,7 @@
 package br.com.roleta.view;
 
 import br.com.roleta.controlador.UsuarioControlador;
-import br.com.roleta.modelo.usuario;
+import br.com.roleta.modelo.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -19,7 +19,7 @@ public class DeletarUsuario extends javax.swing.JInternalFrame {
     private void popularListas() {
         UsuarioControlador cc = new UsuarioControlador();
         List<String> listarUsuarios = new ArrayList<>();
-        for (usuario listarUsuario : cc.listarUsuarios()){
+        for (Usuario listarUsuario : cc.listarUsuarios()){
             listarUsuarios.add(listarUsuario.getNome());
         }
         jComboBox1.setModel(new DefaultComboBoxModel(listarUsuarios.toArray()));

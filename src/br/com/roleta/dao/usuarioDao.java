@@ -1,9 +1,7 @@
-
-
 package br.com.roleta.dao;
 
 import br.com.roleta.conexao.ConnectionFactory;
-import br.com.roleta.modelo.usuario;
+import br.com.roleta.modelo.Usuario;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,18 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-
 public class usuarioDao {
-    
+
     private final Connection con = ConnectionFactory.getConnection();
 
-    public void inserirUsuario(usuario c) {
+    public void inserirUsuario(Usuario c) {
         PreparedStatement stmt = null;
 
         try {
             stmt = (PreparedStatement) con.prepareStatement("INSERT INTO Usuario (nome) VALUES(?)");
             stmt.setString(1, c.getNome());
-            
+
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
@@ -33,12 +30,12 @@ public class usuarioDao {
         }
 
     }
-    
-    public List<usuario> listar() {
+
+    public List<Usuario> listar() {
 
         PreparedStatement stmt = null;
-        
-        List<usuario> lista = new ArrayList<>();
+
+        List<Usuario> lista = new ArrayList<>();
 
         try {
             stmt = (PreparedStatement) con.prepareStatement("SELECT idUsuario, nome FROM Usuario");
@@ -71,13 +68,32 @@ public class usuarioDao {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
-    
-    private usuario mapear(ResultSet resultSet) throws SQLException {
-        usuario usuario = new usuario();
+
+    private Usuario mapear(ResultSet resultSet) throws SQLException {
+        Usuario usuario = new Usuario();
         usuario.setIdUsuario(resultSet.getInt("idUsuario"));
         usuario.setNome(resultSet.getString("nome"));
 
         return usuario;
     }
-    
+
+    public Usuario autenticar(String nome) {
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = (PreparedStatement) con.prepareStatement("SELECT idUsuario, nome FROM Usuario WHERE nome = ?");
+            stmt.setString(1, nome);
+            ResultSet resultSet = stmt.executeQuery();
+            if (resultSet.next()) {
+                return (mapear(resultSet));
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar usuario\n" + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return null;
+    }
+
 }

@@ -5,12 +5,12 @@ package br.com.roleta.modelo;
  *
  * @author Rodolfo Fonseca
  */
-public class usuario {
+public class Usuario {
     
     private int idUsuario;
     private String nome;
 
-    public usuario() {
+    public Usuario() {
     }
 
     public int getIdUsuario() {

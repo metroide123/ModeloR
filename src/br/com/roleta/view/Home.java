@@ -1,11 +1,13 @@
 package br.com.roleta.view;
 
+import br.com.roleta.modelo.Usuario;
 import java.awt.Dimension;
 import static java.awt.SystemColor.desktop;
 
 public class Home extends javax.swing.JFrame {
 
     int I = 0;
+    Usuario usuario;
 
     public int getI() {
         return I;
@@ -17,17 +19,25 @@ public class Home extends javax.swing.JFrame {
 
     public Home() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        Login login = new Login();
+        jdpHome.add(login);
+        login.setVisible(true);
+        //usuario = login.getUsuario();
+        adjustInternalFrameLocation();
     }
 
     private void adjustInternalFrameLocation() {
+        UsuarioDados usuarioDados = new UsuarioDados();
+        jdpHome.add(usuarioDados);
+    //    usuarioDados.setNome(usuario.getNome());
+        
         Dimension desktopDim = this.getSize();
-      
 
-        int x = (desktopDim.width - jdpHome.getWidth()) / 2;
-        int y = (desktopDim.height - jdpHome.getHeight()) / 2;
+        int x = (desktopDim.width - usuarioDados.getWidth());
+     //   int y = (desktopDim.height - usuarioDados.getHeight());
 
-        jdpHome.setLocation(x, y);
+        usuarioDados.setLocation(x, 5);
+        usuarioDados.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -57,6 +67,11 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                formPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout jdpHomeLayout = new javax.swing.GroupLayout(jdpHome);
         jdpHome.setLayout(jdpHomeLayout);
@@ -239,6 +254,10 @@ public class Home extends javax.swing.JFrame {
         jdpHome.add(Roleta);
         Roleta.setVisible(true);
     }//GEN-LAST:event_DeletarRoletaActionPerformed
+
+    private void formPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_formPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formPropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,13 +1,13 @@
 package br.com.roleta.view;
 
 import br.com.roleta.controlador.UsuarioControlador;
-import br.com.roleta.modelo.usuario;
+import br.com.roleta.modelo.Usuario;
 import javax.swing.JOptionPane;
 
 
 public class CadastroUsuario extends javax.swing.JInternalFrame {
 
-    private usuario NUsuario = new usuario();
+    private Usuario NUsuario = new Usuario();
     private UsuarioControlador NUsuarioDao = new UsuarioControlador();
 
     public CadastroUsuario() {
