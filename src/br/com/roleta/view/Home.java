@@ -2,7 +2,6 @@ package br.com.roleta.view;
 
 import br.com.roleta.modelo.Usuario;
 import java.awt.Dimension;
-import static java.awt.SystemColor.desktop;
 
 public class Home extends javax.swing.JFrame {
 
@@ -33,7 +32,7 @@ public class Home extends javax.swing.JFrame {
         
         Dimension desktopDim = this.getSize();
 
-        int x = (desktopDim.width - usuarioDados.getWidth());
+        int x = (desktopDim.width - 20 - usuarioDados.getWidth());
      //   int y = (desktopDim.height - usuarioDados.getHeight());
 
         usuarioDados.setLocation(x, 5);

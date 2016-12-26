@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class usuarioDao {
 
-    private final Connection con = ConnectionFactory.getConnection();
+    private Connection con = ConnectionFactory.getConnection();
 
     public void inserirUsuario(Usuario c) {
         PreparedStatement stmt = null;
@@ -78,12 +78,15 @@ public class usuarioDao {
     }
 
     public Usuario autenticar(String nome) {
+        con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-
+        ResultSet resultSet = null; 
+        
         try {
-            stmt = (PreparedStatement) con.prepareStatement("SELECT idUsuario, nome FROM Usuario WHERE nome = ?");
+            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM Usuario WHERE nome = ?");
             stmt.setString(1, nome);
-            ResultSet resultSet = stmt.executeQuery();
+            JOptionPane.showMessageDialog(null, "Encontrado!");
+            resultSet = stmt.executeQuery();
             if (resultSet.next()) {
                 return (mapear(resultSet));
             }
@@ -91,7 +94,7 @@ public class usuarioDao {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao buscar usuario\n" + ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
+           ConnectionFactory.closeConnection(con, stmt, resultSet);
         }
         return null;
     }

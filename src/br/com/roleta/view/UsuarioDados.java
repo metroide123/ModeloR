@@ -43,6 +43,8 @@ public class UsuarioDados extends javax.swing.JInternalFrame {
 
         jPanel = new javax.swing.JPanel();
 
+        setClosable(true);
+
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
         jPanelLayout.setHorizontalGroup(
