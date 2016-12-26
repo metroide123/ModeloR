@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class usuarioDao {
 
-    private Connection con = ConnectionFactory.getConnection();
+    private final Connection con = ConnectionFactory.getConnection();
 
     public void inserirUsuario(Usuario c) {
         PreparedStatement stmt = null;
@@ -25,8 +25,6 @@ public class usuarioDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao criar novo usuario\n" + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
         }
 
     }
@@ -47,8 +45,6 @@ public class usuarioDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao listar usuarios\n" + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
         }
         return lista;
     }
@@ -64,9 +60,7 @@ public class usuarioDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao deletar novo Usuario\n" + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
-        }
+        } 
     }
 
     private Usuario mapear(ResultSet resultSet) throws SQLException {
@@ -78,7 +72,6 @@ public class usuarioDao {
     }
 
     public Usuario autenticar(String nome) {
-        con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet resultSet = null; 
         
@@ -93,9 +86,7 @@ public class usuarioDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao buscar usuario\n" + ex);
-        } finally {
-           ConnectionFactory.closeConnection(con, stmt, resultSet);
-        }
+        } 
         return null;
     }
 
