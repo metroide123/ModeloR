@@ -9,7 +9,7 @@ package br.com.roleta.modelo;
  *
  * @author Rodolfo Fonseca
  */
-public class fundos {
+public class Fundos {
     
     private int idUsuario;
     private int idCassino;

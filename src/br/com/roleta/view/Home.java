@@ -24,7 +24,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     private void adjustInternalFrameLocation() {
-        UsuarioDados usuarioDados = new UsuarioDados();
+        FundosCassino usuarioDados = new FundosCassino();
         jdpHome.add(usuarioDados);
     //    usuarioDados.setNome(usuario.getNome());
         

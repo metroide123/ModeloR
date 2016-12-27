@@ -13,12 +13,12 @@ import javax.swing.SpringLayout;
  *
  * @author andreqbs
  */
-public class UsuarioDados extends javax.swing.JInternalFrame {
+public class FundosCassino extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form UsuarioDados
      */
-    public UsuarioDados() {
+    public FundosCassino() {
         initComponents();
         SpringLayout layout = new SpringLayout();
         JLabel jLabel = new JLabel("Label: ");
@@ -42,18 +42,46 @@ public class UsuarioDados extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel = new javax.swing.JPanel();
+        lblOnline = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblSaldoCassino = new javax.swing.JTable();
 
         setClosable(true);
+
+        lblOnline.setText("jLabel1");
+
+        tblSaldoCassino.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblSaldoCassino);
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
         jPanelLayout.setHorizontalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 204, Short.MAX_VALUE)
+            .addGroup(jPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblOnline)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+            .addGroup(jPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblOnline)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -73,6 +101,9 @@ public class UsuarioDados extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblOnline;
+    private javax.swing.JTable tblSaldoCassino;
     // End of variables declaration//GEN-END:variables
 
     void setNome(String nome) {
