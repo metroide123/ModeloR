@@ -226,6 +226,9 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
         r.setFrameAltura(Integer.valueOf(txfAltura.getText()));
         r.setFrameLargura(Integer.valueOf(txfLargura.getText()));
         r.setIdCassino(cc.procurarCasino(cbxCasino.getSelectedItem().toString()).getIdCasino());
+        r.setFrameZeroAltura(Integer.valueOf(txfAlturaZero.getText()));
+        r.setFrameZeroLargura(Integer.valueOf(txfLarguraZero.getText()));
+        r.setFrameZerofonte(Integer.parseInt(txfontZero.getText()));
         rc.inseirRoleta(r);
         JOptionPane.showMessageDialog(null, "Cadastrado Roleta Com Sucesso!");
         } else {
@@ -239,6 +242,9 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
         Roleta r = new Roleta();
         r.setFrameAltura(Integer.valueOf(txfAltura.getText()));
         r.setFrameLargura(Integer.valueOf(txfLargura.getText()));
+        r.setFrameZeroAltura(Integer.valueOf(txfAlturaZero.getText()));
+        r.setFrameZeroLargura(Integer.valueOf(txfLarguraZero.getText()));
+        r.setFrameZerofonte(Integer.parseInt(txfontZero.getText()));
         if(TexteZero.isSelected()){
             framezero = true;
         }

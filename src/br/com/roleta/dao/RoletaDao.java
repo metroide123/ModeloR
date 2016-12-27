@@ -27,12 +27,15 @@ public class RoletaDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO Roleta (nome, valorMinimo, frameAltura, frameLargura, idCasino) VALUES(?,?,?,?,?)");
+            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO Roleta (nome, valorMinimo, frameAltura, frameLargura, frameZeroAltura, frameZeroLargura, frameZeroFonte, idCasino) VALUES(?,?,?,?,?,?,?,?)");
             stmt.setString(1, c.getNome());
             stmt.setInt(2, c.getValorMinino());
             stmt.setInt(3, c.getFrameAltura());
             stmt.setInt(4, c.getFrameLargura());
-            stmt.setInt(5, c.getIdCassino());
+            stmt.setInt(5, c.getFrameZeroAltura());
+            stmt.setInt(6, c.getFrameZeroLargura());
+            stmt.setInt(7, c.getFrameZerofonte());
+            stmt.setInt(8, c.getIdCassino());
 
             stmt.executeUpdate();
 

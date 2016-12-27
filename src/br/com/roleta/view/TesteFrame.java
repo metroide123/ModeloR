@@ -20,7 +20,7 @@ public class TesteFrame extends javax.swing.JInternalFrame {
         FrameTransparente.setVisible(true);
 
         if (TFrameZero) {
-            FrameZero = new TransFrameCZero(40, 30, 1193, 401, 18);// teste
+            FrameZero = new TransFrameCZero(n.getFrameZeroLargura(), n.getFrameZeroAltura(), 1193, 401, n.getFrameZerofonte());// teste
             FrameZero.setOpacity(0.6f);
             FrameZero.setVisible(true);
             t = true;

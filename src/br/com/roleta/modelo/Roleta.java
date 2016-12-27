@@ -10,13 +10,40 @@ package br.com.roleta.modelo;
  * @author Rodolfo Fonseca
  */
 public class Roleta {
-    
+
     private int idRoleta;
     private String nome;
     private int idCassino;
     private int valorMinino;
     private int frameAltura;
-     private int frameLargura;
+    private int frameLargura;
+    private int frameZeroAltura;
+    private int frameZeroLargura;
+    private int frameZerofonte;
+
+    public int getFrameZeroAltura() {
+        return frameZeroAltura;
+    }
+
+    public void setFrameZeroAltura(int frameZeroAltura) {
+        this.frameZeroAltura = frameZeroAltura;
+    }
+
+    public int getFrameZeroLargura() {
+        return frameZeroLargura;
+    }
+
+    public void setFrameZeroLargura(int frameZeroLargura) {
+        this.frameZeroLargura = frameZeroLargura;
+    }
+
+    public int getFrameZerofonte() {
+        return frameZerofonte;
+    }
+
+    public void setFrameZerofonte(int frameZerofonte) {
+        this.frameZerofonte = frameZerofonte;
+    }
 
     public int getIdRoleta() {
         return idRoleta;
@@ -66,8 +93,4 @@ public class Roleta {
         this.frameLargura = frameLargura;
     }
 
-   
-    
-    
-    
 }
