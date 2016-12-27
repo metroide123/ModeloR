@@ -22,11 +22,6 @@ public class Estrategias {
     public int MaiorMenorMax = 8;
     public int ConvertInt;
 
-    NumColetado NovoNum = new NumColetado();
-    NumColetadoDAO NovoNumDAO = new NumColetadoDAO();
-    Date date = new Date();
-    DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
     String nomeRoleta;
 
     ResultaDados res = new ResultaDados();

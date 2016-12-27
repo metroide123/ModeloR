@@ -237,7 +237,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_NovoCassinoActionPerformed
 
     private void NovaRoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovaRoletaActionPerformed
-        CadastroRoleta Roleta = new CadastroRoleta();
+        CadastroRoleta Roleta = new CadastroRoleta(jdpHome);
         jdpHome.add(Roleta);
         Roleta.setVisible(true);
     }//GEN-LAST:event_NovaRoletaActionPerformed

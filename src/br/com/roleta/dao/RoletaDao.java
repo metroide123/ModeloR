@@ -60,9 +60,7 @@ public class RoletaDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao listar Roletas\n" + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
-        }
+        } 
         return lista;
     }
 
@@ -77,9 +75,7 @@ public class RoletaDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao deletar novo Roleta\n" + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
-        }
+        } 
     }
 
     private Roleta mapear(ResultSet resultSet) throws SQLException {
@@ -110,9 +106,7 @@ public class RoletaDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro na listar de Roletas\n" + ex);
-        } finally {
-            //ConnectionFactory.closeConnection(con, stmt);
-        }
+        } 
         return lista;
     }
 
@@ -133,7 +127,7 @@ public class RoletaDao {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao listar Roleta\n" + ex);
         }
-        ConnectionFactory.closeConnection(con, stmt, resultSet);
+        
         return null;
     }
 

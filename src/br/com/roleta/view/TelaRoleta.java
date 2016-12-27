@@ -1,9 +1,11 @@
 package br.com.roleta.view;
 
 import br.com.roleta.controlador.AlertaThead;
+import br.com.roleta.controlador.DadosChamadaRoleta;
 import br.com.roleta.controlador.ThreadLeituraTela;
 import br.com.roleta.controlador.TransFrameCZero;
 import br.com.roleta.controlador.TransparentFrame;
+import br.com.roleta.modelo.Roleta;
 import java.awt.Color;
 import javax.swing.JTextField;
 import org.jfree.chart.ChartPanel;
@@ -19,32 +21,31 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
     AlertaThead Alerta = new AlertaThead();
     Home jpdHome;
     
-    int larFrameZero = 0, AltFrameZero = 0, locFraZero1 = 0, locFraZero2 = 0,
-            LarFrameTrans = 0, AltFrameTrans = 0, locFranTrans1 = 0, locFranTrans2 = 0, TamFont = 0;
+    int larFrameZero = 0, AltFrameZero = 0, LarFrameTrans = 0, AltFrameTrans = 0,TamFont = 0;
     int cont = 0;
-    float opFrameZero, opFrameTrans;
   
     boolean controlethead = true;
 
-    public TelaRoleta(int vp, int mm, int pp, int duz, int col, int escolha, String tipo, String L,Home jp) {
+    public TelaRoleta(DadosChamadaRoleta n, int escolha, String tipo, String L,Home jp, Roleta r) {
         escolha(escolha);
         jpdHome = jp;
-        FrameTransparente = new TransparentFrame(LarFrameTrans, AltFrameTrans, locFranTrans1, locFranTrans2);
-        FrameTransparente.setOpacity(opFrameTrans);
+        FrameTransparente = new TransparentFrame(LarFrameTrans, AltFrameTrans, 1187, 401);
+        FrameTransparente.setOpacity(0.55f);
         FrameTransparente.setVisible(true);
-
-        FrameZero = new TransFrameCZero(larFrameZero, AltFrameZero, locFraZero1, locFraZero2, TamFont);
-        FrameZero.setOpacity(opFrameZero);
+        
+        if(n.isFrameZeroAt()){
+        FrameZero = new TransFrameCZero(larFrameZero, AltFrameZero, 1193, 401, TamFont);
+        FrameZero.setOpacity(0.6f);
         FrameZero.setVisible(true);
-
+        }
         ThreadLeitura = new ThreadLeituraTela();
         ThreadLeitura.windowRefence = FrameTransparente;
 
-        ThreadLeitura.getEstra().ColunasMax = col;
-        ThreadLeitura.getEstra().DuziaMax = duz;
-        ThreadLeitura.getEstra().MaiorMenorMax = mm;
-        ThreadLeitura.getEstra().ParInparMax = pp;
-        ThreadLeitura.getEstra().PreVerMax = vp;
+        ThreadLeitura.getEstra().ColunasMax = n.getCol();
+        ThreadLeitura.getEstra().DuziaMax = n.getDuz();
+        ThreadLeitura.getEstra().MaiorMenorMax = n.getMM();
+        ThreadLeitura.getEstra().ParInparMax = n.getPI();
+        ThreadLeitura.getEstra().PreVerMax = n.getVP();
         ThreadLeitura.Local = L;
         ThreadLeitura.nomeRoleta = tipo;
         ThreadLeitura.start();
@@ -79,16 +80,10 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
                 // Frame com o Zero
                 larFrameZero = 10;
                 AltFrameZero = 30;
-                locFraZero1 = 1193;
-                locFraZero2 = 401;
-                opFrameZero = 0.6f;
                 TamFont = 18;
                 // Frame da Captura
                 LarFrameTrans = 45;
                 AltFrameTrans = 30;
-                locFranTrans1 = 1187;
-                locFranTrans2 = 401;
-                opFrameTrans = 0.55f;
                 break;
             }
         }

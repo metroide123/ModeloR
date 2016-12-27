@@ -31,9 +31,7 @@ public class numerosorteadoDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao adcinoar Número\n" + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
-        }
+        } 
 
     }
     
@@ -54,9 +52,7 @@ public class numerosorteadoDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao listar casinos" + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
-        }
+        } 
         return lista;
     }
     

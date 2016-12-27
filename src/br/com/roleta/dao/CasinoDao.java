@@ -32,9 +32,7 @@ public class CasinoDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao criar novo casino" + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
-        }
+        } 
 
     }
 
@@ -54,9 +52,7 @@ public class CasinoDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao listar casinos" + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
-        }
+        } 
         return lista;
     }
 
@@ -71,9 +67,7 @@ public class CasinoDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao criar novo casino" + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
-        }
+        } 
     }
 
     public void deletarCasinoNome(String NomeCasino) {
@@ -87,9 +81,7 @@ public class CasinoDao {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao criar novo casino" + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
-        }
+        } 
     }
 
     private Casino mapear(ResultSet resultSet) throws SQLException {
@@ -119,7 +111,7 @@ public class CasinoDao {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao listar casinos" + ex);
         } 
-        ConnectionFactory.closeConnection(con, stmt, resultSet);
+        
         return null;
     }
 }
