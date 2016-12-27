@@ -15,7 +15,7 @@ public class principal {
     
     public static void main(String[] args) {
         Login h = new Login();
-        h.setLocation(300, 300);
+        h.setLocationRelativeTo(null);
         h.setVisible(true);
     }
     

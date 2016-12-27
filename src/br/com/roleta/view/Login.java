@@ -111,9 +111,10 @@ public class Login extends javax.swing.JFrame {
         usuario = uc.autenticarUsuario(jComboBox1.getSelectedItem().toString());
         if (usuario != null) {
             Home h = new Home();
+            h.setLocationRelativeTo(null);
             h.setUsuario(usuario);
-           h.setVisible(true);
-           this.setVisible(false);
+            h.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

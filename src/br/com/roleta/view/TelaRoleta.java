@@ -28,7 +28,7 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
 
     public TelaRoleta(DadosChamadaRoleta n, String tipo, String L,Home jp, Roleta r) {
         jpdHome = jp;
-        FrameTransparente = new TransparentFrame(LarFrameTrans, AltFrameTrans, 1187, 401);
+        FrameTransparente = new TransparentFrame(r.getFrameLargura(), r.getFrameAltura(), 1187, 401);
         FrameTransparente.setOpacity(0.55f);
         FrameTransparente.setVisible(true);
         
@@ -47,12 +47,11 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         ThreadLeitura.getEstra().PreVerMax = n.getVP();
         ThreadLeitura.Local = L;
         ThreadLeitura.nomeRoleta = tipo;
-        ThreadLeitura.start();
-        ThreadLeitura.suspend();
-        Atualizatela = new AtualizaGrafico();
-        Atualizatela.start();
         
-
+        Atualizatela = new AtualizaGrafico();
+        
+        
+        AtThread();
         initComponents();
         PlayTrad.setText("PLAY");
  
@@ -73,7 +72,11 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         initComponents();
     }
 
-
+    public void AtThread(){
+        ThreadLeitura.start();
+        ThreadLeitura.suspend();
+        Atualizatela.start();
+    }
     public void Grafico() {
        // mexer depois pois da erro com a outra tread caso apague o codigo
         DefaultCategoryDataset data = new DefaultCategoryDataset();
