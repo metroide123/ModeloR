@@ -5,7 +5,7 @@
  */
 package br.com.roleta.main;
 
-import br.com.roleta.view.Home;
+import br.com.roleta.view.Login;
 
 /**
  *
@@ -14,7 +14,8 @@ import br.com.roleta.view.Home;
 public class principal {
     
     public static void main(String[] args) {
-        Home h = new Home();
+        Login h = new Login();
+        h.setLocation(300, 300);
         h.setVisible(true);
     }
     

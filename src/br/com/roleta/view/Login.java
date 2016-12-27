@@ -15,8 +15,8 @@ import javax.swing.DefaultComboBoxModel;
  *
  * @author andreqbs
  */
-public class Login extends javax.swing.JInternalFrame {
-    
+public class Login extends javax.swing.JFrame {
+
     private UsuarioControlador uc = new UsuarioControlador();
     private Usuario usuario;
 
@@ -39,7 +39,7 @@ public class Login extends javax.swing.JInternalFrame {
     public Usuario getUsuario() {
         return usuario;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,6 +66,11 @@ public class Login extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,8 +108,18 @@ public class Login extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       usuario = uc.autenticarUsuario(jComboBox1.getSelectedItem().toString());
+        usuario = uc.autenticarUsuario(jComboBox1.getSelectedItem().toString());
+        if (usuario != null) {
+            Home h = new Home();
+            h.setUsuario(usuario);
+           h.setVisible(true);
+           this.setVisible(false);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

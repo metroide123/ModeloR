@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class usuarioDao {
+public class UsuarioDao {
 
     private final Connection con = ConnectionFactory.getConnection();
 
@@ -78,7 +78,7 @@ public class usuarioDao {
         try {
             stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM Usuario WHERE nome = ?");
             stmt.setString(1, nome);
-            JOptionPane.showMessageDialog(null, "Encontrado!");
+            //JOptionPane.showMessageDialog(null, "Encontrado!");
             resultSet = stmt.executeQuery();
             if (resultSet.next()) {
                 return (mapear(resultSet));

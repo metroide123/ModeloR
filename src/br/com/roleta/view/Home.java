@@ -18,9 +18,7 @@ public class Home extends javax.swing.JFrame {
 
     public Home() {
         initComponents();
-        Login login = new Login();
-        jdpHome.add(login);
-        login.setVisible(true);
+       
         //usuario = login.getUsuario();
         adjustInternalFrameLocation();
     }
@@ -281,4 +279,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JDesktopPane jdpHome;
     // End of variables declaration//GEN-END:variables
+
+    void setUsuario(Usuario usuario) {
+       this.usuario = usuario;
+    }
 }
