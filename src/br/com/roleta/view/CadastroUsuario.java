@@ -19,6 +19,7 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
             NUsuario.setNome(jTextNomeUsuario.getText());
             NUsuarioDao.inseirUsuario(NUsuario);
             JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso");
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Caixa de Cadastro não pode Ser vaziu");
         }

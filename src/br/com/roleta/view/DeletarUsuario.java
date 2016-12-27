@@ -31,6 +31,7 @@ public class DeletarUsuario extends javax.swing.JInternalFrame {
         if (!"".equals(Usuario)) {
         cc.DeletarUsuario(jComboBox1.getName());
         JOptionPane.showMessageDialog(null, "Deletado Com Sucesso!");
+        this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Erro na seleção do Usuario");
         }

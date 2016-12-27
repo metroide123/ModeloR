@@ -318,7 +318,7 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
             if (ChamadoRoleta.getApMin() >= NRoleta.getValorMinino()){
             if (I == 1) {
                 Local = "Leitor1";
-                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, 1, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
+                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
                 novo.setTitle(NRoleta.getNome());
                 jpdHome.add(novo);
                 novo.setVisible(true);
@@ -326,7 +326,7 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
             }
             if (I == 2) {
                 Local = "Leitor2";
-                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, 1, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
+                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
                 novo.setTitle(NRoleta.getNome());
                 jpdHome.add(novo);
                 novo.setVisible(true);
@@ -334,7 +334,7 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
             }
             if (I == 3) {
                 Local = "Leitor3";
-                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, 1, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
+                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
                 novo.setTitle(NRoleta.getNome());
                 jpdHome.add(novo);
                 novo.setVisible(true);
@@ -343,7 +343,7 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
 
             if (I == 4) {
                 Local = "Leitor4";
-                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, 1, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
+                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
                 novo.setTitle(NRoleta.getNome());
                 jpdHome.add(novo);
                 novo.setVisible(true);
@@ -352,7 +352,7 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
 
             if (I == 5) {
                 Local = "Leitor5";
-                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, 1, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
+                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
                 novo.setTitle(NRoleta.getNome());
                 jpdHome.add(novo);
                 novo.setVisible(true);

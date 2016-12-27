@@ -231,7 +231,8 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
         r.setFrameZerofonte(Integer.parseInt(txfontZero.getText()));
         rc.inseirRoleta(r);
         JOptionPane.showMessageDialog(null, "Cadastrado Roleta Com Sucesso!");
-        } else {
+        this.dispose();
+         } else {
             JOptionPane.showMessageDialog(null, "Todos os Campos devem Estar Preenchidos Coretamente!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed

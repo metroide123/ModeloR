@@ -100,6 +100,7 @@ public class DeletarRoleta extends javax.swing.JInternalFrame {
         if (!"".equals(Roleta) ){
             cc.deletarRoletaNome(Roleta);
             JOptionPane.showMessageDialog(null, "Deletado Com Sucesso");
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Erro na seleção da Roleta");
         }

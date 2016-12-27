@@ -26,15 +26,14 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
   
     boolean controlethead = true;
 
-    public TelaRoleta(DadosChamadaRoleta n, int escolha, String tipo, String L,Home jp, Roleta r) {
-        escolha(escolha);
+    public TelaRoleta(DadosChamadaRoleta n, String tipo, String L,Home jp, Roleta r) {
         jpdHome = jp;
         FrameTransparente = new TransparentFrame(LarFrameTrans, AltFrameTrans, 1187, 401);
         FrameTransparente.setOpacity(0.55f);
         FrameTransparente.setVisible(true);
         
         if(n.isFrameZeroAt()){
-        FrameZero = new TransFrameCZero(larFrameZero, AltFrameZero, 1193, 401, TamFont);
+        FrameZero = new TransFrameCZero(r.getFrameZeroLargura(), r.getFrameZeroAltura(), 1193, 401, r.getFrameZerofonte());
         FrameZero.setOpacity(0.6f);
         FrameZero.setVisible(true);
         }
@@ -74,20 +73,6 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         initComponents();
     }
 
-    public void escolha(int i) {
-        switch (i) {
-            case 1: { //spotingbet tamanho 1
-                // Frame com o Zero
-                larFrameZero = 10;
-                AltFrameZero = 30;
-                TamFont = 18;
-                // Frame da Captura
-                LarFrameTrans = 45;
-                AltFrameTrans = 30;
-                break;
-            }
-        }
-    }
 
     public void Grafico() {
        // mexer depois pois da erro com a outra tread caso apague o codigo

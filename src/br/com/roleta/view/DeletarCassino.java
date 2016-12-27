@@ -101,6 +101,7 @@ public class DeletarCassino extends javax.swing.JInternalFrame {
         if (!"".equals(Casino)) {
             cc.DeletarCasinoNome(Casino);
             JOptionPane.showMessageDialog(null, "Deletado Com Sucesso");
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Erro na seleção do Casino");
         }

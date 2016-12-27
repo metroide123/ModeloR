@@ -33,12 +33,12 @@ public class TesteFrame extends javax.swing.JInternalFrame {
 
         Atualizatela = new AtualizaGrafico();
 
-        StartTradi();
+        StartTrade();
 
         initComponents();
     }
 
-    void StartTradi() {
+    void StartTrade() {
         ThreadLeitura.start();
         Atualizatela.start();
     }
