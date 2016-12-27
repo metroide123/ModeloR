@@ -18,23 +18,22 @@ public class Home extends javax.swing.JFrame {
 
     public Home() {
         initComponents();
-       
-        //usuario = login.getUsuario();
-        adjustInternalFrameLocation();
+      //  adjustInternalFrameLocation();
     }
 
     private void adjustInternalFrameLocation() {
-        FundosCassino usuarioDados = new FundosCassino();
-        jdpHome.add(usuarioDados);
+        FundosCassino fundos = new FundosCassino(usuario);
+        
+        jdpHome.add(fundos);
     //    usuarioDados.setNome(usuario.getNome());
         
         Dimension desktopDim = this.getSize();
 
-        int x = (desktopDim.width - 20 - usuarioDados.getWidth());
+        int x = (desktopDim.width - 20 - fundos.getWidth());
      //   int y = (desktopDim.height - usuarioDados.getHeight());
 
-        usuarioDados.setLocation(x, 5);
-        usuarioDados.setVisible(true);
+        fundos.setLocation(x, 5);
+        fundos.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")

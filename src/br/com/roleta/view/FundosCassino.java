@@ -5,9 +5,15 @@
  */
 package br.com.roleta.view;
 
+import br.com.roleta.controlador.FundosControlador;
+import br.com.roleta.modelo.Fundos;
+import br.com.roleta.modelo.Usuario;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,11 +21,13 @@ import javax.swing.SpringLayout;
  */
 public class FundosCassino extends javax.swing.JInternalFrame {
 
+    private Usuario u;
     /**
      * Creates new form UsuarioDados
      */
-    public FundosCassino() {
+    public FundosCassino(Usuario u) {
         initComponents();
+        this.u = u;
         SpringLayout layout = new SpringLayout();
         JLabel jLabel = new JLabel("Label: ");
         JTextField jTextField = new JTextField("Text field", 15);
@@ -27,8 +35,7 @@ public class FundosCassino extends javax.swing.JInternalFrame {
                 5,
                 SpringLayout.EAST, jLabel);
         jPanel.setLayout(layout);
-        jPanel.add(jLabel);
-        jPanel.add(jTextField);
+        populartabela();
 
     }
 
@@ -109,4 +116,24 @@ public class FundosCassino extends javax.swing.JInternalFrame {
     void setNome(String nome) {
        this.setTitle(nome);
     }
+    
+    void populartabela() {
+        String[] nomesColunas = {"Cassino", "Saldo", "Teste"};
+        List<Fundos> lista;
+        FundosControlador fc = new FundosControlador();
+        lista = fc.listar(u);
+        DefaultTableModel model = new DefaultTableModel(
+        lista.toArray(new String[lista.size()][]), nomesColunas);
+        tblSaldoCassino.setModel(model);
+    }
+
+    public Usuario getU() {
+        return u;
+    }
+
+    public void setU(Usuario u) {
+        this.u = u;
+    }
+    
+    
 }
