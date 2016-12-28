@@ -54,7 +54,7 @@ public class RoletaDao {
         List<Roleta> lista = new ArrayList<>();
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("SELECT idRoleta, nome, valorMinimo, frameLargura, frameAltura, idCasino FROM Roleta");
+            stmt = (PreparedStatement) con.prepareStatement("SELECT idRoleta, nome, valorMinimo, frameLargura, frameAltura, frameZeroAltura, frameZeroLargura, frameZeroFonte, idCasino FROM Roleta");
 
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
@@ -89,6 +89,9 @@ public class RoletaDao {
         Roleta.setIdCassino(resultSet.getInt("idCasino"));
         Roleta.setFrameAltura(resultSet.getInt("frameAltura"));
         Roleta.setFrameLargura(resultSet.getInt("frameLargura"));
+        Roleta.setFrameZeroAltura(resultSet.getInt("frameZeroAltura"));
+        Roleta.setFrameZeroLargura(resultSet.getInt("frameZeroLargura"));
+        Roleta.setFrameZerofonte(resultSet.getInt("frameZeroFonte"));
 
         return Roleta;
     }

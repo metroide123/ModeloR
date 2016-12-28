@@ -24,7 +24,7 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
     int larFrameZero = 0, AltFrameZero = 0, LarFrameTrans = 0, AltFrameTrans = 0,TamFont = 0;
     int cont = 0;
   
-    boolean controlethead = true;
+    boolean controlethead = true, FrameZeroTeste = false;
 
     public TelaRoleta(DadosChamadaRoleta n, String tipo, String L,Home jp, Roleta r) {
         jpdHome = jp;
@@ -424,8 +424,10 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_AddNumActionPerformed
 
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
-
+        
+        if(FrameZeroTeste){
         FrameZero.dispose();
+        }
         FrameTransparente.dispose();
         ThreadLeitura.stop();
         Atualizatela.stop();
