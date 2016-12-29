@@ -33,4 +33,9 @@ public class CasinoControlador {
     public Casino procurarCasino(String nome) {
         return casinoDao.encontrarCasino(nome);
     }
+    
+    public Casino procurarCasinoId(int id) {
+        return casinoDao.encontrarCasinoId(id);
+    }
 }
+

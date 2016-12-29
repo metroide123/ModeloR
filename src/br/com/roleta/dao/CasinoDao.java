@@ -109,7 +109,28 @@ public class CasinoDao {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao listar casinos" + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao Procurar casinos" + ex);
+        } 
+        
+        return null;
+    }
+    
+    public Casino encontrarCasinoId(int id) {
+
+        PreparedStatement stmt = null;
+        ResultSet resultSet = null;
+        
+        try {
+            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM Casino WHERE IdCasino = ?");
+            stmt.setInt(1, id);
+
+            resultSet = stmt.executeQuery();
+            if (resultSet.next()) {
+                return mapear(resultSet);
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Procurar casinos" + ex);
         } 
         
         return null;

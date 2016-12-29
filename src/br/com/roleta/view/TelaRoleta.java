@@ -1,12 +1,15 @@
 package br.com.roleta.view;
 
 import br.com.roleta.controlador.AlertaThead;
+import br.com.roleta.controlador.CasinoControlador;
 import br.com.roleta.controlador.DadosChamadaRoleta;
 import br.com.roleta.controlador.ThreadLeituraTela;
 import br.com.roleta.controlador.TransFrameCZero;
 import br.com.roleta.controlador.TransparentFrame;
+import br.com.roleta.modelo.Casino;
 import br.com.roleta.modelo.Roleta;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -18,12 +21,19 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
     TransFrameCZero FrameZero;
     ThreadLeituraTela ThreadLeitura;
     AtualizaGrafico Atualizatela;
+    Temporizador TimeSessao;
     AlertaThead Alerta = new AlertaThead();
     Home jpdHome;
     
+    
     int larFrameZero = 0, AltFrameZero = 0, LarFrameTrans = 0, AltFrameTrans = 0,TamFont = 0;
     int cont = 0;
-  
+    
+    
+    public Casino CasinoEsc = new Casino();
+    public CasinoControlador cc = new CasinoControlador();
+    
+    
     boolean controlethead = true, FrameZeroTeste = false;
 
     public TelaRoleta(DadosChamadaRoleta n, String tipo, String L,Home jp, Roleta r) {
@@ -31,6 +41,8 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         FrameTransparente = new TransparentFrame(r.getFrameLargura(), r.getFrameAltura(), 1187, 401);
         FrameTransparente.setOpacity(0.55f);
         FrameTransparente.setVisible(true);
+        
+        CasinoEsc = cc.procurarCasinoId(r.getIdCassino());
         
         if(n.isFrameZeroAt()){
         FrameZero = new TransFrameCZero(r.getFrameZeroLargura(), r.getFrameZeroAltura(), 1193, 401, r.getFrameZerofonte());
@@ -49,7 +61,7 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         ThreadLeitura.nomeRoleta = tipo;
         
         Atualizatela = new AtualizaGrafico();
-        
+        TimeSessao = new Temporizador();
         
         AtThread();
         initComponents();
@@ -65,7 +77,7 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         jTextField8.setEditable(false);
         jTextField9.setEditable(false);
         jTextArea1.setLineWrap(true);
-        
+        TimeSessao.start();
     }
 
     public TelaRoleta() {
@@ -76,6 +88,7 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         ThreadLeitura.start();
         ThreadLeitura.suspend();
         Atualizatela.start();
+      
     }
     public void Grafico() {
        // mexer depois pois da erro com a outra tread caso apague o codigo
@@ -155,7 +168,7 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        TempoSessao = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
         ZerarBotao = new javax.swing.JButton();
@@ -242,9 +255,9 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Tempo Restante Sessão:");
 
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("20:00:00");
+        TempoSessao.setBackground(new java.awt.Color(255, 255, 255));
+        TempoSessao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TempoSessao.setText("20:00:00");
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -279,7 +292,7 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
                         .addGap(14, 14, 14)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(TempoSessao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -347,7 +360,7 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6)
+                    .addComponent(TempoSessao)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -450,13 +463,13 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
     private javax.swing.JButton InformarEntrada;
     private javax.swing.JButton PlayTrad;
     private javax.swing.JButton Sair;
+    public javax.swing.JLabel TempoSessao;
     private javax.swing.JButton ZerarBotao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -527,6 +540,45 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
                     MudaCorJtsfile(jTextField9, pri1);
 
                     AtualizaGrafico.sleep(1000);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+    
+    public class Temporizador extends Thread {
+
+        int Minutos = CasinoEsc.getTempoSessao();
+        int Segundos = 00;
+       
+                    
+                
+        @Override
+        public void run() {
+
+            try {
+                while (true) {
+                    
+                    if (Segundos == 0){
+                        if(Minutos>0){
+                        Segundos = 59;
+                        Minutos--;
+                        } 
+                    } else {
+                        Segundos--;
+                    }
+                    
+                    TempoSessao.setText(Integer.toString(Minutos)+":"+Integer.toString(Segundos));
+                    
+                    if(Segundos == 00 && Minutos == 00){
+                        JOptionPane.showMessageDialog(null, "Tempo de Sessão Acabou");
+                        TimeSessao.suspend();
+                    }
+                    
+                    this.sleep(1000);
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
