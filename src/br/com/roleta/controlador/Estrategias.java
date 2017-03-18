@@ -1,12 +1,7 @@
 package br.com.roleta.controlador;
 
-import br.com.roleta.modelo.NumColetado;
 import br.com.roleta.modelo.ResultaDados;
-import br.com.roleta.dao.NumColetadoDAO;
 import br.com.roleta.dao.resultadosDAO;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Estrategias {
 
@@ -21,6 +16,7 @@ public class Estrategias {
     public int PreVerMax = 9;
     public int MaiorMenorMax = 8;
     public int ConvertInt;
+    public int RetonoAposta;
 
     String nomeRoleta;
 
@@ -79,6 +75,15 @@ public class Estrategias {
         }
 
     }
+
+    public int getRetonoAposta() {
+        return RetonoAposta;
+    }
+
+    public void setRetonoAposta(int RetonoAposta) {
+        this.RetonoAposta = RetonoAposta;
+    }
+   
 
     public void ContDuzia(int n) {
         int d = n;
@@ -232,6 +237,8 @@ public class Estrategias {
 
         String Duzia, Coluna, ParInpar, VerPre, MaiorMenor;
         Duzia = Coluna = ParInpar = VerPre = MaiorMenor = "";
+        
+        setRetonoAposta(0);
 
         if (coluna1 >= (ColunasMax + 1) / 2) {
             Coluna = "Coluna 1 e 2 Acumulando...";
@@ -240,6 +247,7 @@ public class Estrategias {
             }
             if (coluna1 >= ColunasMax) {
                 Coluna = "Aposte Coluna 2 e 3 ";
+                setRetonoAposta(1);
             }
         }
 
@@ -250,6 +258,7 @@ public class Estrategias {
             }
             if (coluna3 >= ColunasMax) {
                 Coluna = "Aposte Coluna 2 e 1";
+                setRetonoAposta(1);
             }
         }
 
@@ -260,6 +269,7 @@ public class Estrategias {
             }
             if (Duzia1 >= DuziaMax) {
                 Duzia = "Aposte Duzia 2 e 3 ";
+                setRetonoAposta(1);
             }
         }
 
@@ -270,6 +280,7 @@ public class Estrategias {
             }
             if (Duzia3 >= DuziaMax) {
                 Duzia = "Aposte Duzia 1 e 2";
+                setRetonoAposta(1);
             }
         }
 
@@ -280,6 +291,7 @@ public class Estrategias {
             }
             if (V >= PreVerMax) {
                 VerPre = "Apostar Preto!";
+                setRetonoAposta(1);
             }
         }
 
@@ -290,6 +302,7 @@ public class Estrategias {
             }
             if (P >= PreVerMax) {
                 VerPre = "Apostar Vermelhor!";
+                setRetonoAposta(1);
             }
         }
 
@@ -300,6 +313,7 @@ public class Estrategias {
             }
             if (Par >= ParInparMax) {
                 ParInpar = "Aposte Impar!";
+                setRetonoAposta(1);
             }
         }
 
@@ -310,6 +324,7 @@ public class Estrategias {
             }
             if (Inpar >= ParInparMax) {
                 ParInpar = "Aposte Par!";
+                setRetonoAposta(1);
 
             }
 
@@ -322,6 +337,7 @@ public class Estrategias {
             }
             if (Maior >= MaiorMenorMax) {
                 MaiorMenor = "Aposte Menor!";
+                setRetonoAposta(1);
             }
         }
 
@@ -332,8 +348,10 @@ public class Estrategias {
             }
             if (Menor >= MaiorMenorMax) {
                 MaiorMenor = "Aposte Maior!";
+                setRetonoAposta(1);
             }
         }
+        
 
         String Resposta;
         Resposta = Coluna + "\n" + Duzia + "\n" + MaiorMenor + "\n" + ParInpar + "\n" + VerPre;
@@ -359,10 +377,6 @@ public class Estrategias {
     public void AnalisandoDadosBDVP(int i) {
         ContDuzia(i);
 
-        DuziaMax = 9;
-        ParInparMax = 9;
-        PreVerMax = 9;
-        MaiorMenorMax = 8;
         boolean coc = TesteColuna2(i);
         boolean coc1 = TesteColuna3(i);
         if (C12 >= ColunasMax) {
@@ -427,54 +441,6 @@ public class Estrategias {
                 }
             }
         }
-        /*        
-         if (C23 >= ColunasMax) {
-         c1++;
-         } else if (c1 != 0 && coc){
-         if (c1 == 2) {
-         if (coc || coluna1 >= 1) {
-         res.setEntrada("Coluna - 23");
-         res.setP1("V");
-         res.setP2("-");
-         res.setP3("-");
-         res.setResultado("Ganho");
-         res.setTamanhoespera(1);
-         rdao.create(res);
-         c1 = 0;
-         }
-         } else if (c1 == 3) {
-         if (coc || coluna1 >= 1) {
-         res.setEntrada("Coluna - 23");
-         res.setP1("P");
-         res.setP2("V");
-         res.setP3("-");
-         res.setResultado("Ganho");
-         res.setTamanhoespera(2);
-         rdao.create(res);
-         c1 = 0;
-         }
-         } else if (c1 == 4) {
-         if (coc || coluna1 >= 1) {
-         res.setEntrada("Coluna - 23");
-         res.setP1("P");
-         res.setP2("P");
-         res.setP3("V");
-         res.setResultado("Ganho");
-         res.setTamanhoespera(3);
-         rdao.create(res);
-         c1 = 0;
-         }
-         } else if (c1 >= 4) {
-         res.setEntrada("Coluna - 12");
-         res.setP1("P");
-         res.setP2("P");
-         res.setP3("P");
-         res.setResultado("Perdido");
-         res.setTamanhoespera(3);
-         rdao.create(res);
-         c1 = 0;
-         }
-         }
-         */
+        
     }
 }

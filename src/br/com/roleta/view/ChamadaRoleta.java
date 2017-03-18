@@ -318,43 +318,38 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
             if (ChamadoRoleta.getApMin() >= NRoleta.getValorMinino()){
             if (I == 1) {
                 Local = "Leitor1";
-                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
+                RoletaTela novo = new RoletaTela(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
                 novo.setTitle(NRoleta.getNome());
-                jpdHome.add(novo);
                 novo.setVisible(true);
                 this.dispose();
             }
             if (I == 2) {
                 Local = "Leitor2";
-                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
+                RoletaTela novo = new RoletaTela(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
                 novo.setTitle(NRoleta.getNome());
-                jpdHome.add(novo);
                 novo.setVisible(true);
                 this.dispose();
             }
             if (I == 3) {
                 Local = "Leitor3";
-                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
+                RoletaTela novo = new RoletaTela(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
                 novo.setTitle(NRoleta.getNome());
-                jpdHome.add(novo);
                 novo.setVisible(true);
                 this.dispose();
             }
 
             if (I == 4) {
                 Local = "Leitor4";
-                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
+                RoletaTela novo = new RoletaTela(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
                 novo.setTitle(NRoleta.getNome());
-                jpdHome.add(novo);
                 novo.setVisible(true);
                 this.dispose();
             }
 
             if (I == 5) {
                 Local = "Leitor5";
-                TelaRoleta novo = new TelaRoleta(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
+                RoletaTela novo = new RoletaTela(ChamadoRoleta, "ROLETA " + Integer.toString(I), Local, home, NRoleta);
                 novo.setTitle(NRoleta.getNome());
-                jpdHome.add(novo);
                 novo.setVisible(true);
                 this.dispose();
             }

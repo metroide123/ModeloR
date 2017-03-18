@@ -15,7 +15,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class TelaRoleta extends javax.swing.JInternalFrame {
+public class RoletaTela extends javax.swing.JFrame {
 
     TransparentFrame FrameTransparente;
     TransFrameCZero FrameZero;
@@ -24,30 +24,25 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
     Temporizador TimeSessao;
     AlertaThead Alerta = new AlertaThead();
     Home jpdHome;
-    
-    
-    int larFrameZero = 0, AltFrameZero = 0, LarFrameTrans = 0, AltFrameTrans = 0,TamFont = 0;
-    int cont = 0;
-    
-    
     public Casino CasinoEsc = new Casino();
     public CasinoControlador cc = new CasinoControlador();
-    
-    
-    boolean controlethead = true, FrameZeroTeste = false;
 
-    public TelaRoleta(DadosChamadaRoleta n, String tipo, String L,Home jp, Roleta r) {
+    int apMin;
+    boolean controlethead = true, FrameZeroTeste = false, EntradaAp = false;
+
+    public RoletaTela(DadosChamadaRoleta n, String tipo, String L, Home jp, Roleta r) {
         jpdHome = jp;
         FrameTransparente = new TransparentFrame(r.getFrameLargura(), r.getFrameAltura(), 1187, 401);
         FrameTransparente.setOpacity(0.55f);
         FrameTransparente.setVisible(true);
-        
+
         CasinoEsc = cc.procurarCasinoId(r.getIdCassino());
-        
-        if(n.isFrameZeroAt()){
-        FrameZero = new TransFrameCZero(r.getFrameZeroLargura(), r.getFrameZeroAltura(), 1193, 401, r.getFrameZerofonte());
-        FrameZero.setOpacity(0.6f);
-        FrameZero.setVisible(true);
+        apMin = n.getApMin();
+
+        if (n.isFrameZeroAt()) {
+            FrameZero = new TransFrameCZero(r.getFrameZeroLargura(), r.getFrameZeroAltura(), 1193, 401, r.getFrameZerofonte());
+            FrameZero.setOpacity(0.6f);
+            FrameZero.setVisible(true);
         }
         ThreadLeitura = new ThreadLeituraTela();
         ThreadLeitura.windowRefence = FrameTransparente;
@@ -59,14 +54,15 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         ThreadLeitura.getEstra().PreVerMax = n.getVP();
         ThreadLeitura.Local = L;
         ThreadLeitura.nomeRoleta = tipo;
-        
+
         Atualizatela = new AtualizaGrafico();
         TimeSessao = new Temporizador();
-        
+
         AtThread();
         initComponents();
         PlayTrad.setText("PLAY");
- 
+        ApAtual.setText(Integer.toString(apMin));
+        ApAtual.setEditable(false);
         jTextField1.setEditable(false);
         jTextField2.setEditable(false);
         jTextField3.setEditable(false);
@@ -78,20 +74,24 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         jTextField9.setEditable(false);
         jTextArea1.setLineWrap(true);
         TimeSessao.start();
+        
+        this.setLocationRelativeTo(null);
+        this.setAlwaysOnTop(true);
     }
 
-    public TelaRoleta() {
+    public RoletaTela() {
         initComponents();
     }
 
-    public void AtThread(){
+    public void AtThread() {
         ThreadLeitura.start();
         ThreadLeitura.suspend();
         Atualizatela.start();
-      
+
     }
+
     public void Grafico() {
-       // mexer depois pois da erro com a outra tread caso apague o codigo
+        // mexer depois pois da erro com a outra tread caso apague o codigo
         DefaultCategoryDataset data = new DefaultCategoryDataset();
         ChartPanel panel;
         JFreeChart chart = null;
@@ -109,11 +109,20 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         String dia6 = "Ver";
         String dia7 = "M19";
         String dia8 = "M18";
-        
+
         String R = ThreadLeitura.getEstra().Verificar();
         jTextArea1.setText(R);
 
-    } 
+    }
+
+    public void VerificaGanhoPerda() {
+        // Ver Quem é a Entrada, Fazer a Entrada, Ver o Resultado e Zerar ou Dograr Caso Ganhe ou Perca
+        if (ThreadLeitura.getEstra().getRetonoAposta() == 1) {
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Não Existe Entrada No Momento");
+        }
+    }
 
     public void MudaCorJtsfile(JTextField dt, int pri1) {
         if (pri1 == 1) {
@@ -148,16 +157,18 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField10 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        AddNum = new javax.swing.JButton();
-        PlayTrad = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        ApAtual = new javax.swing.JTextField();
+        ZerarBotao = new javax.swing.JButton();
+        InformarEntrada = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jtR1 = new javax.swing.JTextField();
+        JtR2 = new javax.swing.JTextField();
+        JtR3 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jTLucroPerda = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
@@ -167,24 +178,80 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
+        AddNum = new javax.swing.JButton();
+        PlayTrad = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         TempoSessao = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        ZerarBotao = new javax.swing.JButton();
-        InformarEntrada = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
 
-        jLabel1.setText("Add Número:");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
-        setBackground(new java.awt.Color(255, 255, 255));
-        setIconifiable(true);
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("00,00");
+
+        ApAtual.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        ZerarBotao.setText("Zerar/ Daeller");
+        ZerarBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ZerarBotaoActionPerformed(evt);
+            }
+        });
+
+        InformarEntrada.setText("Entrar");
+
+        jLabel8.setText("Resultado Última Entrada:");
+
+        jtR1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        JtR2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        JtR3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel9.setText("Lucro/Perda: ");
+
+        jTLucroPerda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jTextField12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField12.setText("0");
+
+        jLabel10.setText("Valor Aposta Atual: ");
+
+        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField7.setText("0");
+
+        jTextField8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField8.setText("0");
+
+        jTextField9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField9.setText("0");
+
+        jLabel2.setText("Add Número:");
+
+        Sair.setText("SAIR");
+        Sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SairActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setToolTipText("");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jLabel3.setText("Saldo Casino:");
 
         AddNum.setText("ADD Num");
         AddNum.addActionListener(new java.awt.event.ActionListener() {
@@ -206,77 +273,25 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText("10");
+        jTextField2.setText("0");
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField3.setText("10");
+        jTextField3.setText("0");
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField4.setText("10");
+        jTextField4.setText("0");
 
         jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField5.setText("10");
-
-        jTextField12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField12.setText("10");
-
-        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField7.setText("10");
-
-        jTextField8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField8.setText("10");
-
-        jTextField9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField9.setText("10");
-
-        jLabel2.setText("Add Número:");
-
-        Sair.setText("SAIR");
-        Sair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SairActionPerformed(evt);
-            }
-        });
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jLabel3.setText("Saldo Casino:");
+        jTextField5.setText("0");
 
         jLabel5.setText("Tempo Restante Sessão:");
 
         TempoSessao.setBackground(new java.awt.Color(255, 255, 255));
         TempoSessao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TempoSessao.setText("20:00:00");
-
-        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("00,00");
-
-        ZerarBotao.setText("Zerar/ Daeller");
-        ZerarBotao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ZerarBotaoActionPerformed(evt);
-            }
-        });
-
-        InformarEntrada.setText("Entrar");
-
-        jLabel8.setText("Resultado Última Entrada:");
-
-        jLabel9.setText("Lucro/Perda: ");
-
-        jLabel10.setText("Valor Aposta Atual: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -323,7 +338,7 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel10)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(ApAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel8)
@@ -331,12 +346,12 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jtR1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(JtR2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jTextField16)))
+                                                .addComponent(JtR3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jTLucroPerda)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(ZerarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -383,7 +398,7 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ApAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,12 +409,12 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JtR3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JtR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTLucroPerda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -411,6 +426,33 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ZerarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZerarBotaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ZerarBotaoActionPerformed
+
+    private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
+
+        if (FrameZeroTeste) {
+            FrameZero.dispose();
+        }
+        FrameTransparente.dispose();
+        ThreadLeitura.stop();
+        Atualizatela.stop();
+        jpdHome.setI(jpdHome.getI() - 1);
+        this.dispose();
+    }//GEN-LAST:event_SairActionPerformed
+
+    private void AddNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNumActionPerformed
+
+        int i;
+        i = Integer.parseInt(jTextField6.getText());
+        if (i >= 0 && i <= 36) {
+            ThreadLeitura.getEstra().ConverterInt(jTextField6.getText());
+        } else {
+
+        }
+    }//GEN-LAST:event_AddNumActionPerformed
 
     private void PlayTradActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlayTradActionPerformed
 
@@ -425,47 +467,51 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_PlayTradActionPerformed
 
-    private void AddNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNumActionPerformed
-
-        int i;
-        i = Integer.parseInt(jTextField6.getText());
-        if (i >= 0 && i <= 36) {
-            ThreadLeitura.getEstra().ConverterInt(jTextField6.getText());
-        } else {
-
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(RoletaTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(RoletaTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(RoletaTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(RoletaTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_AddNumActionPerformed
+        //</editor-fold>
 
-    private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
-        
-        if(FrameZeroTeste){
-        FrameZero.dispose();
-        }
-        FrameTransparente.dispose();
-        ThreadLeitura.stop();
-        Atualizatela.stop();
-        jpdHome.setI(jpdHome.getI()-1);
-        this.dispose();
-
-    }//GEN-LAST:event_SairActionPerformed
-
-    private void PlayTrad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlayTrad1ActionPerformed
-
-    }//GEN-LAST:event_PlayTrad1ActionPerformed
-
-    private void ZerarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZerarBotaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ZerarBotaoActionPerformed
-
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new RoletaTela().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddNum;
+    private javax.swing.JTextField ApAtual;
     private javax.swing.JButton InformarEntrada;
+    private javax.swing.JTextField JtR2;
+    private javax.swing.JTextField JtR3;
     private javax.swing.JButton PlayTrad;
     private javax.swing.JButton Sair;
     public javax.swing.JLabel TempoSessao;
     private javax.swing.JButton ZerarBotao;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -474,15 +520,10 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTLucroPerda;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -491,6 +532,7 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jtR1;
     // End of variables declaration//GEN-END:variables
 
     public class AtualizaGrafico extends Thread {
@@ -548,36 +590,34 @@ public class TelaRoleta extends javax.swing.JInternalFrame {
         }
 
     }
-    
+
     public class Temporizador extends Thread {
 
         int Minutos = CasinoEsc.getTempoSessao();
         int Segundos = 00;
-       
-                    
-                
+
         @Override
         public void run() {
 
             try {
                 while (true) {
-                    
-                    if (Segundos == 0){
-                        if(Minutos>0){
-                        Segundos = 59;
-                        Minutos--;
-                        } 
+
+                    if (Segundos == 0) {
+                        if (Minutos > 0) {
+                            Segundos = 59;
+                            Minutos--;
+                        }
                     } else {
                         Segundos--;
                     }
-                    
-                    TempoSessao.setText(Integer.toString(Minutos)+":"+Integer.toString(Segundos));
-                    
-                    if(Segundos == 00 && Minutos == 00){
+
+                    TempoSessao.setText(Integer.toString(Minutos) + ":" + Integer.toString(Segundos));
+
+                    if (Segundos == 00 && Minutos == 00) {
                         JOptionPane.showMessageDialog(null, "Tempo de Sessão Acabou");
                         TimeSessao.suspend();
                     }
-                    
+
                     this.sleep(1000);
                 }
             } catch (InterruptedException e) {

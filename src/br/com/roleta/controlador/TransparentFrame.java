@@ -43,7 +43,7 @@ public class TransparentFrame extends JFrame implements MouseMotionListener, Act
         setLayout(new GridBagLayout());
         setSize(lar1, alt1);
         setLocation(loc1, loc2);
-        setAlwaysOnTop(true);
+        //setAlwaysOnTop(true);
 
        // ThreadLeituraTela t = new ThreadLeituraTela();
         // t.windowRefence = this;
