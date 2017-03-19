@@ -1,5 +1,7 @@
 package br.com.roleta.controlador;
 
+import br.com.roleta.LeituraImagem.LerImagem;
+import br.com.roleta.LeituraImagem.Pixel;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Robot;
@@ -35,6 +37,9 @@ public class ThreadLeituraTela extends Thread {
 
     public void run() {
         Estra.nomeRoleta = getNomeRoleta();
+        LerImagem obj1;
+        Pixel obj2;
+
         try {
             while (true) {
 
@@ -49,18 +54,20 @@ public class ThreadLeituraTela extends Thread {
                         Graphics2D graphics = screenShot.createGraphics();
 
                         // caminho a ser salvo a imagem
-                        ImageIO.write(screenShot, "png", new File("c:\\Leitor\\" + Local + "\\Img.png"));
+                        // (retirei) ImageIO.write(screenShot, "png", new File("c:\\Leitor\\" + Local + "\\Img.png"));
+                        ImageIO.write(screenShot, "png", new File("Img.png"));
+                        obj1 = new LerImagem("Img.png", "Img_saida.png");
+                        obj2 = new Pixel("Img_saida.png");
 
                         //Captura do tesseract.exe Leitura da imagem
-                        Process process = new ProcessBuilder("C:\\Leitor\\" + Local + "\\Tesseract-OCR\\tesseract.exe", "C:\\Leitor\\" + Local + "\\Img.png", "C:\\Leitor\\" + Local + "\\Out").start();
+                        // (retirei) Process process = new ProcessBuilder("C:\\Leitor\\" + Local + "\\Tesseract-OCR\\tesseract.exe", "C:\\Leitor\\" + Local + "\\Img.png", "C:\\Leitor\\" + Local + "\\Out").start();
                         //Process process = new ProcessBuilder("C:\\ProgramFiles(x86)\\Tesseract-OCRtesseract.exe", "C:\\Leitor\\Img.png", "C:\\Leitor\\Out").start();
-
-                        String everything = this.readFile("C:\\Leitor\\" + Local + "\\Out.txt");
+                        // (retirei) String everything = this.readFile("C:\\Leitor\\" + Local + "\\Out.txt");
                         //System.out.println(everything);
-                        String nome = everything;
-                        nome = nome.replace(" ", "");
-                        nome = nome.trim();
-                        Estra.ConverterInt(nome);
+                        // (retirei) String nome = everything;
+                        // (retirei)   nome = nome.replace(" ", "");
+                        // (retirei)   nome = nome.trim();
+                        Estra.ConverterInt(obj2.contarPixels());
                         // System.out.println(nome);
 
                     } catch (Exception e) {
@@ -85,7 +92,7 @@ public class ThreadLeituraTela extends Thread {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
             sb.append(line);
-           // sb.append(System.lineSeparator());
+            // sb.append(System.lineSeparator());
             //while (line != null) {
 
             //line = br.readLine();

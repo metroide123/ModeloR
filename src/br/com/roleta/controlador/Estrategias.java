@@ -23,16 +23,16 @@ public class Estrategias {
     ResultaDados res = new ResultaDados();
     resultadosDAO rdao = new resultadosDAO();
 
-    public void ConverterInt(String n) {
+    public void ConverterInt(int n) {
 
-        String nome = n;
+      // String nome = n;
 
-        try {
-            ConvertInt = Integer.parseInt(nome); // Caso você queira tipo int, que é o usual.
-
-        } catch (NumberFormatException e) {
-            ConvertInt = 99;
-        }
+//        try {
+//            ConvertInt = Integer.parseInt(nome); // Caso você queira tipo int, que é o usual.
+//
+//        } catch (NumberFormatException e) {
+//            ConvertInt = 99;
+//        }
 
         if (ConvertInt == Anterios) {
 

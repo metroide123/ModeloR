@@ -172,7 +172,7 @@ public class RoletaTela extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txfAdicionarNumero = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         Sair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -361,7 +361,7 @@ public class RoletaTela extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField6))
+                                        .addComponent(txfAdicionarNumero))
                                     .addComponent(AddNum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(PlayTrad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Sair, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -397,7 +397,7 @@ public class RoletaTela extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txfAdicionarNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ApAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -446,9 +446,9 @@ public class RoletaTela extends javax.swing.JFrame {
     private void AddNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNumActionPerformed
 
         int i;
-        i = Integer.parseInt(jTextField6.getText());
+        i = Integer.parseInt(txfAdicionarNumero.getText());
         if (i >= 0 && i <= 36) {
-            ThreadLeitura.getEstra().ConverterInt(jTextField6.getText());
+        // (retirei)    ThreadLeitura.getEstra().ConverterInt(txfAdicionarNumero.getText());
         } else {
 
         }
@@ -528,11 +528,11 @@ public class RoletaTela extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jtR1;
+    private javax.swing.JTextField txfAdicionarNumero;
     // End of variables declaration//GEN-END:variables
 
     public class AtualizaGrafico extends Thread {
