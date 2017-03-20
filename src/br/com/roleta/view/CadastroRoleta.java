@@ -52,15 +52,7 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         txfLargura = new javax.swing.JTextField();
         txfAltura = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        txfLarguraZero = new javax.swing.JTextField();
-        txfAlturaZero = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        txfontZero = new javax.swing.JTextField();
         TesteCaptura = new javax.swing.JButton();
-        TexteZero = new javax.swing.JCheckBox();
 
         setClosable(true);
 
@@ -93,22 +85,12 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
 
         jLabel7.setText("V");
 
-        jLabel8.setText("Tam. FrameZero: ");
-
-        jLabel9.setText("H");
-
-        jLabel10.setText("V");
-
-        jLabel11.setText("Font:");
-
         TesteCaptura.setText("Teste Captura");
         TesteCaptura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TesteCapturaActionPerformed(evt);
             }
         });
-
-        TexteZero.setText("Teste Com FrameZero");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,51 +100,37 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txfLarguraZero, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txfAlturaZero, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel3)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txfValor)
+                                    .addComponent(txfNome)
+                                    .addComponent(cbxCasino, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txfLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txfAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(15, 15, 15)))))
+                        .addContainerGap(38, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TexteZero)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txfontZero, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(74, 74, 74))
-                            .addComponent(TesteCaptura, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txfValor)
-                            .addComponent(txfNome)
-                            .addComponent(cbxCasino, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txfLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txfAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15)))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(TesteCaptura, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,24 +157,11 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txfAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(txfLarguraZero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txfAlturaZero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txfontZero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TexteZero)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TesteCaptura, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TesteCaptura, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -217,7 +172,7 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txfValorActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         if(!"".equals(txfNome.getText()) && !"".equals(txfValor.getText()) && !"".equals(txfAltura.getText()) && !"".equals(txfAlturaZero.getText()) && !"".equals(txfNome.getText()) && !"".equals(txfLarguraZero.getText()) && !"".equals(txfontZero.getText())) {
+         if(!"".equals(txfNome.getText()) && !"".equals(txfValor.getText()) && !"".equals(txfAltura.getText())) {
        CasinoControlador cc = new CasinoControlador();
         RoletaControlador rc = new RoletaControlador();
         Roleta r = new Roleta();
@@ -226,9 +181,6 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
         r.setFrameAltura(Integer.parseInt(txfAltura.getText()));
         r.setFrameLargura(Integer.parseInt(txfLargura.getText()));
         r.setIdCassino(cc.procurarCasino(cbxCasino.getSelectedItem().toString()).getIdCasino());
-        r.setFrameZeroAltura(Integer.parseInt(txfAlturaZero.getText()));
-        r.setFrameZeroLargura(Integer.parseInt(txfLarguraZero.getText()));
-        r.setFrameZerofonte(Integer.parseInt(txfontZero.getText()));
         rc.inseirRoleta(r);
         JOptionPane.showMessageDialog(null, "Cadastrado Roleta Com Sucesso!");
         this.dispose();
@@ -238,18 +190,11 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TesteCapturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TesteCapturaActionPerformed
-        if(!"".equals(txfNome.getText()) && !"".equals(txfValor.getText()) && !"".equals(txfAltura.getText()) && !"".equals(txfAlturaZero.getText()) && !"".equals(txfNome.getText()) && !"".equals(txfLarguraZero.getText()) && !"".equals(txfontZero.getText())) {
+        if(!"".equals(txfNome.getText()) && !"".equals(txfValor.getText()) && !"".equals(txfAltura.getText())) {
         boolean framezero = false;
         Roleta r = new Roleta();
         r.setFrameAltura(Integer.valueOf(txfAltura.getText()));
-        r.setFrameLargura(Integer.valueOf(txfLargura.getText()));
-        r.setFrameZeroAltura(Integer.valueOf(txfAlturaZero.getText()));
-        r.setFrameZeroLargura(Integer.valueOf(txfLarguraZero.getText()));
-        r.setFrameZerofonte(Integer.parseInt(txfontZero.getText()));
-        if(TexteZero.isSelected()){
-            framezero = true;
-        }
-        
+        r.setFrameLargura(Integer.valueOf(txfLargura.getText()));       
         TesteFrame novo = new TesteFrame(r, framezero);
         jpdHome.add(novo);
         novo.setVisible(true);
@@ -263,26 +208,18 @@ public class CadastroRoleta extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton TesteCaptura;
-    private javax.swing.JCheckBox TexteZero;
     private javax.swing.JComboBox cbxCasino;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txfAltura;
-    private javax.swing.JTextField txfAlturaZero;
     private javax.swing.JTextField txfLargura;
-    private javax.swing.JTextField txfLarguraZero;
     private javax.swing.JTextField txfNome;
     private javax.swing.JTextField txfValor;
-    private javax.swing.JTextField txfontZero;
     // End of variables declaration//GEN-END:variables
 }

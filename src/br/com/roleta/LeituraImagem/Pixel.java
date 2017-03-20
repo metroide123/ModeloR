@@ -52,7 +52,7 @@ public class Pixel {
             }
 
         }
-        //System.out.println("");
+       
         System.out.println(totalPixel);
         return numeroSorteado(totalPixel);
     }

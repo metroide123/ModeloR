@@ -8,13 +8,16 @@ public class Estrategias {
     public int Duzia1, D12 = 0, D32 = 0, Duzia2, Duzia3, coluna1, C12 = 0, C23 = 0,
             coluna2, coluna3, V, P, Par, Inpar, Maior, Menor, Anterios = 0, A1 = 0, A2 = 0, A3 = 0, A4 = 0, A5 = 0, A6 = 0, A7 = 0, A8 = 0;
     public int Duz1 = 0, Duz2 = 0, Duz3 = 0;
+    int DR1 = 0, DR2 = 0, DR3 = 0, CR1 = 0, CR2 = 0, CR3 = 0;
     // Espera Para dar a Entrada de cada estrategia
     // A entrada é sempre no numero +1 q inserido
-    public int ColunasMax = 9;
-    public int DuziaMax = 9;
-    public int ParInparMax = 9;
-    public int PreVerMax = 9;
-    public int MaiorMenorMax = 8;
+    public int ColunasMax = 10;
+    public int DuziaMax = 10;
+    public int ParInparMax = 10;
+    public int PreVerMax = 10;
+    public int MaiorMenorMax = 9;
+    public int DRMax = 5;
+    public int CRMax = 5;
     public int ConvertInt;
     public int RetonoAposta;
 
@@ -26,7 +29,6 @@ public class Estrategias {
     public void ConverterInt(int n) {
 
       // String nome = n;
-
         try {
             ConvertInt = n; // Caso você queira tipo int, que é o usual.
             System.out.println(n);
@@ -48,7 +50,7 @@ public class Estrategias {
             A1 = Anterios;
             Anterios = ConvertInt;
             ContDuzia(ConvertInt);
-            
+
         }
 
     }
@@ -84,7 +86,6 @@ public class Estrategias {
     public void setRetonoAposta(int RetonoAposta) {
         this.RetonoAposta = RetonoAposta;
     }
-   
 
     public void ContDuzia(int n) {
         int d = n;
@@ -215,7 +216,49 @@ public class Estrategias {
             Par = 0;
         }
 
-        MaiorMenor(n);
+        DuziaRepet(p);
+
+    }
+
+    public void DuziaRepet(int d) {
+        if (d >= 1 && d <= 12) {
+            DR1++;
+            DR2 = 0;
+            DR3 = 0;
+        }
+        if (d >= 25 && d <= 36) {
+            DR3++;
+            DR2 = 0;
+            DR1 = 0;
+        }
+        if (d >= 13 && d <= 24) {
+            DR2++;
+            DR1 = 0;
+            DR3 = 0;
+        }
+        ColunaRepet(d);
+    }
+
+    public void ColunaRepet(int d) {
+        if (d == 1 || d == 4 || d == 7 || d == 10 || d == 13 || d == 16
+                || d == 19 || d == 22 || d == 25 || d == 28 || d == 31 || d == 34) {
+            CR1++;
+            CR2 = 0;
+            CR3 = 0;
+        }
+        if (d == 3 || d == 6 || d == 9 || d == 12 || d == 15 || d == 18
+                || d == 21 || d == 24 || d == 27 || d == 30 || d == 33 || d == 36) {
+            CR3++;
+            CR2 = 0;
+            CR1 = 0;
+        }
+        if (d == 2 || d == 5 || d == 8 || d == 11 || d == 14 || d == 17
+                || d == 20 || d == 23 || d == 26 || d == 29 || d == 32 || d == 35) {
+            CR2++;
+            CR1 = 0;
+            CR3 = 0;
+        }
+        Verificar();
     }
 
     public void MaiorMenor(int p) {
@@ -233,12 +276,12 @@ public class Estrategias {
         }
 
     }
-    
+
     public String Verificar() {
 
-        String Duzia, Coluna, ParInpar, VerPre, MaiorMenor;
-        Duzia = Coluna = ParInpar = VerPre = MaiorMenor = "";
-        
+        String Duzia, Coluna, ParInpar, VerPre, MaiorMenor, ColRepet, DuzRepet;
+        Duzia = Coluna = ParInpar = VerPre = MaiorMenor = ColRepet = DuzRepet = "";
+
         setRetonoAposta(0);
 
         if (coluna1 >= (ColunasMax + 1) / 2) {
@@ -352,10 +395,69 @@ public class Estrategias {
                 setRetonoAposta(1);
             }
         }
-        
+
+        if (CR1 >= (CRMax + 1) / 2) {
+            ColRepet = "Coluna1 Acumulando..";
+            if (CR1 == CRMax - 1) {
+                ColRepet = "Col 2 e 3 Att!";
+            }
+            if (CR1 >= CRMax) {
+                ColRepet = "Aposte Col 2 e 3!";
+            }
+        }
+
+        if (CR2 >= (CRMax + 1) / 2) {
+            ColRepet = "Coluna2 Acumulando..";
+            if (CR2 == CRMax - 1) {
+                ColRepet = "Col 1 e 3 Att!";
+            }
+            if (CR2 >= CRMax) {
+                ColRepet = "Aposte Col 1 e 3!";
+            }
+        }
+
+        if (CR3 >= (CRMax + 1) / 2) {
+            ColRepet = "Coluna3 Acumulando..";
+            if (CR3 == CRMax - 1) {
+                ColRepet = "Col 1 e 2 Att!";
+            }
+            if (CR3 >= CRMax) {
+                ColRepet = "Aposte Col 1 e 2!";
+            }
+        }
+
+        if (DR1 >= (DRMax + 1) / 2) {
+            DuzRepet = "Duzia 1 Acumulando..";
+            if (DR1 == DRMax - 1) {
+                DuzRepet = "Duz 2 e 3 Att!";
+            }
+            if (DR1 >= DRMax) {
+                DuzRepet = "Aposte Duz 2 e 3!";
+            }
+        }
+
+        if (DR2 >= (DRMax + 1) / 2) {
+            DuzRepet = "Duzia 2 Acumulando..";
+            if (DR2 == DRMax - 1) {
+                DuzRepet = "Duz 1 e 3 Att!";
+            }
+            if (DR2 >= DRMax) {
+                DuzRepet = "Aposte Duz 1 e 3!";
+            }
+        }
+
+        if (DR3 >= (DRMax + 1) / 2) {
+            DuzRepet = "Duzia 3 Acumulando..";
+            if (DR3 == DRMax - 1) {
+                DuzRepet = "Duz 1 e 2 Att!";
+            }
+            if (DR3 >= DRMax) {
+                DuzRepet = "Aposte Duz 1 e 2!";
+            }
+        }
 
         String Resposta;
-        Resposta = Coluna + "\n" + Duzia + "\n" + MaiorMenor + "\n" + ParInpar + "\n" + VerPre;
+        Resposta = Coluna + "\n" + Duzia + "\n" + MaiorMenor + "\n" + ParInpar + "\n" + VerPre + "\n" + DuzRepet + "\n" + ColRepet;
         return Resposta;
 
     }
@@ -383,7 +485,7 @@ public class Estrategias {
         if (C12 >= ColunasMax) {
             c++;
             p = 1;
-        } else if (p ==1){
+        } else if (p == 1) {
             c++;
             p = 0;
         }
@@ -442,6 +544,6 @@ public class Estrategias {
                 }
             }
         }
-        
+
     }
 }
