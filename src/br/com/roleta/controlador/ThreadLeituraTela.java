@@ -60,7 +60,7 @@ public class ThreadLeituraTela extends Thread {
                         obj2 = new Pixel("Img_saida.png");
 
                         //Captura do tesseract.exe Leitura da imagem
-                        // (retirei) Process process = new ProcessBuilder("C:\\Leitor\\" + Local + "\\Tesseract-OCR\\tesseract.exe", "C:\\Leitor\\" + Local + "\\Img.png", "C:\\Leitor\\" + Local + "\\Out").start();
+                        //Process process = new ProcessBuilder("C:\\Leitor\\" + Local + "\\Tesseract-OCR\\tesseract.exe", "C:\\Leitor\\" + Local + "\\Img.png", "C:\\Leitor\\" + Local + "\\Out").start();
                         //Process process = new ProcessBuilder("C:\\ProgramFiles(x86)\\Tesseract-OCRtesseract.exe", "C:\\Leitor\\Img.png", "C:\\Leitor\\Out").start();
                         // (retirei) String everything = this.readFile("C:\\Leitor\\" + Local + "\\Out.txt");
                         //System.out.println(everything);
@@ -74,7 +74,7 @@ public class ThreadLeituraTela extends Thread {
                         e.printStackTrace();
                     }
                 }
-                ThreadLeituraTela.sleep(2000);
+                ThreadLeituraTela.sleep(5000);
             }
         } catch (Exception e) {
             e.printStackTrace();

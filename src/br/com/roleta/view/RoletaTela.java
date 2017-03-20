@@ -9,6 +9,8 @@ import br.com.roleta.controlador.TransparentFrame;
 import br.com.roleta.modelo.Casino;
 import br.com.roleta.modelo.Roleta;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import org.jfree.chart.ChartPanel;
@@ -74,7 +76,7 @@ public class RoletaTela extends javax.swing.JFrame {
         jTextField9.setEditable(false);
         jTextArea1.setLineWrap(true);
         TimeSessao.start();
-        
+
         this.setLocationRelativeTo(null);
         this.setAlwaysOnTop(true);
     }
@@ -87,6 +89,7 @@ public class RoletaTela extends javax.swing.JFrame {
         ThreadLeitura.start();
         ThreadLeitura.suspend();
         Atualizatela.start();
+        Atualizatela.suspend();
 
     }
 
@@ -437,8 +440,13 @@ public class RoletaTela extends javax.swing.JFrame {
             FrameZero.dispose();
         }
         FrameTransparente.dispose();
-        ThreadLeitura.stop();
-        Atualizatela.stop();
+
+        try {
+            ThreadLeitura.wait();
+            Atualizatela.wait();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(RoletaTela.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jpdHome.setI(jpdHome.getI() - 1);
         this.dispose();
     }//GEN-LAST:event_SairActionPerformed
@@ -448,7 +456,7 @@ public class RoletaTela extends javax.swing.JFrame {
         int i;
         i = Integer.parseInt(txfAdicionarNumero.getText());
         if (i >= 0 && i <= 36) {
-        // (retirei)    ThreadLeitura.getEstra().ConverterInt(txfAdicionarNumero.getText());
+            // (retirei)    ThreadLeitura.getEstra().ConverterInt(txfAdicionarNumero.getText());
         } else {
 
         }
@@ -460,8 +468,13 @@ public class RoletaTela extends javax.swing.JFrame {
             ThreadLeitura.resume();
             PlayTrad.setText("PAUSE");
             controlethead = false;
+            Atualizatela.resume();
         } else {
-            ThreadLeitura.suspend();
+  
+                ThreadLeitura.suspend();
+                Atualizatela.suspend();
+           
+
             PlayTrad.setText("PLAY");
             controlethead = true;
         }

@@ -27,12 +27,13 @@ public class Estrategias {
 
       // String nome = n;
 
-//        try {
-//            ConvertInt = Integer.parseInt(nome); // Caso você queira tipo int, que é o usual.
-//
-//        } catch (NumberFormatException e) {
-//            ConvertInt = 99;
-//        }
+        try {
+            ConvertInt = n; // Caso você queira tipo int, que é o usual.
+            System.out.println(n);
+
+        } catch (NumberFormatException e) {
+            ConvertInt = 99;
+        }
 
         if (ConvertInt == Anterios) {
 
