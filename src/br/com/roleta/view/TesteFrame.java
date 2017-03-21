@@ -10,9 +10,11 @@ public class TesteFrame extends javax.swing.JInternalFrame {
     TransparentFrame FrameTransparente;
     TransFrameCZero FrameZero;
     ThreadLeituraTela ThreadLeitura;
-    AtualizaGrafico Atualizatela;
+    //AtualizaGrafico Atualizatela;
     boolean t = false;
 
+    // PARADO NO MOMENTO ESTAVA TENDO CONFLITO NAS THREADS 
+    
     public TesteFrame(Roleta n, boolean TFrameZero) {
 
         FrameTransparente = new TransparentFrame(n.getFrameLargura(), n.getFrameAltura(), 1187, 401);
@@ -24,8 +26,8 @@ public class TesteFrame extends javax.swing.JInternalFrame {
 
         ThreadLeitura.Local = "Leitor1";
         ThreadLeitura.nomeRoleta = "Leitura Teste";
-
-        Atualizatela = new AtualizaGrafico();
+        ThreadLeitura.start();
+       // Atualizatela = new AtualizaGrafico();
 
         StartTrade();
 
@@ -33,8 +35,8 @@ public class TesteFrame extends javax.swing.JInternalFrame {
     }
 
     void StartTrade() {
-        ThreadLeitura.start();
-        Atualizatela.start();
+        
+        //Atualizatela.start();
     }
 
     @SuppressWarnings("unchecked")
@@ -51,7 +53,7 @@ public class TesteFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("0");
 
@@ -72,8 +74,8 @@ public class TesteFrame extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
@@ -87,20 +89,20 @@ public class TesteFrame extends javax.swing.JInternalFrame {
         }
         FrameTransparente.dispose();
         ThreadLeitura.stop();
-        Atualizatela.stop();
+       // Atualizatela.stop();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public class AtualizaGrafico extends Thread {
+   /* public class AtualizaGrafico extends Thread {
 
         @Override
         public void run() {
 
             try {
                 while (true) {
-                    jTextField1.setText(Integer.toString(ThreadLeitura.getEstra().ConvertInt));
+                    jTextField1.setText(Integer.toString(ThreadLeitura.);
 
-                    AtualizaGrafico.sleep(1000);
+                    AtualizaGrafico.sleep(3000);
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -108,7 +110,7 @@ public class TesteFrame extends javax.swing.JInternalFrame {
 
         }
 
-    }
+    } */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -39,6 +39,7 @@ public class ThreadLeituraTela extends Thread {
         Estra.nomeRoleta = getNomeRoleta();
         LerImagem obj1;
         Pixel obj2;
+        int L1 = 99, L2 = 99, L3 = 99;
 
         try {
             while (true) {
@@ -67,14 +68,24 @@ public class ThreadLeituraTela extends Thread {
                         // (retirei) String nome = everything;
                         // (retirei)   nome = nome.replace(" ", "");
                         // (retirei)   nome = nome.trim();
-                        Estra.ConverterInt(obj2.contarPixels());
-                        // System.out.println(nome);
+                        L1 = obj2.contarPixels();
+                        if (L2 == L1) {
+                            if (L2 == L3) {
+                                Estra.ConverterInt(obj2.contarPixels());
+                            } else {
+                                L3 = L1;
+                            }
 
+                        } else {
+                            L2 = L1;
+                        }
+
+                        // System.out.println(nome);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
-                ThreadLeituraTela.sleep(5000);
+                ThreadLeituraTela.sleep(3000);
             }
         } catch (Exception e) {
             e.printStackTrace();

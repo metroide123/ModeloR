@@ -16,6 +16,7 @@ import javax.imageio.ImageIO;
 public class Pixel {
 
     BufferedImage image;
+    public int NunTotal;
     int width;
     int height;
     final int padraoPreto = 35;
@@ -52,7 +53,7 @@ public class Pixel {
             }
 
         }
-       
+        
         System.out.println(totalPixel);
         return numeroSorteado(totalPixel);
     }
@@ -60,114 +61,114 @@ public class Pixel {
 
     public int numeroSorteado(int valor) {
 
-        if (valor == 4251) {//NOVO 0
+        if (valor == 2772) {//NOVO 0
             return 0;
-        } else if (valor == 2099) {//NOVO 1
+        } else if (valor == 454) {//NOVO 1
             return 1;
 
-        } else if (valor == 1384) {//NOVO 2
+        } else if (valor == 2122) {//NOVO 2
             return 2;
 
-        } else if (valor == 2234) {//NOVO 3
+        } else if (valor == 1579) {//NOVO 3
             return 3;
 
-        } else if (valor == 2640) {//NOVO 4
+        } else if (valor == 2148) {//NOVO 4
             return 4;
 
-        } else if (valor == 2259) {//NOVO 5
+        } else if (valor == 2615) {//NOVO 5
             return 5;
 
-        } else if (valor == 2075) {//NOVO 6
+        } else if (valor == 1809) {//NOVO 6
             return 6;
 
-        } else if (valor == 1777) {//NOVO 7
+        } else if (valor == 1943) {//NOVO 7
             return 7;
 
-        } else if (valor == 2462) {//NOVO 8
+        } else if (valor == 1972) {//NOVO 8
             return 8;
 
-        } else if (valor == 2286) {//NOVO 9
+        } else if (valor == 2433) {//NOVO 9
             return 9;
 
-        } else if (valor == 3056) {//NOVO 10
+        } else if (valor == 3653) {//NOVO 10
             return 10;
             
-        } else if (valor == 724) {//NOVO 11
+        } else if (valor == 1854) {//NOVO 11
             return 11;
             
-        } else if (valor == 4247) {//NOVO 12
+        } else if (valor == 3985) {//NOVO 12
             return 12;
             
-        } else if (valor == 2281) {//NOVO 13
+        } else if (valor == 2728) {//NOVO 13
             return 13;
             
-        } else if (valor == 5071) {//NOVO 14
+        } else if (valor == 3801) {//NOVO 14
             return 14;
             
-        } else if (valor == 1212) {//NOVO 15
+        } else if (valor == 3295) {//NOVO 15
             return 15;
 
-        } else if (valor == 4916) {//NOVO 16
+        } else if (valor == 3621) {//NOVO 16
             return 16;
             
-        } else if (valor == 1611) {//NOVO 17
+        } else if (valor == 2866) {//NOVO 17
             return 17;
             
-        } else if (valor == 5384) {//NOVO 18
+        } else if (valor == 4831) {//NOVO 18
             return 18;
             
-        } else if (valor == 4505) {//NOVO 19
+        } else if (valor == 3968) {//NOVO 19
             return 19;
             
-        } else if (valor == 3519) {//NOVO 20
+        } else if (valor == 4414) {//NOVO 20
             return 20;
             
-        } else if (valor == 2476) {//NOVO 21
+        } else if (valor == 3550) {//NOVO 21
             return 21;
             
-        } else if (valor == 2753) {//NOVO 22
+        } else if (valor == 4309) {//NOVO 22
             return 22;
             
-        } else if (valor == 4313) {//NOVO 23
+        } else if (valor == 4675) {//NOVO 23
             return 23;
             
-        } else if (valor == 2510) {//NOVO 24
+        } else if (valor == 4335) {//NOVO 24
             return 24;
             
-        } else if (valor == 3818) {//NOVO 25
+        } else if (valor == 5711) {//NOVO 25
             return 25;
             
-        } else if (valor == 2983) {//NOVO OK
+        } else if (valor == 3996) {//NOVO OK
             return 26;
             
-        } else if (valor == 3606) {//NOVO 27
+        } else if (valor == 5039) {//NOVO 27
             return 27;
             
-        } else if (valor == 3246) {//NOVO 28
+        } else if (valor == 4159) {//NOVO 28
             return 28;
             
-        } else if (valor == 3014) {//NOVO 29
+        } else if (valor == 3918) {//NOVO 29
             return 29;
             
-        } else if (valor == 5979) {//NOVO 30
+        } else if (valor == 4952) {//NOVO 30
             return 30;
             
-        } else if (valor == 2063) {//NOVO 31
+        } else if (valor == 1783) {//NOVO 31
             return 31;
             
-        } else if (valor == 4796) {//NOVO 32
+        } else if (valor == 4672) {//NOVO 32
             return 32;
             
-        } else if (valor == 3620) {//NOVO 33
+        } else if (valor == 2657) {//NOVO 33
             return 33;
             
-        } else if (valor == 5620) {//NOVO 34
+        } else if (valor == 4488) {//NOVO 34
             return 34;
             
-        } else if (valor == 2551) {//NOVO 35
+        } else if (valor == 3224) {//NOVO 35
             return 35;
 
-        } else if (valor == 5465) {//NOVO 36
+        } else if (valor == 4308) {//NOVO 36
             return 36;
             
         } else {

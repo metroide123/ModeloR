@@ -8,7 +8,7 @@ public class Estrategias {
     public int Duzia1, D12 = 0, D32 = 0, Duzia2, Duzia3, coluna1, C12 = 0, C23 = 0,
             coluna2, coluna3, V, P, Par, Inpar, Maior, Menor, Anterios = 0, A1 = 0, A2 = 0, A3 = 0, A4 = 0, A5 = 0, A6 = 0, A7 = 0, A8 = 0;
     public int Duz1 = 0, Duz2 = 0, Duz3 = 0;
-    int DR1 = 0, DR2 = 0, DR3 = 0, CR1 = 0, CR2 = 0, CR3 = 0;
+    public int DR1 = 0, DR2 = 0, DR3 = 0, CR1 = 0, CR2 = 0, CR3 = 0, Tt = 0;
     // Espera Para dar a Entrada de cada estrategia
     // A entrada é sempre no numero +1 q inserido
     public int ColunasMax = 10;
@@ -28,7 +28,7 @@ public class Estrategias {
 
     public void ConverterInt(int n) {
 
-      // String nome = n;
+        Tt = n;
         try {
             ConvertInt = n; // Caso você queira tipo int, que é o usual.
             System.out.println(n);
