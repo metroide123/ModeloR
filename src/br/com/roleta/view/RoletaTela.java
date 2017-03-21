@@ -160,14 +160,16 @@ public class RoletaTela extends javax.swing.JFrame {
         int CRMax = ThreadLeitura.getEstra().CRMax;
 
         // Parte que vai setar a cor dos jtextfilds de acordo com a aproximação da estrategia
+        // ATENÇÃO a Cor Muda referente a casa que deve entrar não a que acumula Ex Acumula sequencia de preto mas 
+        // A casa que muda a cor é a da Vermelha
         // Coluna 1 e 2
         if (ThreadLeitura.getEstra().C12 >= (ColunasMax + 1) / 2) {
             JtxtC1C2.setBackground(Color.ORANGE);
             if (ThreadLeitura.getEstra().C12 == ColunasMax - 1) {
-                JtxtC1C2.setBackground(Color.YELLOW);
+                jtxtC2C3.setBackground(Color.YELLOW);
             }
             if (ThreadLeitura.getEstra().C12 >= ColunasMax) {
-                JtxtC1C2.setBackground(Color.GREEN);
+                jtxtC2C3.setBackground(Color.GREEN);
 
             }
         }
@@ -176,10 +178,10 @@ public class RoletaTela extends javax.swing.JFrame {
         if (ThreadLeitura.getEstra().C23 >= (ColunasMax + 1) / 2) {
             jtxtC2C3.setBackground(Color.ORANGE);
             if (ThreadLeitura.getEstra().C23 == ColunasMax - 1) {
-                jtxtC2C3.setBackground(Color.YELLOW);
+                JtxtC1C2.setBackground(Color.YELLOW);
             }
             if (ThreadLeitura.getEstra().C23 >= ColunasMax) {
-                jtxtC2C3.setBackground(Color.GREEN);
+                JtxtC1C2.setBackground(Color.GREEN);
 
             }
         }
@@ -188,10 +190,10 @@ public class RoletaTela extends javax.swing.JFrame {
         if (ThreadLeitura.getEstra().D12 >= (DuziaMax + 1) / 2) {
             jTextD1D2.setBackground(Color.ORANGE);
             if (ThreadLeitura.getEstra().D12 == -1) {
-                jTextD1D2.setBackground(Color.YELLOW);
+                jTextD2D3.setBackground(Color.YELLOW);
             }
             if (ThreadLeitura.getEstra().D12 >= DuziaMax) {
-                jTextD1D2.setBackground(Color.GREEN);
+                jTextD2D3.setBackground(Color.GREEN);
             }
         }
 
@@ -199,10 +201,10 @@ public class RoletaTela extends javax.swing.JFrame {
         if (ThreadLeitura.getEstra().D32 >= (DuziaMax + 1) / 2) {
             jTextD2D3.setBackground(Color.ORANGE);
             if (ThreadLeitura.getEstra().D32 == DuziaMax - 1) {
-                jTextD2D3.setBackground(Color.YELLOW);
+                jTextD1D2.setBackground(Color.YELLOW);
             }
             if (ThreadLeitura.getEstra().D32 >= DuziaMax) {
-                jTextD2D3.setBackground(Color.GREEN);
+                jTextD1D2.setBackground(Color.GREEN);
             }
         }
 
@@ -210,10 +212,10 @@ public class RoletaTela extends javax.swing.JFrame {
         if (ThreadLeitura.getEstra().V >= (PreVerMax + 1) / 2) {
             jTextVER.setBackground(Color.ORANGE);
             if (ThreadLeitura.getEstra().V == PreVerMax - 1) {
-                jTextVER.setBackground(Color.YELLOW);
+                jTextPRE.setBackground(Color.YELLOW);
             }
             if (ThreadLeitura.getEstra().V >= PreVerMax) {
-                jTextVER.setBackground(Color.GREEN);
+                jTextPRE.setBackground(Color.GREEN);
             }
         }
 
@@ -221,10 +223,10 @@ public class RoletaTela extends javax.swing.JFrame {
         if (ThreadLeitura.getEstra().P >= (PreVerMax + 1) / 2) {
             jTextPRE.setBackground(Color.ORANGE);
             if (ThreadLeitura.getEstra().P == PreVerMax - 1) {
-                jTextPRE.setBackground(Color.YELLOW);
+                jTextVER.setBackground(Color.YELLOW);
             }
             if (ThreadLeitura.getEstra().P >= PreVerMax) {
-                jTextPRE.setBackground(Color.GREEN);
+                jTextVER.setBackground(Color.GREEN);
             }
         }
 
@@ -232,10 +234,10 @@ public class RoletaTela extends javax.swing.JFrame {
         if (ThreadLeitura.getEstra().Par >= (ParInparMax + 1)) {
             jTextPAR.setBackground(Color.ORANGE);
             if (ThreadLeitura.getEstra().Par == ParInparMax - 1) {
-                jTextPAR.setBackground(Color.YELLOW);
+                jTextIMP.setBackground(Color.YELLOW);
             }
             if (ThreadLeitura.getEstra().Par >= ParInparMax) {
-                jTextPAR.setBackground(Color.GREEN);
+                jTextIMP.setBackground(Color.GREEN);
             }
         }
 
@@ -243,10 +245,10 @@ public class RoletaTela extends javax.swing.JFrame {
         if (ThreadLeitura.getEstra().Inpar >= (ParInparMax + 1) / 2) {
             jTextIMP.setBackground(Color.ORANGE);
             if (ThreadLeitura.getEstra().Inpar == ParInparMax - 1) {
-                jTextIMP.setBackground(Color.YELLOW);
+                jTextPAR.setBackground(Color.YELLOW);
             }
             if (ThreadLeitura.getEstra().Inpar >= ParInparMax) {
-                jTextIMP.setBackground(Color.GREEN);
+                jTextPAR.setBackground(Color.GREEN);
             }
 
         }
@@ -255,10 +257,10 @@ public class RoletaTela extends javax.swing.JFrame {
         if (ThreadLeitura.getEstra().Maior >= (MaiorMenorMax + 1) / 2) {
             jTextMAIOR.setBackground(Color.ORANGE);
             if (ThreadLeitura.getEstra().Maior == MaiorMenorMax - 1) {
-                jTextMAIOR.setBackground(Color.ORANGE);
+                jTextMENOR.setBackground(Color.ORANGE);
             }
             if (ThreadLeitura.getEstra().Maior >= MaiorMenorMax) {
-                jTextMAIOR.setBackground(Color.ORANGE);
+                jTextMENOR.setBackground(Color.ORANGE);
             }
         }
 
@@ -266,10 +268,10 @@ public class RoletaTela extends javax.swing.JFrame {
         if (ThreadLeitura.getEstra().Menor >= (MaiorMenorMax + 1) / 2) {
             jTextMENOR.setBackground(Color.ORANGE);
             if (ThreadLeitura.getEstra().Menor == MaiorMenorMax - 1) {
-                jTextMENOR.setBackground(Color.YELLOW);
+                jTextMAIOR.setBackground(Color.YELLOW);
             }
             if (ThreadLeitura.getEstra().Menor >= MaiorMenorMax) {
-                jTextMENOR.setBackground(Color.GREEN);
+                jTextMAIOR.setBackground(Color.GREEN);
             }
         }
 
