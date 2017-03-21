@@ -36,7 +36,7 @@ public class ThreadLeituraTela extends Thread {
     }
 
     public void run() {
-        Estra.nomeRoleta = getNomeRoleta();
+        
         LerImagem obj1;
         Pixel obj2;
         int L1 = 99, L2 = 99, L3 = 99;
@@ -85,7 +85,7 @@ public class ThreadLeituraTela extends Thread {
                         e.printStackTrace();
                     }
                 }
-                ThreadLeituraTela.sleep(3000);
+                ThreadLeituraTela.sleep(2000);
             }
         } catch (Exception e) {
             e.printStackTrace();

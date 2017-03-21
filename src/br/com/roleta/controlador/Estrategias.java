@@ -1,14 +1,12 @@
 package br.com.roleta.controlador;
 
-import br.com.roleta.modelo.ResultaDados;
-import br.com.roleta.dao.resultadosDAO;
-
 public class Estrategias {
 
     public int Duzia1, D12 = 0, D32 = 0, Duzia2, Duzia3, coluna1, C12 = 0, C23 = 0,
-            coluna2, coluna3, V, P, Par, Inpar, Maior, Menor, Anterios = 0, A1 = 0, A2 = 0, A3 = 0, A4 = 0, A5 = 0, A6 = 0, A7 = 0, A8 = 0;
+            coluna2, coluna3, V, P, Par, Inpar, Maior, Menor;
+    public int Anterios = 0, A1 = 0, A2 = 0, A3 = 0, A4 = 0, A5 = 0, A6 = 0, A7 = 0, A8 = 0;
     public int Duz1 = 0, Duz2 = 0, Duz3 = 0;
-    public int DR1 = 0, DR2 = 0, DR3 = 0, CR1 = 0, CR2 = 0, CR3 = 0, Tt = 0;
+    public int CR1 = 0, CR2 = 0, CR3 = 0;
     // Espera Para dar a Entrada de cada estrategia
     // A entrada é sempre no numero +1 q inserido
     public int ColunasMax = 10;
@@ -19,20 +17,11 @@ public class Estrategias {
     public int DRMax = 5;
     public int CRMax = 5;
     public int ConvertInt;
-    public int RetonoAposta;
-
-    String nomeRoleta;
-
-    ResultaDados res = new ResultaDados();
-    resultadosDAO rdao = new resultadosDAO();
 
     public void ConverterInt(int n) {
 
-        Tt = n;
         try {
             ConvertInt = n; // Caso você queira tipo int, que é o usual.
-            System.out.println(n);
-
         } catch (NumberFormatException e) {
             ConvertInt = 99;
         }
@@ -53,38 +42,6 @@ public class Estrategias {
 
         }
 
-    }
-
-    public boolean MaiorCont9() {
-
-        if (ColunasMax - 2 <= C12 || ColunasMax - 2 <= C23 || DuziaMax - 2 <= D12 || DuziaMax - 2 <= D32
-                || ParInparMax - 2 <= Par || ParInparMax - 2 <= Inpar || PreVerMax - 2 <= P || PreVerMax - 2 <= V
-                || MaiorMenorMax - 2 <= Maior || MaiorMenorMax - 2 <= Menor) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
-    public boolean Maax() {
-
-        if (ColunasMax == C12 || ColunasMax == C23 || DuziaMax == D12 || DuziaMax == D32
-                || ParInparMax == Par || ParInparMax == Inpar || PreVerMax == P || PreVerMax == V
-                || MaiorMenorMax == Maior || MaiorMenorMax == Menor) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
-    public int getRetonoAposta() {
-        return RetonoAposta;
-    }
-
-    public void setRetonoAposta(int RetonoAposta) {
-        this.RetonoAposta = RetonoAposta;
     }
 
     public void ContDuzia(int n) {
@@ -180,7 +137,30 @@ public class Estrategias {
         }
         C12 = coluna1;
         C23 = coluna3;
-        VermPreto(n);
+        ColunaRepet(n);
+    }
+
+    public void ColunaRepet(int d) {
+        if (d == 1 || d == 4 || d == 7 || d == 10 || d == 13 || d == 16
+                || d == 19 || d == 22 || d == 25 || d == 28 || d == 31 || d == 34) {
+            CR1++;
+            CR2 = 0;
+            CR3 = 0;
+        }
+        if (d == 3 || d == 6 || d == 9 || d == 12 || d == 15 || d == 18
+                || d == 21 || d == 24 || d == 27 || d == 30 || d == 33 || d == 36) {
+            CR3++;
+            CR2 = 0;
+            CR1 = 0;
+        }
+        if (d == 2 || d == 5 || d == 8 || d == 11 || d == 14 || d == 17
+                || d == 20 || d == 23 || d == 26 || d == 29 || d == 32 || d == 35) {
+            CR2++;
+            CR1 = 0;
+            CR3 = 0;
+        }
+        // Verificar();
+        VermPreto(d);
 
     }
 
@@ -215,50 +195,7 @@ public class Estrategias {
             Inpar++;
             Par = 0;
         }
-
-        DuziaRepet(p);
-
-    }
-
-    public void DuziaRepet(int d) {
-        if (d >= 1 && d <= 12) {
-            DR1++;
-            DR2 = 0;
-            DR3 = 0;
-        }
-        if (d >= 25 && d <= 36) {
-            DR3++;
-            DR2 = 0;
-            DR1 = 0;
-        }
-        if (d >= 13 && d <= 24) {
-            DR2++;
-            DR1 = 0;
-            DR3 = 0;
-        }
-        ColunaRepet(d);
-    }
-
-    public void ColunaRepet(int d) {
-        if (d == 1 || d == 4 || d == 7 || d == 10 || d == 13 || d == 16
-                || d == 19 || d == 22 || d == 25 || d == 28 || d == 31 || d == 34) {
-            CR1++;
-            CR2 = 0;
-            CR3 = 0;
-        }
-        if (d == 3 || d == 6 || d == 9 || d == 12 || d == 15 || d == 18
-                || d == 21 || d == 24 || d == 27 || d == 30 || d == 33 || d == 36) {
-            CR3++;
-            CR2 = 0;
-            CR1 = 0;
-        }
-        if (d == 2 || d == 5 || d == 8 || d == 11 || d == 14 || d == 17
-                || d == 20 || d == 23 || d == 26 || d == 29 || d == 32 || d == 35) {
-            CR2++;
-            CR1 = 0;
-            CR3 = 0;
-        }
-        Verificar();
+        MaiorMenor(p);
     }
 
     public void MaiorMenor(int p) {
@@ -277,273 +214,188 @@ public class Estrategias {
 
     }
 
-    public String Verificar() {
+    /* public String Verificar() {
 
-        String Duzia, Coluna, ParInpar, VerPre, MaiorMenor, ColRepet, DuzRepet;
-        Duzia = Coluna = ParInpar = VerPre = MaiorMenor = ColRepet = DuzRepet = "";
+     String Duzia, Coluna, ParInpar, VerPre, MaiorMenor, ColRepet, DuzRepet;
+     Duzia = Coluna = ParInpar = VerPre = MaiorMenor = ColRepet = DuzRepet = "";
 
-        setRetonoAposta(0);
+      
 
-        if (coluna1 >= (ColunasMax + 1) / 2) {
-            Coluna = "Coluna 1 e 2 Acumulando...";
-            if (coluna1 == ColunasMax - 1) {
-                Coluna = "Coluna 2 e 3 Proximo!";
-            }
-            if (coluna1 >= ColunasMax) {
-                Coluna = "Aposte Coluna 2 e 3 ";
-                setRetonoAposta(1);
-            }
-        }
+     if (coluna1 >= (ColunasMax + 1) / 2) {
+     Coluna = "Coluna 1 e 2 Acumulando...";
+     if (coluna1 == ColunasMax - 1) {
+     Coluna = "Coluna 2 e 3 Proximo!";
+     }
+     if (coluna1 >= ColunasMax) {
+     Coluna = "Aposte Coluna 2 e 3 ";
+                
+     }
+     }
 
-        if (coluna3 >= (ColunasMax + 1) / 2) {
-            Coluna = "Coluna 2 e 3 Acumulando...";
-            if (coluna3 == ColunasMax - 1) {
-                Coluna = "Coluna 1 e 2 Proximo!";
-            }
-            if (coluna3 >= ColunasMax) {
-                Coluna = "Aposte Coluna 2 e 1";
-                setRetonoAposta(1);
-            }
-        }
+     if (coluna3 >= (ColunasMax + 1) / 2) {
+     Coluna = "Coluna 2 e 3 Acumulando...";
+     if (coluna3 == ColunasMax - 1) {
+     Coluna = "Coluna 1 e 2 Proximo!";
+     }
+     if (coluna3 >= ColunasMax) {
+     Coluna = "Aposte Coluna 2 e 1";
+     setRetonoAposta(1);
+     }
+     }
 
-        if (Duzia1 >= (DuziaMax + 1) / 2) {
-            Duzia = "Duzia 1 e 2 Acumulando...";
-            if (Duzia1 == -1) {
-                Duzia = "Duzia 2 e 3 Proximo!";
-            }
-            if (Duzia1 >= DuziaMax) {
-                Duzia = "Aposte Duzia 2 e 3 ";
-                setRetonoAposta(1);
-            }
-        }
+     if (Duzia1 >= (DuziaMax + 1) / 2) {
+     Duzia = "Duzia 1 e 2 Acumulando...";
+     if (Duzia1 == -1) {
+     Duzia = "Duzia 2 e 3 Proximo!";
+     }
+     if (Duzia1 >= DuziaMax) {
+     Duzia = "Aposte Duzia 2 e 3 ";
+     setRetonoAposta(1);
+     }
+     }
 
-        if (Duzia3 >= (DuziaMax + 1) / 2) {
-            Duzia = "Duzia 2 e 3 Acumulando...";
-            if (Duzia3 == DuziaMax - 1) {
-                Duzia = "Duzia 1 e 2 Proximo!";
-            }
-            if (Duzia3 >= DuziaMax) {
-                Duzia = "Aposte Duzia 1 e 2";
-                setRetonoAposta(1);
-            }
-        }
+     if (Duzia3 >= (DuziaMax + 1) / 2) {
+     Duzia = "Duzia 2 e 3 Acumulando...";
+     if (Duzia3 == DuziaMax - 1) {
+     Duzia = "Duzia 1 e 2 Proximo!";
+     }
+     if (Duzia3 >= DuziaMax) {
+     Duzia = "Aposte Duzia 1 e 2";
+     setRetonoAposta(1);
+     }
+     }
 
-        if (V >= (PreVerMax + 1) / 2) {
-            VerPre = "Verm Acumulando..";
-            if (V == PreVerMax - 1) {
-                VerPre = "Preto Pox Att!";
-            }
-            if (V >= PreVerMax) {
-                VerPre = "Apostar Preto!";
-                setRetonoAposta(1);
-            }
-        }
+     if (V >= (PreVerMax + 1) / 2) {
+     VerPre = "Verm Acumulando..";
+     if (V == PreVerMax - 1) {
+     VerPre = "Preto Pox Att!";
+     }
+     if (V >= PreVerMax) {
+     VerPre = "Apostar Preto!";
+     setRetonoAposta(1);
+     }
+     }
 
-        if (P >= (PreVerMax + 1) / 2) {
-            VerPre = "Preto Acumulando..";
-            if (P == PreVerMax - 1) {
-                VerPre = "Vermelhor Pox. Att!";
-            }
-            if (P >= PreVerMax) {
-                VerPre = "Apostar Vermelhor!";
-                setRetonoAposta(1);
-            }
-        }
+     if (P >= (PreVerMax + 1) / 2) {
+     VerPre = "Preto Acumulando..";
+     if (P == PreVerMax - 1) {
+     VerPre = "Vermelhor Pox. Att!";
+     }
+     if (P >= PreVerMax) {
+     VerPre = "Apostar Vermelhor!";
+     setRetonoAposta(1);
+     }
+     }
 
-        if (Par >= (ParInparMax + 1)) {
-            ParInpar = "Par Acumulando..";
-            if (Par == ParInparMax - 1) {
-                ParInpar = "Impar Prox Att!";
-            }
-            if (Par >= ParInparMax) {
-                ParInpar = "Aposte Impar!";
-                setRetonoAposta(1);
-            }
-        }
+     if (Par >= (ParInparMax + 1)) {
+     ParInpar = "Par Acumulando..";
+     if (Par == ParInparMax - 1) {
+     ParInpar = "Impar Prox Att!";
+     }
+     if (Par >= ParInparMax) {
+     ParInpar = "Aposte Impar!";
+     setRetonoAposta(1);
+     }
+     }
 
-        if (Inpar >= (ParInparMax + 1) / 2) {
-            ParInpar = "Impar Acumulando..";
-            if (Inpar == ParInparMax - 1) {
-                ParInpar = "Par Prox Att!";
-            }
-            if (Inpar >= ParInparMax) {
-                ParInpar = "Aposte Par!";
-                setRetonoAposta(1);
+     if (Inpar >= (ParInparMax + 1) / 2) {
+     ParInpar = "Impar Acumulando..";
+     if (Inpar == ParInparMax - 1) {
+     ParInpar = "Par Prox Att!";
+     }
+     if (Inpar >= ParInparMax) {
+     ParInpar = "Aposte Par!";
+     setRetonoAposta(1);
 
-            }
+     }
 
-        }
+     }
 
-        if (Maior >= (MaiorMenorMax + 1) / 2) {
-            MaiorMenor = "Maior Acumulando..";
-            if (Maior == MaiorMenorMax - 1) {
-                MaiorMenor = "Menor Prox Att!";
-            }
-            if (Maior >= MaiorMenorMax) {
-                MaiorMenor = "Aposte Menor!";
-                setRetonoAposta(1);
-            }
-        }
+     if (Maior >= (MaiorMenorMax + 1) / 2) {
+     MaiorMenor = "Maior Acumulando..";
+     if (Maior == MaiorMenorMax - 1) {
+     MaiorMenor = "Menor Prox Att!";
+     }
+     if (Maior >= MaiorMenorMax) {
+     MaiorMenor = "Aposte Menor!";
+     setRetonoAposta(1);
+     }
+     }
 
-        if (Menor >= (MaiorMenorMax + 1) / 2) {
-            MaiorMenor = "Menor Acumulando..";
-            if (Menor == MaiorMenorMax - 1) {
-                MaiorMenor = "Maior Prox Att!";
-            }
-            if (Menor >= MaiorMenorMax) {
-                MaiorMenor = "Aposte Maior!";
-                setRetonoAposta(1);
-            }
-        }
+     if (Menor >= (MaiorMenorMax + 1) / 2) {
+     MaiorMenor = "Menor Acumulando..";
+     if (Menor == MaiorMenorMax - 1) {
+     MaiorMenor = "Maior Prox Att!";
+     }
+     if (Menor >= MaiorMenorMax) {
+     MaiorMenor = "Aposte Maior!";
+     setRetonoAposta(1);
+     }
+     }
 
-        if (CR1 >= (CRMax + 1) / 2) {
-            ColRepet = "Coluna1 Acumulando..";
-            if (CR1 == CRMax - 1) {
-                ColRepet = "Col 2 e 3 Att!";
-            }
-            if (CR1 >= CRMax) {
-                ColRepet = "Aposte Col 2 e 3!";
-            }
-        }
+     if (CR1 >= (CRMax + 1) / 2) {
+     ColRepet = "Coluna1 Acumulando..";
+     if (CR1 == CRMax - 1) {
+     ColRepet = "Col 2 e 3 Att!";
+     }
+     if (CR1 >= CRMax) {
+     ColRepet = "Aposte Col 2 e 3!";
+     }
+     }
 
-        if (CR2 >= (CRMax + 1) / 2) {
-            ColRepet = "Coluna2 Acumulando..";
-            if (CR2 == CRMax - 1) {
-                ColRepet = "Col 1 e 3 Att!";
-            }
-            if (CR2 >= CRMax) {
-                ColRepet = "Aposte Col 1 e 3!";
-            }
-        }
+     if (CR2 >= (CRMax + 1) / 2) {
+     ColRepet = "Coluna2 Acumulando..";
+     if (CR2 == CRMax - 1) {
+     ColRepet = "Col 1 e 3 Att!";
+     }
+     if (CR2 >= CRMax) {
+     ColRepet = "Aposte Col 1 e 3!";
+     }
+     }
 
-        if (CR3 >= (CRMax + 1) / 2) {
-            ColRepet = "Coluna3 Acumulando..";
-            if (CR3 == CRMax - 1) {
-                ColRepet = "Col 1 e 2 Att!";
-            }
-            if (CR3 >= CRMax) {
-                ColRepet = "Aposte Col 1 e 2!";
-            }
-        }
+     if (CR3 >= (CRMax + 1) / 2) {
+     ColRepet = "Coluna3 Acumulando..";
+     if (CR3 == CRMax - 1) {
+     ColRepet = "Col 1 e 2 Att!";
+     }
+     if (CR3 >= CRMax) {
+     ColRepet = "Aposte Col 1 e 2!";
+     }
+     }
 
-        if (DR1 >= (DRMax + 1) / 2) {
-            DuzRepet = "Duzia 1 Acumulando..";
-            if (DR1 == DRMax - 1) {
-                DuzRepet = "Duz 2 e 3 Att!";
-            }
-            if (DR1 >= DRMax) {
-                DuzRepet = "Aposte Duz 2 e 3!";
-            }
-        }
+     if (DR1 >= (DRMax + 1) / 2) {
+     DuzRepet = "Duzia 1 Acumulando..";
+     if (DR1 == DRMax - 1) {
+     DuzRepet = "Duz 2 e 3 Att!";
+     }
+     if (DR1 >= DRMax) {
+     DuzRepet = "Aposte Duz 2 e 3!";
+     }
+     }
 
-        if (DR2 >= (DRMax + 1) / 2) {
-            DuzRepet = "Duzia 2 Acumulando..";
-            if (DR2 == DRMax - 1) {
-                DuzRepet = "Duz 1 e 3 Att!";
-            }
-            if (DR2 >= DRMax) {
-                DuzRepet = "Aposte Duz 1 e 3!";
-            }
-        }
+     if (DR2 >= (DRMax + 1) / 2) {
+     DuzRepet = "Duzia 2 Acumulando..";
+     if (DR2 == DRMax - 1) {
+     DuzRepet = "Duz 1 e 3 Att!";
+     }
+     if (DR2 >= DRMax) {
+     DuzRepet = "Aposte Duz 1 e 3!";
+     }
+     }
 
-        if (DR3 >= (DRMax + 1) / 2) {
-            DuzRepet = "Duzia 3 Acumulando..";
-            if (DR3 == DRMax - 1) {
-                DuzRepet = "Duz 1 e 2 Att!";
-            }
-            if (DR3 >= DRMax) {
-                DuzRepet = "Aposte Duz 1 e 2!";
-            }
-        }
+     if (DR3 >= (DRMax + 1) / 2) {
+     DuzRepet = "Duzia 3 Acumulando..";
+     if (DR3 == DRMax - 1) {
+     DuzRepet = "Duz 1 e 2 Att!";
+     }
+     if (DR3 >= DRMax) {
+     DuzRepet = "Aposte Duz 1 e 2!";
+     }
+     }
 
-        String Resposta;
-        Resposta = Coluna + "\n" + Duzia + "\n" + MaiorMenor + "\n" + ParInpar + "\n" + VerPre + "\n" + DuzRepet + "\n" + ColRepet;
-        return Resposta;
+     String Resposta;
+     Resposta = Coluna + "\n" + Duzia + "\n" + MaiorMenor + "\n" + ParInpar + "\n" + VerPre + "\n" + DuzRepet + "\n" + ColRepet;
+     return Resposta;
 
-    }
-
-    int c = 0;
-    int c1 = 0;
-
-    public boolean TesteColuna2(int d) {
-        return d == 2 || d == 5 || d == 8 || d == 11 || d == 14 || d == 17
-                || d == 20 || d == 23 || d == 26 || d == 29 || d == 32 || d == 35;
-    }
-
-    public boolean TesteColuna3(int d) {
-        return d == 3 || d == 6 || d == 9 || d == 12 || d == 15 || d == 18
-                || d == 21 || d == 24 || d == 27 || d == 30 || d == 33 || d == 36;
-    }
-
-    int p = 0;
-
-    public void AnalisandoDadosBDVP(int i) {
-        ContDuzia(i);
-
-        boolean coc = TesteColuna2(i);
-        boolean coc1 = TesteColuna3(i);
-        if (C12 >= ColunasMax) {
-            c++;
-            p = 1;
-        } else if (p == 1) {
-            c++;
-            p = 0;
-        }
-        if (c != 0) {
-            if (c == 2) {
-                if (coc || coc1) {
-                    res.setEntrada("Coluna - 12 -1");
-                    res.setP1("V");
-                    res.setP2("-");
-                    res.setP3("-");
-                    res.setResultado("Ganho");
-                    res.setTamanhoespera(1);
-                    rdao.create(res);
-                    c = 0;
-                    p = 0;
-                    coluna1 = 0;
-                }
-            }
-            if (c == 3) {
-                if (coc || coc1) {
-                    res.setEntrada("Coluna - 12 -2");
-                    res.setP1("P");
-                    res.setP2("V");
-                    res.setP3("-");
-                    res.setResultado("Ganho");
-                    res.setTamanhoespera(2);
-                    rdao.create(res);
-                    c = 0;
-                    p = 0;
-                    coluna1 = 0;
-                }
-            }
-            if (c == 4) {
-                if (coc || coc1) {
-                    res.setEntrada("Coluna - 12-3");
-                    res.setP1("P");
-                    res.setP2("P");
-                    res.setP3("V");
-                    res.setResultado("Ganho");
-                    res.setTamanhoespera(3);
-                    rdao.create(res);
-                    c = 0;
-                    p = 0;
-                    coluna1 = 0;
-                } else {
-                    res.setEntrada("Coluna - 12-4");
-                    res.setP1("P");
-                    res.setP2("P");
-                    res.setP3("P");
-                    res.setResultado("Perdido");
-                    res.setTamanhoespera(3);
-                    rdao.create(res);
-                    c = 0;
-                    p = 0;
-                    coluna1 = 0;
-                }
-            }
-        }
-
-    }
+     } */
 }
