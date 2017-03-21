@@ -29,8 +29,9 @@ public class Estrategias {
         } catch (NumberFormatException e) {
             ConvertInt = 99;
         }
-
-        if (ConvertInt == Anterios) {
+        if (ConvertInt == 99){
+            
+        } else if (ConvertInt == Anterios) {
 
         } else { // Monta A sequencia de 11 numeros sorteados e vai ser chamado pra Roletatela
             A8 = A7;
