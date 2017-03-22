@@ -13,7 +13,6 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-
 public class RoletaTela extends javax.swing.JFrame {
 
     TransparentFrame FrameTransparente;
@@ -29,6 +28,15 @@ public class RoletaTela extends javax.swing.JFrame {
     int apMin;
     boolean controlethead = true, FrameZeroTeste = false, EntradaAp = false;
 
+    // Captura dos numeros maximos de espera de cada estrategia
+    int ColunasMax;
+    int DuziaMax;
+    int ParInparMax;
+    int PreVerMax;
+    int MaiorMenorMax;
+    int DRMax;
+    int CRMax;
+
     public RoletaTela(DadosChamadaRoleta n, String tipo, String L, Home jp, Roleta r) {
         jpdHome = jp;
         FrameTransparente = new TransparentFrame(r.getFrameLargura(), r.getFrameAltura(), 1187, 401);
@@ -37,6 +45,15 @@ public class RoletaTela extends javax.swing.JFrame {
 
         CasinoEsc = cc.procurarCasinoId(r.getIdCassino());
         apMin = n.getApMin();
+
+        // Adção dos Maximo para Cada Estrategia
+        ColunasMax = n.getCol();
+        DuziaMax = n.getDuz();
+        ParInparMax = n.getPI();
+        PreVerMax = n.getVP();
+        MaiorMenorMax = n.getMM();
+        DRMax = n.getDuziaUnicaMax();
+        CRMax = n.getColunaUnicaMax();
 
         ThreadLeitura = new ThreadLeituraTela();
         ThreadLeitura.windowRefence = FrameTransparente;
@@ -146,15 +163,6 @@ public class RoletaTela extends javax.swing.JFrame {
         jTextIMP.setText(Integer.toString(ThreadLeitura.getEstra().Inpar));
         jTextMAIOR.setText(Integer.toString(ThreadLeitura.getEstra().Maior));
         jTextMENOR.setText(Integer.toString(ThreadLeitura.getEstra().Menor));
-
-        // Captura dos numeros maximos de espera de cada estrategia
-        int ColunasMax = ThreadLeitura.getEstra().ColunasMax;
-        int DuziaMax = ThreadLeitura.getEstra().DuziaMax;
-        int ParInparMax = ThreadLeitura.getEstra().ParInparMax;
-        int PreVerMax = ThreadLeitura.getEstra().PreVerMax;
-        int MaiorMenorMax = ThreadLeitura.getEstra().MaiorMenorMax;
-        int DRMax = ThreadLeitura.getEstra().DRMax;
-        int CRMax = ThreadLeitura.getEstra().CRMax;
 
         // Parte que vai setar a cor dos jtextfilds de acordo com a aproximação da estrategia
         // ATENÇÃO a Cor Muda referente a casa que deve entrar não a que acumula Ex Acumula sequencia de preto mas 
@@ -870,10 +878,11 @@ public class RoletaTela extends javax.swing.JFrame {
                             .addComponent(jLabel22)
                             .addComponent(ErroStatus))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddNum, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(txfAdicionarNumero, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txfAdicionarNumero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(AddNum, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PlayTrad, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
