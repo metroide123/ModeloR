@@ -28,5 +28,9 @@ public class UsuarioControlador {
     public void DeletarUsuario(String nome){
         usuarioDao.deletarUsuario(nome);
     }
+
+    public Usuario procurarUsuario(String nome) {
+       return usuarioDao.encontrarUsuario(nome);
+    }
       
 }

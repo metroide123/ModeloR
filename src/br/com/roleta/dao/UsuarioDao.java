@@ -28,6 +28,27 @@ public class UsuarioDao {
         }
 
     }
+    
+      public Usuario encontrarUsuario(String nome) {
+
+        PreparedStatement stmt = null;
+        ResultSet resultSet = null;
+        
+        try {
+            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM Usuario WHERE nome = ?");
+            stmt.setString(1, nome);
+
+            resultSet = stmt.executeQuery();
+            if (resultSet.next()) {
+                return mapear(resultSet);
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Procurar usuario" + ex);
+        } 
+        
+        return null;
+    }
 
     public List<Usuario> listar() {
 

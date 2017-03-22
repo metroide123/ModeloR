@@ -5,6 +5,8 @@
  */
 package br.com.roleta.LeituraImagem;
 
+import br.com.roleta.dao.MapeamentoNumero;
+import br.com.roleta.view.MapearNumero;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -23,6 +25,7 @@ public class Pixel {
     final int padraoVermelho = 88;
     final int padraoVerde = 111;
     ArrayList<Integer> total = new ArrayList<>();
+    MapeamentoNumero mn = new MapeamentoNumero();
 
     public Pixel(String file) {
         try {
@@ -58,6 +61,9 @@ public class Pixel {
         return numeroSorteado(totalPixel);
     }
 
+    public int numeroSorteado2(int valor) {
+        return 0;
+    }
 
     public int numeroSorteado(int valor) {
 
