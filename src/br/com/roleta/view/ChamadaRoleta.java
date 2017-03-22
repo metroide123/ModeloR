@@ -25,7 +25,7 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
     RoletaControlador RoletaControl = new RoletaControlador();
     CasinoControlador CasinoControl = new CasinoControlador();
     DadosChamadaRoleta ChamadoRoleta = new DadosChamadaRoleta();
-    Casino CasinoEscolha;
+    public static Casino CasinoEscolha;
     Roleta RoletaEscolha;
 
     JDesktopPane jpdHome;

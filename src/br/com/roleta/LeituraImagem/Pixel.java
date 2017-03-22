@@ -6,6 +6,8 @@
 package br.com.roleta.LeituraImagem;
 
 import br.com.roleta.dao.MapeamentoNumero;
+import br.com.roleta.view.ChamadaRoleta;
+import br.com.roleta.view.Home;
 import br.com.roleta.view.MapearNumero;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -58,11 +60,11 @@ public class Pixel {
         }
         
         System.out.println(totalPixel);
-        return numeroSorteado(totalPixel);
+        return numeroSorteado2(totalPixel);
     }
 
     public int numeroSorteado2(int valor) {
-        return 0;
+        return mn.encontrarNumero(valor, ChamadaRoleta.CasinoEscolha.getIdCasino(), Home.usuario.getIdUsuario());
     }
 
     public int numeroSorteado(int valor) {

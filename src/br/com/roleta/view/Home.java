@@ -6,7 +6,7 @@ import java.awt.Dimension;
 public class Home extends javax.swing.JFrame {
 
     int I = 0;
-    Usuario usuario;
+    public static Usuario usuario;
 
     public int getI() {
         return I;

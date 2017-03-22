@@ -18,10 +18,20 @@ public class ThreadLeituraTela extends Thread {
     public TransparentFrame windowRefence;
     public String Local = "";
     public String nomeRoleta = "";
+    private String casino;
 
     public String getNomeRoleta() {
         return nomeRoleta;
     }
+
+    public String getCasino() {
+        return casino;
+    }
+
+    public void setCasino(String casino) {
+        this.casino = casino;
+    }
+    
 
     public void setNomeRoleta(String nomeRoleta) {
         this.nomeRoleta = nomeRoleta;
