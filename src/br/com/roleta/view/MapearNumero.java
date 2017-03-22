@@ -31,6 +31,7 @@ public class MapearNumero extends javax.swing.JInternalFrame {
         initComponents();
         popularCombox();
         popularCasinos();
+        setClosable(true);
     }
 
     private void popularCombox() {
