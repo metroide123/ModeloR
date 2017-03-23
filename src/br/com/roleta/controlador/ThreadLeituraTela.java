@@ -31,7 +31,6 @@ public class ThreadLeituraTela extends Thread {
     public void setCasino(String casino) {
         this.casino = casino;
     }
-    
 
     public void setNomeRoleta(String nomeRoleta) {
         this.nomeRoleta = nomeRoleta;
@@ -46,7 +45,7 @@ public class ThreadLeituraTela extends Thread {
     }
 
     public void run() {
-        
+
         LerImagem obj1 = new LerImagem();
         Pixel obj2 = new Pixel();
         obj2.importarNumeros();
@@ -69,28 +68,9 @@ public class ThreadLeituraTela extends Thread {
                         // (retirei) ImageIO.write(screenShot, "png", new File("c:\\Leitor\\" + Local + "\\Img.png"));
                         ImageIO.write(screenShot, "png", new File("Img.png"));
                         obj1.converterImagem("Img.png", "Img_saida.png");
-                        obj2.lerImagem("Img_saida.png");                     
+                        obj2.lerImagem("Img_saida.png");
 
-                        //Captura do tesseract.exe Leitura da imagem
-                        //Process process = new ProcessBuilder("C:\\Leitor\\" + Local + "\\Tesseract-OCR\\tesseract.exe", "C:\\Leitor\\" + Local + "\\Img.png", "C:\\Leitor\\" + Local + "\\Out").start();
-                        //Process process = new ProcessBuilder("C:\\ProgramFiles(x86)\\Tesseract-OCRtesseract.exe", "C:\\Leitor\\Img.png", "C:\\Leitor\\Out").start();
-                        // (retirei) String everything = this.readFile("C:\\Leitor\\" + Local + "\\Out.txt");
-                        //System.out.println(everything);
-                        // (retirei) String nome = everything;
-                        // (retirei)   nome = nome.replace(" ", "");
-                        // (retirei)   nome = nome.trim();
-                        L1 = obj2.contarPixels();
-                        if (L2 == L1) {
-                            if (L2 == L3) {
-                                Estra.ConverterInt(obj2.contarPixels());
-                            } else {
-                                L3 = L1;
-                            }
-
-                        } else {
-                            L2 = L1;
-                        }
-
+                        Estra.ConverterInt(obj2.contarPixels());
                         // System.out.println(nome);
                     } catch (Exception e) {
                         e.printStackTrace();

@@ -169,7 +169,7 @@ public class RoletaTela extends javax.swing.JFrame {
         // A casa que muda a cor é a da Vermelha
         // Coluna 1 e 2
         if (ThreadLeitura.getEstra().C12 >= (ColunasMax + 1) / 2) {
-            JtxtC1C2.setBackground(Color.ORANGE);
+            JtxtC1C2.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().C12 == ColunasMax - 1) {
                 JtxtC1C2.setBackground(Color.WHITE);
                 jtxtC2C3.setBackground(Color.YELLOW);
@@ -183,7 +183,7 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Coluna 2 e 3
         if (ThreadLeitura.getEstra().C23 >= (ColunasMax + 1) / 2) {
-            jtxtC2C3.setBackground(Color.ORANGE);
+            jtxtC2C3.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().C23 == ColunasMax - 1) {
                 jtxtC2C3.setBackground(Color.WHITE);
                 JtxtC1C2.setBackground(Color.YELLOW);
@@ -197,7 +197,7 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Duzia 1 e 2
         if (ThreadLeitura.getEstra().D12 >= (DuziaMax + 1) / 2) {
-            jTextD1D2.setBackground(Color.ORANGE);
+            jTextD1D2.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().D12 == DuziaMax - 1) {
                 jTextD1D2.setBackground(Color.WHITE);
                 jTextD2D3.setBackground(Color.YELLOW);
@@ -210,7 +210,7 @@ public class RoletaTela extends javax.swing.JFrame {
 
         //Duzia 2 e 3
         if (ThreadLeitura.getEstra().D32 >= (DuziaMax + 1) / 2) {
-            jTextD2D3.setBackground(Color.ORANGE);
+            jTextD2D3.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().D32 == DuziaMax - 1) {
                 jTextD2D3.setBackground(Color.WHITE);
                 jTextD1D2.setBackground(Color.yellow);
@@ -223,7 +223,7 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Vermelho
         if (ThreadLeitura.getEstra().V >= (PreVerMax + 1) / 2) {
-            jTextVER.setBackground(Color.ORANGE);
+            jTextVER.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().V == PreVerMax - 1) {
                 jTextVER.setBackground(Color.WHITE);
                 jTextPRE.setBackground(Color.YELLOW);
@@ -236,7 +236,7 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Preto
         if (ThreadLeitura.getEstra().P >= (PreVerMax + 1) / 2) {
-            jTextPRE.setBackground(Color.ORANGE);
+            jTextPRE.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().P == PreVerMax - 1) {
                 jTextPRE.setBackground(Color.WHITE);
                 jTextVER.setBackground(Color.YELLOW);
@@ -249,7 +249,7 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Par
         if (ThreadLeitura.getEstra().Par >= (ParInparMax + 1)) {
-            jTextPAR.setBackground(Color.ORANGE);
+            jTextPAR.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().Par == ParInparMax - 1) {
                 jTextPAR.setBackground(Color.WHITE);
                 jTextIMP.setBackground(Color.YELLOW);
@@ -262,7 +262,7 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Impar
         if (ThreadLeitura.getEstra().Inpar >= (ParInparMax + 1) / 2) {
-            jTextIMP.setBackground(Color.ORANGE);
+            jTextIMP.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().Inpar == ParInparMax - 1) {
                 jTextIMP.setBackground(Color.WHITE);
                 jTextPAR.setBackground(Color.YELLOW);
@@ -276,20 +276,20 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Mairo que 19
         if (ThreadLeitura.getEstra().Maior >= (MaiorMenorMax + 1) / 2) {
-            jTextMAIOR.setBackground(Color.ORANGE);
+            jTextMAIOR.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().Maior == MaiorMenorMax - 1) {
                 jTextMAIOR.setBackground(Color.WHITE);
-                jTextMENOR.setBackground(Color.ORANGE);
+                jTextMENOR.setBackground(Color.MAGENTA);
             }
             if (ThreadLeitura.getEstra().Maior >= MaiorMenorMax) {
                 jTextMAIOR.setBackground(Color.WHITE);
-                jTextMENOR.setBackground(Color.ORANGE);
+                jTextMENOR.setBackground(Color.MAGENTA);
             }
         }
 
         // Menor que 18
         if (ThreadLeitura.getEstra().Menor >= (MaiorMenorMax + 1) / 2) {
-            jTextMENOR.setBackground(Color.ORANGE);
+            jTextMENOR.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().Menor == MaiorMenorMax - 1) {
                 jTextMENOR.setBackground(Color.WHITE);
                 jTextMAIOR.setBackground(Color.YELLOW);
@@ -302,8 +302,8 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Estrategia Repetição de Coluna 1 Aposta nas 2 e 3
         if (ThreadLeitura.getEstra().CR1 >= (CRMax + 1) / 2) {
-            jTextC2.setBackground(Color.ORANGE);
-            jTexC3.setBackground(Color.ORANGE);
+            jTextC2.setBackground(Color.MAGENTA);
+            jTexC3.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().CR1 == CRMax - 1) {
                 jTextC2.setBackground(Color.YELLOW);
                 jTexC3.setBackground(Color.YELLOW);
@@ -316,8 +316,8 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Estrategia Repetição de Coluna 2 Aposta nas 1 e 3
         if (ThreadLeitura.getEstra().CR2 >= (CRMax + 1) / 2) {
-            jTextC1.setBackground(Color.ORANGE);
-            jTexC3.setBackground(Color.ORANGE);
+            jTextC1.setBackground(Color.MAGENTA);
+            jTexC3.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().CR2 == CRMax - 1) {
                 jTextC1.setBackground(Color.YELLOW);
                 jTexC3.setBackground(Color.YELLOW);
@@ -330,8 +330,8 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Estrategia Repetição de Coluna 3 Aposta nas 1 e 2
         if (ThreadLeitura.getEstra().CR3 >= (CRMax + 1) / 2) {
-            jTextC1.setBackground(Color.ORANGE);
-            jTextC2.setBackground(Color.ORANGE);
+            jTextC1.setBackground(Color.MAGENTA);
+            jTextC2.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().CR3 == CRMax - 1) {
                 jTextC1.setBackground(Color.YELLOW);
                 jTextC2.setBackground(Color.YELLOW);
@@ -344,8 +344,8 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Estrategia Repetição de Duzia 1 Aposta nas 2 e 3
         if (ThreadLeitura.getEstra().Duz1 >= (DRMax + 1) / 2) {
-            jTextD2.setBackground(Color.ORANGE);
-            jTextD3.setBackground(Color.ORANGE);
+            jTextD2.setBackground(Color.MAGENTA);
+            jTextD3.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().Duz1 == DRMax - 1) {
                 jTextD2.setBackground(Color.YELLOW);
                 jTextD3.setBackground(Color.YELLOW);
@@ -358,8 +358,8 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Estrategia Repetição de Duzia 2 Aposta nas 1 e 3
         if (ThreadLeitura.getEstra().Duz2 >= (DRMax + 1) / 2) {
-            jTextD1.setBackground(Color.ORANGE);
-            jTextD3.setBackground(Color.ORANGE);
+            jTextD1.setBackground(Color.MAGENTA);
+            jTextD3.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().Duz2 == DRMax - 1) {
                 jTextD1.setBackground(Color.YELLOW);
                 jTextD3.setBackground(Color.YELLOW);
@@ -372,8 +372,8 @@ public class RoletaTela extends javax.swing.JFrame {
 
         // Estrategia Repetição de Duzia 3 Aposta nas 1 e 2
         if (ThreadLeitura.getEstra().Duz3 >= (DRMax + 1) / 2) {
-            jTextD1.setBackground(Color.ORANGE);
-            jTextD2.setBackground(Color.ORANGE);
+            jTextD1.setBackground(Color.MAGENTA);
+            jTextD2.setBackground(Color.MAGENTA);
             if (ThreadLeitura.getEstra().Duz3 == DRMax - 1) {
                 jTextD1.setBackground(Color.YELLOW);
                 jTextD2.setBackground(Color.YELLOW);
@@ -662,28 +662,6 @@ public class RoletaTela extends javax.swing.JFrame {
                                 .addComponent(PlayTrad, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JtxtC1C2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtxtC2C3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(56, 56, 56)
-                                        .addComponent(jTextD1D2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextD2D3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(31, 31, 31))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -719,37 +697,58 @@ public class RoletaTela extends javax.swing.JFrame {
                                                 .addComponent(jTextD3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGap(21, 21, 21))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(26, 26, 26)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(JtxtC1C2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jtxtC2C3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(56, 56, 56)
+                                                .addComponent(jTextD1D2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextD2D3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextVER, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextPRE, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextPAR, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextIMP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextMAIOR, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLabel21)
-                                    .addComponent(jTextMENOR, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)))
+                                        .addGap(16, 16, 16)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(2, 2, 2)
+                                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jTextVER, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jTextPRE, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jTextPAR, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextIMP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jTextMAIOR, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                            .addComponent(jLabel21)
+                                            .addComponent(jTextMENOR, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(31, 31, 31)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
@@ -879,7 +878,7 @@ public class RoletaTela extends javax.swing.JFrame {
                             .addComponent(ErroStatus))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txfAdicionarNumero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(txfAdicionarNumero, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(AddNum, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2)))
@@ -895,7 +894,8 @@ public class RoletaTela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ZerarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZerarBotaoActionPerformed
-        // TODO add your handling code here:
+        ThreadLeitura.getEstra().ConverterInt(0);
+
     }//GEN-LAST:event_ZerarBotaoActionPerformed
 
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
