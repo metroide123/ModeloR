@@ -47,8 +47,9 @@ public class ThreadLeituraTela extends Thread {
 
     public void run() {
         
-        LerImagem obj1;
-        Pixel obj2;
+        LerImagem obj1 = new LerImagem();
+        Pixel obj2 = new Pixel();
+        obj2.importarNumeros();
         int L1 = 99, L2 = 99, L3 = 99;
 
         try {
@@ -67,8 +68,8 @@ public class ThreadLeituraTela extends Thread {
                         // caminho a ser salvo a imagem
                         // (retirei) ImageIO.write(screenShot, "png", new File("c:\\Leitor\\" + Local + "\\Img.png"));
                         ImageIO.write(screenShot, "png", new File("Img.png"));
-                        obj1 = new LerImagem("Img.png", "Img_saida.png");
-                        obj2 = new Pixel("Img_saida.png");
+                        obj1.converterImagem("Img.png", "Img_saida.png");
+                        obj2.lerImagem("Img_saida.png");                     
 
                         //Captura do tesseract.exe Leitura da imagem
                         //Process process = new ProcessBuilder("C:\\Leitor\\" + Local + "\\Tesseract-OCR\\tesseract.exe", "C:\\Leitor\\" + Local + "\\Img.png", "C:\\Leitor\\" + Local + "\\Out").start();

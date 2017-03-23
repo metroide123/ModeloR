@@ -11,16 +11,14 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
 
 public class LerImagem {
 
     BufferedImage image;
     int width;
     int height;
-
-    public LerImagem(String file, String saida) {
-
+    
+    public void converterImagem(String file, String saida) {
         try {
             File input = new File(file);
             image = ImageIO.read(input);
