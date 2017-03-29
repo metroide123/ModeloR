@@ -1,8 +1,6 @@
 package br.com.roleta.controlador;
 
 import br.com.roleta.LeituraImagem.LerImagem;
-import br.com.roleta.LeituraImagem.Pixel;
-import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.image.BufferedImage;
@@ -47,8 +45,7 @@ public class ThreadLeituraTela extends Thread {
     public void run() {
 
         LerImagem obj1 = new LerImagem();
-        Pixel obj2 = new Pixel();
-        obj2.importarNumeros();
+        obj1.importarNumeros();
         int L1 = 99, L2 = 99, L3 = 99;
 
         try {
@@ -62,15 +59,14 @@ public class ThreadLeituraTela extends Thread {
 
                         // criando a imagem
                         BufferedImage screenShot = robot.createScreenCapture(new Rectangle(windowRefence.getLocationOnScreen().x, windowRefence.getLocationOnScreen().y, windowRefence.getSize().width, windowRefence.getSize().height));
-                        Graphics2D graphics = screenShot.createGraphics();
-
+                        
                         // caminho a ser salvo a imagem
                         // (retirei) ImageIO.write(screenShot, "png", new File("c:\\Leitor\\" + Local + "\\Img.png"));
                         ImageIO.write(screenShot, "png", new File("Img.png"));
-                        obj1.converterImagem("Img.png", "Img_saida.png");
-                        obj2.lerImagem("Img_saida.png");
+                        obj1.converterImagem("Img.png");
+                   
 
-                        Estra.ConverterInt(obj2.contarPixels());
+                        Estra.ConverterInt(obj1.contarPixels());
                         // System.out.println(nome);
                     } catch (Exception e) {
                         e.printStackTrace();
