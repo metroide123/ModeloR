@@ -13,6 +13,9 @@ public class Estrategias {
     public int AlterNaD1D3 = 0;
     public int AltD1 = 0;
     public int AltD3 = 0;
+    public int alternaPreto = 0, alternaVermelho = 0;
+    public int alternaMaiorMenor = 0;
+    public int alternaParImpar = 0;
 
     // Variaveis para Acumular numros anteriores e setar setar na tela da roleta
     public int Anterios = 0, A1 = 0, A2 = 0, A3 = 0, A4 = 0, A5 = 0, A6 = 0, A7 = 0, A8 = 0;
@@ -124,7 +127,7 @@ public class Estrategias {
             AlterNaD1D3 = 0;
             AltD1 = 0;
             AltD3 = 0;
-            
+
         }
 
         ContDuziaSeparado(n);
@@ -196,7 +199,7 @@ public class Estrategias {
             AlterNaC1C3 = 0;
             AlterC3 = 0;
             AlterC1 = 0;
-            
+
         }
 
         Contcoluna(n);
@@ -327,7 +330,30 @@ public class Estrategias {
             Maior++;
             Menor = 0;
         }
-
+        AlternaCor(n);
     }
 
+    public void AlternaCor(int p) {
+        int n = p;
+
+        if (n == 99) {
+
+        } else if (n == 0) {
+            alternaPreto = alternaVermelho = 0;
+        } else if (alternaPreto == alternaVermelho) {
+            if (V > 0) {
+                alternaVermelho++;
+            } else {
+                alternaPreto++;
+            }
+        } else if (alternaPreto == 0 && V == 0) {
+            alternaPreto = alternaVermelho + 1;
+            alternaVermelho = 0;
+        } else if (alternaVermelho == 0 && P == 0) {
+            alternaVermelho = alternaPreto + 1;
+            alternaPreto = 0;
+        } else {
+            alternaPreto = alternaVermelho = 0;
+        }
+    }
 }

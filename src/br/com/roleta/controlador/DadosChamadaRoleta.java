@@ -20,6 +20,17 @@ public class DadosChamadaRoleta {
     private int DuziaUnicaMax;
     private int AlternaColunaMax;
     private int AlternaDuziaMax;
+    private int AlternaVPMax;
+
+    public int getAlternaVPMax() {
+        return AlternaVPMax;
+    }
+
+    public void setAlternaVPMax(int AlternaVPMax) {
+        this.AlternaVPMax = AlternaVPMax;
+    }
+    
+    
 
     public int getAlternaColunaMax() {
         return AlternaColunaMax;
