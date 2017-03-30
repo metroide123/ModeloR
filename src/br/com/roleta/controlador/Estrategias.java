@@ -7,19 +7,18 @@ public class Estrategias {
     public int coluna2, coluna3, V, P, Par, Inpar, Maior, Menor;
     public int Duz1 = 0, Duz2 = 0, Duz3 = 0;
     public int CR1 = 0, CR2 = 0, CR3 = 0;
+    public int AlterNaC1C3 = 0;
+    public int AlterC1 = 0;
+    public int AlterC3 = 0;
+    public int AlterNaD1D3 = 0;
+    public int AltD1 = 0;
+    public int AltD3 = 0;
 
     // Variaveis para Acumular numros anteriores e setar setar na tela da roleta
     public int Anterios = 0, A1 = 0, A2 = 0, A3 = 0, A4 = 0, A5 = 0, A6 = 0, A7 = 0, A8 = 0;
 
     // Varivais que recebem o tamanho da espera setado pela ChamadoRoleta em cada estrategia
     // atenção ainda não esta recebendo 
-    public int ColunasMax = 10;
-    public int DuziaMax = 10;
-    public int ParInparMax = 10;
-    public int PreVerMax = 10;
-    public int MaiorMenorMax = 9;
-    public int DRMax = 5;
-    public int CRMax = 5;
     public int ConvertInt;
 
     public void ConverterInt(int n) {
@@ -29,8 +28,8 @@ public class Estrategias {
         } catch (NumberFormatException e) {
             ConvertInt = 99;
         }
-        if (ConvertInt == 99){
-            
+        if (ConvertInt == 99) {
+
         } else if (ConvertInt == Anterios) {
 
         } else { // Monta A sequencia de 11 numeros sorteados e vai ser chamado pra Roletatela
@@ -86,6 +85,48 @@ public class Estrategias {
         D12 = Duzia1;
         D32 = Duzia3;
         // Chama proximo metodo Contador
+        AlternaDuzia(n);
+    }
+
+    // Estrategia que Conta e Alterna As Duzias 1 e 3
+    public void AlternaDuzia(int n) {
+        int d = n;
+
+        if (d == 0) {
+            AlterNaD1D3 = 0;
+            AltD3 = 0;
+            AltD1 = 0;
+        } else if (d >= 1 && d <= 12) {
+            AltD1++;
+            if (AlterNaD1D3 == 0) {
+                AlterNaD1D3 += AltD1;
+            }
+            if (AltD3 > 0) {
+                AlterNaD1D3 += AltD1;
+                AltD3 = 0;
+            }
+            if (AltD1 > 1) {
+                AlterNaD1D3 = 0;
+            }
+        } else if (d >= 25 && d <= 36) {
+            AltD3++;
+            if (AlterNaD1D3 == 0) {
+                AlterNaD1D3 += AltD3;
+            }
+            if (AltD1 > 0) {
+                AlterNaD1D3 += AltD3;
+                AltD1 = 0;
+            }
+            if (AltD3 > 1) {
+                AlterNaD1D3 = 0;
+            }
+        } else if (d >= 13 && d <= 24) {
+            AlterNaD1D3 = 0;
+            AltD1 = 0;
+            AltD3 = 0;
+            
+        }
+
         ContDuziaSeparado(n);
     }
 
@@ -113,6 +154,51 @@ public class Estrategias {
             Duz3 = 0;
         }
         // Chama proximo metodo contador
+        AlternaColuna(n);
+    }
+
+    // Estrategia Que Conta e alterna as Colunas 1 e 3
+    public void AlternaColuna(int n) {
+        int d = n;
+
+        if (d == 0) {
+            AlterNaC1C3 = 0;
+            AlterC3 = 0;
+            AlterC1 = 0;
+        } else if (d == 1 || d == 4 || d == 7 || d == 10 || d == 13 || d == 16
+                || d == 19 || d == 22 || d == 25 || d == 28 || d == 31 || d == 34) {
+            AlterC1++;
+            if (AlterNaC1C3 == 0) {
+                AlterNaC1C3 += AlterC1;
+            }
+            if (AlterC3 > 0) {
+                AlterNaC1C3 += AlterC1;
+                AlterC3 = 0;
+            }
+            if (AlterC1 > 1) {
+                AlterNaC1C3 = 0;
+            }
+        } else if (d == 3 || d == 6 || d == 9 || d == 12 || d == 15 || d == 18
+                || d == 21 || d == 24 || d == 27 || d == 30 || d == 33 || d == 36) {
+            AlterC3++;
+            if (AlterNaC1C3 == 0) {
+                AlterNaC1C3 += AlterC3;
+            }
+            if (AlterC1 > 0) {
+                AlterNaC1C3 += AlterC3;
+                AlterC1 = 0;
+            }
+            if (AlterC3 > 1) {
+                AlterNaC1C3 = 0;
+            }
+        } else if (d == 2 || d == 5 || d == 8 || d == 11 || d == 14 || d == 17
+                || d == 20 || d == 23 || d == 26 || d == 29 || d == 32 || d == 35) {
+            AlterNaC1C3 = 0;
+            AlterC3 = 0;
+            AlterC1 = 0;
+            
+        }
+
         Contcoluna(n);
     }
 

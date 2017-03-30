@@ -18,6 +18,25 @@ public class DadosChamadaRoleta {
     private int PI;
     private int ColunaUnicaMax;
     private int DuziaUnicaMax;
+    private int AlternaColunaMax;
+    private int AlternaDuziaMax;
+
+    public int getAlternaColunaMax() {
+        return AlternaColunaMax;
+    }
+
+    public void setAlternaColunaMax(int AlternaColunaMax) {
+        this.AlternaColunaMax = AlternaColunaMax;
+    }
+
+    public int getAlternaDuziaMax() {
+        return AlternaDuziaMax;
+    }
+
+    public void setAlternaDuziaMax(int AlternaDuziaMax) {
+        this.AlternaDuziaMax = AlternaDuziaMax;
+    }
+    
 
     public int getColunaUnicaMax() {
         return ColunaUnicaMax;
