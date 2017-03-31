@@ -323,7 +323,7 @@ public class Estrategias {
 
         } else if (n == 0) {
             Maior = Menor = 0;
-        } else if (n <= 19) {
+        } else if (n < 19) {
             Menor++;
             Maior = 0;
         } else {
