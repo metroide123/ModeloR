@@ -335,6 +335,7 @@ public class Estrategias {
 
     public void AlternaCor(int p) {
         int n = p;
+        System.out.println(n + " " + alternaPreto + " " + alternaVermelho);
 
         if (n == 99) {
 
@@ -347,13 +348,17 @@ public class Estrategias {
                 alternaPreto++;
             }
         } else if (alternaPreto == 0 && V == 0) {
-            alternaPreto = alternaVermelho + 1;
+            alternaPreto = (alternaVermelho + 1)/2;
             alternaVermelho = 0;
         } else if (alternaVermelho == 0 && P == 0) {
-            alternaVermelho = alternaPreto + 1;
+            alternaVermelho = (alternaPreto + 1)/2;
             alternaPreto = 0;
         } else {
-            alternaPreto = alternaVermelho = 0;
+            if (P > 1)
+                alternaPreto = 1;
+            else              
+                alternaVermelho = 1;
         }
+         System.out.println(n + " " + alternaPreto + " " + alternaVermelho);
     }
 }

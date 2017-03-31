@@ -38,7 +38,7 @@ public class RoletaTela extends javax.swing.JFrame {
     int CRMax;
     int AtrColunaMax;
     int AtrDuziaMax;
-    int AtrPreVerrMax;
+    int AtrPreVerMax;
 
     public RoletaTela(DadosChamadaRoleta n, String tipo, String L, Home jp, Roleta r) {
         jpdHome = jp;
@@ -59,7 +59,7 @@ public class RoletaTela extends javax.swing.JFrame {
         CRMax = n.getColunaUnicaMax();
         AtrColunaMax = n.getAlternaColunaMax();
         AtrDuziaMax = n.getAlternaDuziaMax();
-        AtrPreVerrMax = n.getAlternaVPMax();
+        AtrPreVerMax = n.getAlternaVPMax();
 
         ThreadLeitura = new ThreadLeituraTela();
         ThreadLeitura.windowRefence = FrameTransparente;
@@ -263,6 +263,32 @@ public class RoletaTela extends javax.swing.JFrame {
             if (ThreadLeitura.getEstra().P >= PreVerMax) {
                 jTextPRE.setBackground(Color.WHITE);
                 jTextVER.setBackground(Color.GREEN);
+            }
+        }
+        
+         // Alterna Vermelho
+        if (ThreadLeitura.getEstra().alternaVermelho >= (AtrPreVerMax + 1) / 2) {
+            txfAltVerm.setBackground(Color.MAGENTA);
+            if (ThreadLeitura.getEstra().alternaVermelho == AtrPreVerMax - 1) {
+                txfAltVerm.setBackground(Color.YELLOW);
+                txfAltPreto.setBackground(Color.WHITE);
+            }
+            if (ThreadLeitura.getEstra().alternaVermelho >= AtrPreVerMax) {
+                txfAltVerm.setBackground(Color.GREEN);
+                txfAltPreto.setBackground(Color.WHITE);
+            }
+        }
+
+        // Alterna Preto
+        if (ThreadLeitura.getEstra().alternaPreto >= (AtrPreVerMax + 1) / 2) {
+            jTextPRE.setBackground(Color.MAGENTA);
+            if (ThreadLeitura.getEstra().alternaPreto == AtrPreVerMax - 1) {
+                txfAltPreto.setBackground(Color.YELLOW);
+                txfAltVerm.setBackground(Color.WHITE);
+            }
+            if (ThreadLeitura.getEstra().alternaPreto >= AtrPreVerMax) {
+                txfAltPreto.setBackground(Color.GREEN);
+                txfAltVerm.setBackground(Color.WHITE);
             }
         }
 
