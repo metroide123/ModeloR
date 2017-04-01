@@ -306,6 +306,7 @@
             <StringItem index="5" value="13"/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="2"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="bxCasino">
@@ -329,6 +330,7 @@
             <StringItem index="4" value="13"/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
@@ -371,6 +373,7 @@
             <StringItem index="3" value="07"/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="2"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel15">
@@ -388,6 +391,7 @@
             <StringItem index="3" value="07"/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="2"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="bxAlternaDuzia">
@@ -400,6 +404,7 @@
             <StringItem index="3" value="08"/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel16">
@@ -417,6 +422,7 @@
             <StringItem index="3" value="08"/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel17">
@@ -433,12 +439,13 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="04"/>
-            <StringItem index="1" value="05"/>
-            <StringItem index="2" value="06"/>
-            <StringItem index="3" value="07"/>
+            <StringItem index="0" value="07"/>
+            <StringItem index="1" value="08"/>
+            <StringItem index="2" value="09"/>
+            <StringItem index="3" value="10"/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="3"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

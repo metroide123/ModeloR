@@ -335,30 +335,25 @@ public class Estrategias {
 
     public void AlternaCor(int p) {
         int n = p;
-        System.out.println(n + " " + alternaPreto + " " + alternaVermelho);
 
         if (n == 99) {
 
         } else if (n == 0) {
             alternaPreto = alternaVermelho = 0;
-        } else if (alternaPreto == alternaVermelho) {
-            if (V > 0) {
-                alternaVermelho++;
-            } else {
-                alternaPreto++;
-            }
         } else if (alternaPreto == 0 && V == 0) {
-            alternaPreto = (alternaVermelho + 1)/2;
+            alternaPreto = (alternaVermelho + 1);
             alternaVermelho = 0;
         } else if (alternaVermelho == 0 && P == 0) {
-            alternaVermelho = (alternaPreto + 1)/2;
+            alternaVermelho = (alternaPreto + 1);
             alternaPreto = 0;
         } else {
-            if (P > 1)
+            if (P > 1) {
                 alternaPreto = 1;
-            else              
+                alternaVermelho = 0;
+            } else {
                 alternaVermelho = 1;
+                alternaPreto = 0;
+            }
         }
-         System.out.println(n + " " + alternaPreto + " " + alternaVermelho);
     }
 }

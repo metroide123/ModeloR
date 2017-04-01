@@ -122,6 +122,7 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
         jLabel8.setText("Casino: ");
 
         bxMM.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08", "09", "10", "11", "12", "13" }));
+        bxMM.setSelectedIndex(2);
 
         bxCasino.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -130,6 +131,7 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
         });
 
         bxPI.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09", "10", "11", "12", "13" }));
+        bxPI.setSelectedIndex(1);
 
         jButton1.setText("Iniciar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -149,22 +151,27 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
         jLabel14.setText("Coluna Única:");
 
         bxColunaUni.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04", "05", "06", "07" }));
+        bxColunaUni.setSelectedIndex(2);
 
         jLabel15.setText("Duzia Unica:");
 
         bxDuziaUnica.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04", "05", "06", "07" }));
+        bxDuziaUnica.setSelectedIndex(2);
 
         bxAlternaDuzia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05", "06", "07", "08" }));
+        bxAlternaDuzia.setSelectedIndex(1);
 
         jLabel16.setText("AlterDuzia:");
 
         bxAlternaColuna.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05", "06", "07", "08" }));
+        bxAlternaColuna.setSelectedIndex(1);
 
         jLabel17.setText("AlterColuna:");
 
         jLabel11.setText("AlterVerPre:");
 
-        bxAlterVerPre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "04", "05", "06", "07" }));
+        bxAlterVerPre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "07", "08", "09", "10" }));
+        bxAlterVerPre.setSelectedIndex(3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
