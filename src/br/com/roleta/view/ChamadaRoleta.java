@@ -83,7 +83,7 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
         bxAlternaColuna = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        bxAlterVerPre = new javax.swing.JComboBox<>();
+        bxAlterVerPre = new javax.swing.JComboBox<String>();
 
         jLabel9.setText("Casino: ");
 
@@ -148,23 +148,23 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
 
         jLabel14.setText("Coluna Única:");
 
-        bxColunaUni.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04", "05", "06", "07" }));
+        bxColunaUni.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05", "06", "07", "08", "09", "10" }));
 
         jLabel15.setText("Duzia Unica:");
 
-        bxDuziaUnica.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04", "05", "06", "07" }));
+        bxDuziaUnica.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04", "05", "06", "07", "08", "09", "10" }));
 
-        bxAlternaDuzia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05", "06", "07", "08" }));
+        bxAlternaDuzia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05", "06", "07", "08", "09", "10" }));
 
         jLabel16.setText("AlterDuzia:");
 
-        bxAlternaColuna.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05", "06", "07", "08" }));
+        bxAlternaColuna.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05", "06", "07", "08", "09", "10" }));
 
         jLabel17.setText("AlterColuna:");
 
         jLabel11.setText("AlterVerPre:");
 
-        bxAlterVerPre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "04", "05", "06", "07" }));
+        bxAlterVerPre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04", "05", "06", "07", "08", "09", "10" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
