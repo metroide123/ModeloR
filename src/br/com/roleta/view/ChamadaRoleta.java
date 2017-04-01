@@ -83,7 +83,7 @@ public class ChamadaRoleta extends javax.swing.JInternalFrame {
         bxAlternaColuna = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        bxAlterVerPre = new javax.swing.JComboBox<>();
+        bxAlterVerPre = new javax.swing.JComboBox<String>();
 
         jLabel9.setText("Casino: ");
 
