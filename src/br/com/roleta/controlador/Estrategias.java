@@ -103,11 +103,12 @@ public class Estrategias {
             AltD1++;
             if (AltD1 > 1) {
                 AlterNaD1D3 = 0;
+                
             }
             if (AlterNaD1D3 == 0) {
-                AlterNaD1D3 += AltD1;
+                AlterNaD1D3 =1;
             }
-            if (AltD3 > 0) {
+            if (AltD3 ==1 ) {
                 AlterNaD1D3 += AltD1;
                 AltD3 = 0;
             }
@@ -116,11 +117,12 @@ public class Estrategias {
             AltD3++;
             if (AltD3 > 1) {
                 AlterNaD1D3 = 0;
+                
             }
             if (AlterNaD1D3 == 0) {
-                AlterNaD1D3 += AltD3;
+                AlterNaD1D3 = 1;
             }
-            if (AltD1 > 0) {
+            if (AltD1 == 1) {
                 AlterNaD1D3 += AltD3;
                 AltD1 = 0;
             }
@@ -176,7 +178,7 @@ public class Estrategias {
             if (AlterNaC1C3 == 0) {
                 AlterNaC1C3 += AlterC1;
             }
-            if (AlterC3 > 0) {
+            if (AlterC3 == 1 ) {
                 AlterNaC1C3 += AlterC1;
                 AlterC3 = 0;
             }
@@ -189,7 +191,7 @@ public class Estrategias {
             if (AlterNaC1C3 == 0) {
                 AlterNaC1C3 += AlterC3;
             }
-            if (AlterC1 > 0) {
+            if (AlterC1 == 1) {
                 AlterNaC1C3 += AlterC3;
                 AlterC1 = 0;
             }
